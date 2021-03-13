@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Queues Practice(Arrays)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stacks-and-queues.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  </head>
+  <body onload="atstart();">
+    <div class="instruction-box">
+      <button class="collapsible">Instructions</button>
+      <div class="content">
+        <ul>
+          <li>To add the elements at the end of
+            Array,use <b>Enqueue</b> button.
+          </li>
+          <li>To delete the
+            elements from the beginning of Array
+            use <b>Dequeue</b> button.
+          </li>
+          <li>Enqueue happens at the <b>Rear</b> pointer, and
+            dequeue happens from the <b>Front</b> pointer.
+          </li>
+          <li>Click <b>Reset</b> to clear the Queues (Array).</li>
+        </ul>
+      </div>
+    </div>
+    
+    <canvas id="queueArray">
+        Your browser does not support canvas.
+    </canvas>
+    
+    <div class="comment-box" id="comments-qarr">
+      <b>Observations</b><br>
+      <p id="insqc"></p>
+      <p id="insqa"></p>
+      <p id="insqb"></p>
+    </div>
+    
+    <div class="buttons-wrapper">
+      <input class="text-box" id="numbers-qa" type="alphanumeric" placeholder="Enter an element" maxlength="3">
+      <input type="button" class="button-input" value="Enqueue" id="enqueue-button-qa">
+      <input type="button" class="button-input" value="Dequeue" id="dequeue-button-qa">
+      <input type="button" class="button-input" value="Reset" id="clear-button">
+    </div>
+    
+    <script src="js/queue-array.js"></script>
+
+  </body>
+</html>
