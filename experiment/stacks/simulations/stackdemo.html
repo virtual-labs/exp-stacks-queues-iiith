@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Stack Demonstration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://ds1-iiith.vlabs.ac.in/exp-common-css/common-styles.css">
+    <link rel="stylesheet" href="css/stacks-and-queues.css">
+
+  </head>
+  <body onload="initializeArtefact();">
+    <div class="instruction-box">
+      <button class="collapsible">Instructions</button>
+      <div class="content"> 
+        <ul>
+          <li>Click on the <b>Start</b> button to start the
+          demo.</li>
+          <li>Move the <b>slider</b> to adjust the speed of the
+          demo.</li>
+          <li>Click on the <b>Pause</b> button if you want to
+          stop and manually click the Next button to have
+          a step by step realization of the process.</li>
+          <li>Click on the <b>Reset</b> button to start all over
+          with a new set of random numbers!</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="wrapper">
+      <div id="question">
+        <b>Observe:</b> Stack A with random numbers is
+        given. Observe how the prime numbers from stack A are
+        popped and pushed into stack B whereas the others are
+        pushed into stack C.
+      </div>
+      
+      <div id="threestacks">
+        <canvas id="stack_1" >Your browser does not support canvas.</canvas>
+        <canvas id="stack_2" >Your browser does not support canvas.</canvas>
+        <canvas id="stack_3" >Your browser does not support canvas.</canvas>
+      </div>
+      
+      <div class="comment-box" id="comments-stdemo">
+        <b>Observations</b><br>
+        <p id="ins"></p>
+      </div>
+      
+      <div class="slidecontainer" id="slide-demo">
+        <p>
+          Min. Speed
+          <input class="slider" type="range" min="100" max="2500" id="interval" value="1500" >
+          Max. Speed
+        </p>
+      </div>
+      
+      <div class="buttons-wrapper">
+        <input type="button" value="Start" class="button-input" id="start-stdemo" >
+        <input type="button" value="Reset" class="button-input" id="reset-stackdemo">
+        <input type="button" value="Pause" class="button-input" id="pause-stackdemo" >
+      </div>
+      
+    </div>
+    <script src="js/stack-demo.js"></script>
+
+  </body>
+</html>
