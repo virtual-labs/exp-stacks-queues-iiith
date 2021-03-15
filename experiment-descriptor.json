@@ -96,8 +96,8 @@
           "unit-type": "task",
           "label": "Stacks : Exercise",
           "content-type": "simulation",
-          "source": "simulation/stackexercise.html",
-          "target": "stackexercise.html"
+          "source": "simulation/stack-linkedlist.html",
+          "target": "stack-linkedlist.html"
         },
         
 	{
