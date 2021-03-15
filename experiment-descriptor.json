@@ -68,15 +68,15 @@
           "unit-type": "task",
           "label": "Stacks : Demo",
           "content-type": "simulation",
-          "source": "simulation/stacksdemo.html",
-          "target": "stacksdemo.html"
+          "source": "simulation/stackdemo.html",
+          "target": "stackdemo.html"
         },
 	{
           "unit-type": "task",
           "label": "Stacks : Arrays",
           "content-type": "simulation",
-          "source": "simulation/stacksarrays.html",
-          "target": "stacksarrays.html"
+          "source": "simulation/stackarrays.html",
+          "target": "stackarrays.html"
         },
 	{
           "unit-type": "task",
@@ -89,15 +89,15 @@
           "unit-type": "task",
           "label": "Stacks : Linked List",
           "content-type": "simulation",
-          "source": "simulation/stackslinkedlist.html",
-          "target": "stackslinkedlist.html"
+          "source": "simulation/stacklinkedlist.html",
+          "target": "stacklinkedlist.html"
         },
 	{
           "unit-type": "task",
           "label": "Stacks : Exercise",
           "content-type": "simulation",
-          "source": "simulation/stacksexercise.html",
-          "target": "stacksexercise.html"
+          "source": "simulation/stackexercise.html",
+          "target": "stackexercise.html"
         },
         
 	{
@@ -136,14 +136,14 @@
           "unit-type": "task",
           "label": "Queues : Demo",
           "content-type": "simulation",
-          "source": "simulation/queuesdemo.html",
+          "source": "simulation/queuedemo.html",
           "target": "queuesdemo.html"
         },
 	{
           "unit-type": "task",
           "label": "Queues : Arrays ",
           "content-type": "simulation",
-          "source": "simulation/queuesarrays.html",
+          "source": "simulation/queuearrays.html",
           "target": "queuesarrays.html"
         },
 	{
@@ -157,14 +157,14 @@
           "unit-type": "task",
           "label": "Queues : Linked List",
           "content-type": "simulation",
-          "source": "simulation/queueslinkedlist.html",
+          "source": "simulation/queuelinkedlist.html",
           "target": "queueslinkedlist.html"
         },
 	{
           "unit-type": "task",
           "label": "Queues : Exercise",
           "content-type": "simulation",
-          "source": "simulation/queuesexercise.html",
+          "source": "simulation/queueexercise.html",
           "target": "queuesexercise.html"
         },
         {
