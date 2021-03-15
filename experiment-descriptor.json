@@ -89,15 +89,15 @@
           "unit-type": "task",
           "label": "Stacks : Linked List",
           "content-type": "simulation",
-          "source": "simulation/stacklinkedlist.html",
-          "target": "stacklinkedlist.html"
+          "source": "simulation/stack-linkedlist.html",
+          "target": "stack-linkedlist.html"
         },
 	{
           "unit-type": "task",
-          "label": "Stacks : Exercise",
-          "content-type": "simulation",
-          "source": "simulation/stack-linkedlist.html",
-          "target": "stack-linkedlist.html"
+          "label": "Stacks : Exercise Time Complexity",
+          "content-type": "video",
+          "source": "time-complexity.md",
+          "target": "time-complexity.md.html"
         },
         
 	{
