@@ -29,6 +29,13 @@
     },
     {
       "unit-type": "task",
+      "label": "Pre Test Instructions",
+      "content-type": "assesment",
+      "source": "pre-test.md",
+      "target": "pre-test.html"
+    },
+    {
+      "unit-type": "task",
       "label": "Pre Test",
       "content-type": "assesment",
       "source": "pretest.js",
@@ -95,7 +102,7 @@
         
 	{
          "unit-type": "task",
-         "label": "Quiz",
+         "label": "Stacks : Quiz",
          "content-type": "assesment",
          "source": "stacks-quiz.js",
          "target": "stacks-quiz.html"
@@ -106,7 +113,7 @@
     {
       "unit-type": "lu",
       "label": "Queues",
-      "basedir": "optimized-bubblesort",
+      "basedir": "queues",
       "units": [
         {
           "unit-type": "aim"
@@ -162,7 +169,7 @@
         },
         {
          "unit-type": "task",
-         "label": "Quiz",
+         "label": "Queues : Quiz",
          "content-type": "assesment",
          "source": "queues-quiz.js",
          "target": "queues-quiz.html"
@@ -201,16 +208,23 @@
         },
         {
           "unit-type": "task",
-          "label": "Quiz",
+          "label": "Analysis : Quiz",
           "content-type": "assesment",
           "source": "analysis-quiz.js",
           "target": "analysis-quiz.js"
         }
       ]
     },
-    {
+   {
       "unit-type": "task",
       "label": "Post Test",
+      "content-type": "video",
+      "source": "post-test.md",
+      "target": "post-test.html"
+    },
+    {
+      "unit-type": "task",
+      "label": "Post Test Quiz",
       "content-type": "assesment",
       "source": "posttest.js",
       "target": "posttest.html"
