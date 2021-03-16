@@ -94,6 +94,13 @@
         },
 	{
           "unit-type": "task",
+          "label": "Stacks : Exercise",
+          "content-type": "simulation",
+          "source": "simulation/stack-exercise.html",
+          "target": "stack-exercise.html"
+        },
+	{
+          "unit-type": "task",
           "label": "Stacks : Exercise Time Complexity",
           "content-type": "video",
           "source": "time-complexity.md",
@@ -150,8 +157,8 @@
           "unit-type": "task",
           "label": "Queues : Arrays Time Complexity",
           "content-type": "video",
-          "source": "time-complexity.md",
-          "target": "time-complexity.html"
+          "source": "time-complexity-arrays.md",
+          "target": "time-complexity-arrays.md.html"
         },
 	{
           "unit-type": "task",
@@ -159,6 +166,13 @@
           "content-type": "simulation",
           "source": "simulation/queuelinkedlist.html",
           "target": "queueslinkedlist.html"
+        },
+        {
+          "unit-type": "task",
+          "label": "Queues : Linked List Time Complexity",
+          "content-type": "video",
+          "source": "time-complexity-linkedlist.md",
+          "target": "time-complexity-linkedlist.html"
         },
 	{
           "unit-type": "task",
@@ -211,7 +225,7 @@
           "label": "Analysis : Quiz",
           "content-type": "assesment",
           "source": "analysis-quiz.js",
-          "target": "analysis-quiz.js"
+          "target": "analysis-quiz.html"
         }
       ]
     },
