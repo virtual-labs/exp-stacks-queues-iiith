@@ -10,6 +10,8 @@
     And another disadvantage is memory. Linked list uses extra 4 bytes to store reference to the next node.
 
 ### Linked List Visualization
+<img src="images/linkedlist.jpg"/>
+
 ### Time Complexity
 
   -  A linked list is typically accessed from the **HEAD** node. We reach the desired node by travelling through the linked list from head node and if we assume there are N nodes in the linked list then time taken to access/search a node is O(N).
