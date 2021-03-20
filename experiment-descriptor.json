@@ -1,0 +1,249 @@
+{
+  "unit-type": "lu",
+  "label": "Stacks and Queues",
+  "basedir": ".",
+  "units": [
+    {
+      "unit-type": "aim"
+    },
+    {
+      "unit-type": "task",
+      "label": "Overview",
+      "content-type": "video",
+      "source": "overview.md",
+      "target": "overview.html"
+    },
+    {
+      "unit-type": "task",
+      "label": "Recap : Arrays",
+      "content-type": "video",
+      "source": "recap-arrays.md",
+      "target": "recap-arrays.html"
+    },
+    {
+      "unit-type": "task",
+      "label": "Recap : Linked List",
+      "content-type": "video",
+      "source": "recap-linked-list.md",
+      "target": "recap-linked-list.html"
+    },
+    {
+      "unit-type": "task",
+      "label": "Pre Test Quiz Instructions",
+      "content-type": "video",
+      "source": "pre-test.md",
+      "target": "pre-test.html"
+    },
+    {
+      "unit-type": "task",
+      "label": "Pre Test Quiz",
+      "content-type": "assesment",
+      "source": "pretest.js",
+      "target": "pretest.html"
+    },
+    {
+      "unit-type": "lu",
+      "label": "Stacks",
+      "basedir": "stacks",
+      "units": [
+        {
+          "unit-type": "aim"
+        },
+        {
+          "unit-type": "task",
+          "label": "Overview",
+          "content-type": "video",
+          "source": "overview.md",
+          "target": "overview.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Stacks Basic",
+          "content-type": "video",
+          "source": "stacks-basics.md",
+          "target": "stacks-basics.html"
+        },
+        
+        {
+          "unit-type": "task",
+          "label": "Stacks : Demo",
+          "content-type": "simulation",
+          "source": "simulation/stackdemo.html",
+          "target": "stackdemo.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Stacks : Arrays",
+          "content-type": "simulation",
+          "source": "simulation/stackarrays.html",
+          "target": "stackarrays.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Stacks : Arrays Time Complexity",
+          "content-type": "video",
+          "source": "time-complexity.md",
+          "target": "time-complexity.html"
+        },
+        {
+          "unit-type": "task",
+          "label": "Stacks : Linked List",
+          "content-type": "simulation",
+          "source": "simulation/stack-linkedlist.html",
+          "target": "stack-linkedlist.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Stacks : Exercise",
+          "content-type": "simulation",
+          "source": "simulation/stack-exercise.html",
+          "target": "stack-exercise.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Stacks : Exercise Time Complexity",
+          "content-type": "video",
+          "source": "time-complexity.md",
+          "target": "time-complexity.md.html"
+        },
+        
+	{
+         "unit-type": "task",
+         "label": "Stacks : Quiz",
+         "content-type": "assesment",
+         "source": "stacks-quiz.js",
+         "target": "stacks-quiz.html"
+       }
+      
+      ]
+    },
+    {
+      "unit-type": "lu",
+      "label": "Queues",
+      "basedir": "queues",
+      "units": [
+        {
+          "unit-type": "aim"
+        },
+	{
+          "unit-type": "task",
+          "label": "Overview",
+          "content-type": "video",
+          "source": "overview.md",
+          "target": "overview.html"
+        },
+        {
+          "unit-type": "task",
+          "label": "Queues : Basics",
+          "content-type": "video",
+          "source": "basic-concept.md",
+          "target": "basic-concept.html"
+        },
+        {
+          "unit-type": "task",
+          "label": "Queues : Demo",
+          "content-type": "simulation",
+          "source": "simulation/queuedemo.html",
+          "target": "queuesdemo.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Queues : Arrays ",
+          "content-type": "simulation",
+          "source": "simulation/queuearrays.html",
+          "target": "queuesarrays.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Queues : Arrays Time Complexity",
+          "content-type": "video",
+          "source": "time-complexity-arrays.md",
+          "target": "time-complexity-arrays.md.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Queues : Linked List",
+          "content-type": "simulation",
+          "source": "simulation/queuelinkedlist.html",
+          "target": "queueslinkedlist.html"
+        },
+        {
+          "unit-type": "task",
+          "label": "Queues : Linked List Time Complexity",
+          "content-type": "video",
+          "source": "time-complexity-linkedlist.md",
+          "target": "time-complexity-linkedlist.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Queues : Exercise",
+          "content-type": "simulation",
+          "source": "simulation/queueexercise.html",
+          "target": "queuesexercise.html"
+        },
+        {
+         "unit-type": "task",
+         "label": "Queues : Quiz",
+         "content-type": "assesment",
+         "source": "queues-quiz.js",
+         "target": "queues-quiz.html"
+       }
+      ]
+    },
+        {
+      "unit-type": "lu",
+      "label": "Analysis",
+      "basedir": "analysis",
+      "units": [
+        {
+          "unit-type": "aim"
+        },
+	{
+          "unit-type": "task",
+          "label": "Overview",
+          "content-type": "video",
+          "source": "overview.md",
+          "target": "overview.html"
+        },
+        
+	{
+          "unit-type": "task",
+          "label": "Comparison of Stacks and Queues",
+          "content-type": "video",
+          "source": "comparison-of-stacks-and-queues.md",
+          "target": "comparison-of-stacks-and-queues.html"
+        },
+	{
+          "unit-type": "task",
+          "label": "Applications of Stacks and Queues",
+          "content-type": "video",
+          "source": "applications-of-stacks-and-queues.md",
+          "target": "applications-of-stacks-and-queues.html"
+        },
+        {
+          "unit-type": "task",
+          "label": "Analysis : Quiz",
+          "content-type": "assesment",
+          "source": "analysis-quiz.js",
+          "target": "analysis-quiz.html"
+        }
+      ]
+    },
+   
+    {
+      "unit-type": "task",
+      "label": "Post Test Quiz",
+      "content-type": "assesment",
+      "source": "posttest.js",
+      "target": "posttest.html"
+    },
+       
+    {
+      "unit-type": "task",
+      "label": "Further Readings/References",
+      "content-type": "text",
+      "source": "further-reading-and-references.md",
+      "target": "further-reading-and-references.html"
+    }
+  ]
+}

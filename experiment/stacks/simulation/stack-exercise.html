@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Stacks Exercise</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stacks-and-queues.css">
+    <link rel="stylesheet" href="../../assets/css/common-styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  </head>
+  <body onload="generateQuestion();">
+    <div class="instruction-box">
+      <button class="collapsible">Instructions</button>
+      <div class="content"> 
+        <ul>
+          <li>You are given two stacks: A and B.</li> 
+          <li>Stack A contains a random set of numbers.</li>
+          <li>You are also able to do the following:<br>Pop from
+          any one stack and push to the other.<br>Pop from any
+          stack. <br>If you pop from a stack, the number will
+          output out to the screen.</li>
+          <li>Output the numbers in ascending order. </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="wrapper">
+      <div id="question">
+        <b>Question:</b> A set of elements are given in Stack
+        A. With the help of Stack B, <b>POP</b> the elements in
+        ASCENDING order.
+      </div>
+      
+      <div id="pop-buttons-wrapper">
+        <div id="buttondiv1">
+          <input type="button" class="button-input" value="Pop from A and Push to B" id="push-button-to-B">
+          <input type="button" class="button-input" value="Pop from B and Push to A" id="push-button-to-A">
+        </div>
+        <div id="buttondiv2">
+          <input type="button" class="button-input" value="Pop from Stack A" id="pop-button-A">
+          <input type="button" class="button-input" value="Pop from Stack B" id="pop-button-B">
+        </div>
+      </div>
+      
+      <div id="twostacks">
+        <canvas id="stackA" >Your browser does not support canvas.</canvas>
+        <canvas id="stackB" >Your browser does not support canvas.</canvas>
+      </div>
+      
+      <div class="comment-box" id="comments-stex">
+        <b>Observations</b><br>
+        <p id="ins"> </p>
+      </div>
+      
+      <div class="buttons-wrapper">
+        <input type="button" class="button-input" value="Reset" id="reset-stckex" >
+        <input type="button" class="button-input" value="New Question" id="generate-question-stackex" >
+        <input type="button" class="button-input" value="Submit" id="checkButton-stckex" >
+      </div>
+      
+    </div>
+    <script src="js/stack-exercise.js"></script>
+    <script src="../../assets/js/instruction-box.js"></script>
+  </body>
+</html>
