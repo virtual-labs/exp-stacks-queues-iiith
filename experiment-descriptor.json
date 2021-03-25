@@ -27,13 +27,7 @@
       "source": "recap-linked-list.md",
       "target": "recap-linked-list.html"
     },
-    {
-      "unit-type": "task",
-      "label": "Pre Test Quiz Instructions",
-      "content-type": "video",
-      "source": "pre-test.md",
-      "target": "pre-test.html"
-    },
+    
     {
       "unit-type": "task",
       "label": "Pre Test Quiz",
@@ -58,7 +52,7 @@
         },
 	{
           "unit-type": "task",
-          "label": "Stacks Basic",
+          "label": "Basic",
           "content-type": "video",
           "source": "stacks-basics.md",
           "target": "stacks-basics.html"
@@ -66,42 +60,42 @@
         
         {
           "unit-type": "task",
-          "label": "Stacks : Demo",
+          "label": "Demo",
           "content-type": "simulation",
           "source": "simulation/stackdemo.html",
           "target": "stackdemo.html"
         },
 	{
           "unit-type": "task",
-          "label": "Stacks : Arrays",
+          "label": "Arrays",
           "content-type": "simulation",
           "source": "simulation/stackarrays.html",
           "target": "stackarrays.html"
         },
 	{
           "unit-type": "task",
-          "label": "Stacks : Arrays Time Complexity",
+          "label": "Arrays Time Complexity",
           "content-type": "video",
           "source": "time-complexity.md",
           "target": "time-complexity.html"
         },
         {
           "unit-type": "task",
-          "label": "Stacks : Linked List",
+          "label": "Linked List",
           "content-type": "simulation",
           "source": "simulation/stack-linkedlist.html",
           "target": "stack-linkedlist.html"
         },
 	{
           "unit-type": "task",
-          "label": "Stacks : Exercise",
+          "label": "Exercise",
           "content-type": "simulation",
           "source": "simulation/stack-exercise.html",
           "target": "stack-exercise.html"
         },
 	{
           "unit-type": "task",
-          "label": "Stacks : Exercise Time Complexity",
+          "label": "Exercise Time Complexity",
           "content-type": "video",
           "source": "time-complexity.md",
           "target": "time-complexity.md.html"
@@ -109,7 +103,7 @@
         
 	{
          "unit-type": "task",
-         "label": "Stacks : Quiz",
+         "label": "Quiz",
          "content-type": "assesment",
          "source": "stacks-quiz.js",
          "target": "stacks-quiz.html"
@@ -134,56 +128,56 @@
         },
         {
           "unit-type": "task",
-          "label": "Queues : Basics",
+          "label": "Basics",
           "content-type": "video",
           "source": "basic-concept.md",
           "target": "basic-concept.html"
         },
         {
           "unit-type": "task",
-          "label": "Queues : Demo",
+          "label": "Demo",
           "content-type": "simulation",
           "source": "simulation/queuedemo.html",
           "target": "queuesdemo.html"
         },
 	{
           "unit-type": "task",
-          "label": "Queues : Arrays ",
+          "label": "Arrays ",
           "content-type": "simulation",
           "source": "simulation/queuearrays.html",
           "target": "queuesarrays.html"
         },
 	{
           "unit-type": "task",
-          "label": "Queues : Arrays Time Complexity",
+          "label": "Arrays Time Complexity",
           "content-type": "video",
           "source": "time-complexity-arrays.md",
           "target": "time-complexity-arrays.md.html"
         },
 	{
           "unit-type": "task",
-          "label": "Queues : Linked List",
+          "label": "Linked List",
           "content-type": "simulation",
           "source": "simulation/queuelinkedlist.html",
           "target": "queueslinkedlist.html"
         },
         {
           "unit-type": "task",
-          "label": "Queues : Linked List Time Complexity",
+          "label": "Linked List Time Complexity",
           "content-type": "video",
           "source": "time-complexity-linkedlist.md",
           "target": "time-complexity-linkedlist.html"
         },
 	{
           "unit-type": "task",
-          "label": "Queues : Exercise",
+          "label": "Exercise",
           "content-type": "simulation",
           "source": "simulation/queueexercise.html",
           "target": "queuesexercise.html"
         },
         {
          "unit-type": "task",
-         "label": "Queues : Quiz",
+         "label": "Quiz",
          "content-type": "assesment",
          "source": "queues-quiz.js",
          "target": "queues-quiz.html"
@@ -222,7 +216,7 @@
         },
         {
           "unit-type": "task",
-          "label": "Analysis : Quiz",
+          "label": "Quiz",
           "content-type": "assesment",
           "source": "analysis-quiz.js",
           "target": "analysis-quiz.html"
