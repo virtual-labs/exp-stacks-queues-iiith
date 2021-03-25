@@ -45,29 +45,22 @@
         },
         {
           "unit-type": "task",
-          "label": "Overview",
+          "label": "Concept",
           "content-type": "video",
           "source": "overview.md",
           "target": "overview.html"
         },
-	{
-          "unit-type": "task",
-          "label": "Basic",
-          "content-type": "video",
-          "source": "stacks-basics.md",
-          "target": "stacks-basics.html"
-        },
-        
+	
         {
           "unit-type": "task",
-          "label": "Demo",
+          "label": "Stacks: Demo",
           "content-type": "simulation",
           "source": "simulation/stackdemo.html",
           "target": "stackdemo.html"
         },
 	{
           "unit-type": "task",
-          "label": "Arrays",
+          "label": "Stacks: Arrays",
           "content-type": "simulation",
           "source": "simulation/stackarrays.html",
           "target": "stackarrays.html"
@@ -81,14 +74,14 @@
         },
         {
           "unit-type": "task",
-          "label": "Linked List",
+          "label": "Stacks: Linked List",
           "content-type": "simulation",
           "source": "simulation/stack-linkedlist.html",
           "target": "stack-linkedlist.html"
         },
 	{
           "unit-type": "task",
-          "label": "Exercise",
+          "label": "Stacks: Exercise",
           "content-type": "simulation",
           "source": "simulation/stack-exercise.html",
           "target": "stack-exercise.html"
@@ -121,28 +114,22 @@
         },
 	{
           "unit-type": "task",
-          "label": "Overview",
+          "label": "Concept",
           "content-type": "video",
           "source": "overview.md",
           "target": "overview.html"
         },
+        
         {
           "unit-type": "task",
-          "label": "Basics",
-          "content-type": "video",
-          "source": "basic-concept.md",
-          "target": "basic-concept.html"
-        },
-        {
-          "unit-type": "task",
-          "label": "Demo",
+          "label": "Queues: Demo",
           "content-type": "simulation",
           "source": "simulation/queuedemo.html",
           "target": "queuesdemo.html"
         },
 	{
           "unit-type": "task",
-          "label": "Arrays ",
+          "label": "Queues: Arrays ",
           "content-type": "simulation",
           "source": "simulation/queuearrays.html",
           "target": "queuesarrays.html"
@@ -156,7 +143,7 @@
         },
 	{
           "unit-type": "task",
-          "label": "Linked List",
+          "label": "Queues: Linked List",
           "content-type": "simulation",
           "source": "simulation/queuelinkedlist.html",
           "target": "queueslinkedlist.html"
@@ -170,7 +157,7 @@
         },
 	{
           "unit-type": "task",
-          "label": "Exercise",
+          "label": "Queues: Exercise",
           "content-type": "simulation",
           "source": "simulation/queueexercise.html",
           "target": "queuesexercise.html"
