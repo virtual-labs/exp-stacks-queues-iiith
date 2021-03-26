@@ -4,7 +4,7 @@
 
 ### Learning Objectives of this Module :
 
-In this module, we will :
+In this module, we will be learn about:
 
    - Gain the concept of Queues
    - Understand the basic operations of Queues
