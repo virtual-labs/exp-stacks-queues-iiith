@@ -53,35 +53,35 @@
 	
         {
           "unit-type": "task",
-          "label": "Stacks: Demo",
+          "label": " Demo",
           "content-type": "simulation",
           "source": "simulation/stackdemo.html",
           "target": "stackdemo.html"
         },
 	{
           "unit-type": "task",
-          "label": "Stacks: Arrays Practice",
+          "label": " Arrays Practice",
           "content-type": "simulation",
           "source": "simulation/stackarrays.html",
           "target": "stackarrays.html"
         },
 	{
           "unit-type": "task",
-          "label": "Stacks Time Complexity",
+          "label": "  Time Complexity",
           "content-type": "video",
           "source": "time-complexity.md",
           "target": "time-complexity.html"
         },
         {
           "unit-type": "task",
-          "label": "Stacks: Linked List Practice",
+          "label": " Linked List Practice",
           "content-type": "simulation",
           "source": "simulation/stack-linkedlist.html",
           "target": "stack-linkedlist.html"
         },
 	{
           "unit-type": "task",
-          "label": "Stacks: Exercise",
+          "label": " Exercise",
           "content-type": "simulation",
           "source": "simulation/stack-exercise.html",
           "target": "stack-exercise.html"
