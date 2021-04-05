@@ -27,14 +27,6 @@
       "source": "recap-linked-list.md",
       "target": "recap-linked-list.html"
     },
-    
-    {
-      "unit-type": "task",
-      "label": "Pre Test Quiz",
-      "content-type": "assesment",
-      "source": "pretest.js",
-      "target": "pretest.html"
-    },
     {
       "unit-type": "lu",
       "label": "Stacks",
@@ -85,16 +77,7 @@
           "content-type": "simulation",
           "source": "simulation/stack-exercise.html",
           "target": "stack-exercise.html"
-        },
-	
-	{
-         "unit-type": "task",
-         "label": "Quiz",
-         "content-type": "assesment",
-         "source": "stacks-quiz.js",
-         "target": "stacks-quiz.html"
-       }
-      
+        }
       ]
     },
     {
@@ -149,14 +132,7 @@
           "content-type": "simulation",
           "source": "simulation/queueexercise.html",
           "target": "queuesexercise.html"
-        },
-        {
-         "unit-type": "task",
-         "label": "Quiz",
-         "content-type": "assesment",
-         "source": "queues-quiz.js",
-         "target": "queues-quiz.html"
-       }
+        }
       ]
     },
         {
@@ -188,25 +164,10 @@
           "content-type": "video",
           "source": "applications-of-stacks-and-queues.md",
           "target": "applications-of-stacks-and-queues.html"
-        },
-        {
-          "unit-type": "task",
-          "label": "Quiz",
-          "content-type": "assesment",
-          "source": "analysis-quiz.js",
-          "target": "analysis-quiz.html"
         }
       ]
     },
-   
-    {
-      "unit-type": "task",
-      "label": "Post Test Quiz",
-      "content-type": "assesment",
-      "source": "posttest.js",
-      "target": "posttest.html"
-    },
-       
+
     {
       "unit-type": "task",
       "label": "Further Readings/References",
