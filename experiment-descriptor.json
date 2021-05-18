@@ -28,6 +28,13 @@
       "target": "recap-linked-list.html"
     },
     {
+      "unit-type": "task",
+      "label": "Pretest",
+      "content-type": "assesment",
+      "source": "pretest.json",
+      "target": "pretest.html"
+    },
+    {
       "unit-type": "lu",
       "label": "Stacks",
       "basedir": "stacks",
@@ -77,7 +84,14 @@
           "content-type": "simulation",
           "source": "simulation/stack-exercise.html",
           "target": "stack-exercise.html"
-        }
+        },
+	{
+      "unit-type": "task",
+      "label": "Quiz",
+      "content-type": "assesment",
+      "source": "stacks-quiz.json",
+      "target": "stacks-quiz.html"
+    }
       ]
     },
     {
@@ -132,7 +146,14 @@
           "content-type": "simulation",
           "source": "simulation/queueexercise.html",
           "target": "queuesexercise.html"
-        }
+        },
+	{
+      "unit-type": "task",
+      "label": "Quiz",
+      "content-type": "assesment",
+      "source": "queues-quiz.json",
+      "target": "queues-quiz.html"
+    }
       ]
     },
         {
@@ -164,10 +185,23 @@
           "content-type": "video",
           "source": "applications-of-stacks-and-queues.md",
           "target": "applications-of-stacks-and-queues.html"
-        }
+        },
+	{
+      "unit-type": "task",
+      "label": "Quiz",
+      "content-type": "assesment",
+      "source": "analysis-quiz.json",
+      "target": "analysis-quiz.html"
+    }
       ]
     },
-
+{
+      "unit-type": "task",
+      "label": "Posttest",
+      "content-type": "assesment",
+      "source": "posttest.json",
+      "target": "posttest.html"
+    },
     {
       "unit-type": "task",
       "label": "Further Readings/References",

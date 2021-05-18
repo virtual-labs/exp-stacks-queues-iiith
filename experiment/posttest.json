@@ -1,0 +1,10 @@
+[{
+	"question": "1. What is the advantage of using linked list implementation of stack over array implementation? ",
+	"answers": {
+		"a": "Pushing into the stack is faster in linked list implementation. ",
+		"b": " Popping from the stack is faster in linked list implementation.  ",
+		"c": "Linked list has a variable size, unlike an array.",
+		"d": "None of the above "
+	},
+	"correctAnswer": "c"
+}]
