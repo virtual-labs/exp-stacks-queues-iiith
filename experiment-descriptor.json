@@ -30,7 +30,7 @@
     {
       "unit-type": "task",
       "label": "Pretest",
-      "content-type": "assessment",
+      "content-type": "assesment",
       "source": "pretest.json",
       "target": "pretest.html"
     },
@@ -88,7 +88,7 @@
 	{
       "unit-type": "task",
       "label": "Quiz",
-      "content-type": "assessment",
+      "content-type": "assesment",
       "source": "stacks-quiz.json",
       "target": "stacks-quiz.html"
     }
@@ -150,7 +150,7 @@
 	{
       "unit-type": "task",
       "label": "Quiz",
-      "content-type": "assessment",
+      "content-type": "assesment",
       "source": "queues-quiz.json",
       "target": "queues-quiz.html"
     }
@@ -189,7 +189,7 @@
 	{
       "unit-type": "task",
       "label": "Quiz",
-      "content-type": "assessment",
+      "content-type": "assesment",
       "source": "analysis-quiz.json",
       "target": "analysis-quiz.html"
     }
@@ -198,7 +198,7 @@
 {
       "unit-type": "task",
       "label": "Posttest",
-      "content-type": "assessment",
+      "content-type": "assesment",
       "source": "posttest.json",
       "target": "posttest.html"
     },
