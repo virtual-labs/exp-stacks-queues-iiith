@@ -52,8 +52,6 @@
 
 #stack_1, #stack_2, #stack_3 {
     display: inline-block;
-    margin: 0 auto;
-    width: 30%;
 }
 
 #twostacks, #threestacks {
@@ -65,7 +63,6 @@
 #stackA, #stackB, #stackC{
     display: inline-block;
     margin: 0 auto;
-    width: 45%;
 }
 
 #queue,#queue_ex {
