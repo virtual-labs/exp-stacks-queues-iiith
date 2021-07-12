@@ -60,6 +60,12 @@
     height: 60%;
 }
 
+#threestacks {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 #stackA, #stackB, #stackC{
     display: inline-block;
     margin: 0 auto;
