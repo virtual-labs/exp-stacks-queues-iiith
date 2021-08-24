@@ -1,29 +1,42 @@
-[{
-	"question": "1. What are the strategies/principles used in Stacks and Queues?",
-	"answers": {
-		"a": " LILO and FILO ",
-		"b": "FILO and LILO ",
-		"c": "FIFO and LIFO ",
-		"d": " LIFO and FIFO ",
-		"e": "b and d "
-	},
-	"correctAnswer": "e"
-}, {
-	"question": "2. How many pointers are used for reference in Stacks and Queues?",
-	"answers": {
-		"a": "1 and 2  ",
-		"b": "  2 and 1 ",
-		"c": "Depends ",
-		"d": "Can't say"
-	},
-	"correctAnswer": "a"
-}, {
-	"question": "3. How many queues are needed to implement a stack. Consider the situation where no other data structure like arrays or linked list is available to you.?  ",
-	"answers": {
-		"a": " 1",
-		"b": "2",
-		"c": " 3",
-		"d": " 4 "
-	},
-	"correctAnswer": "b"
-}]
+{
+    "version": 2.0,
+    "questions": [
+        {
+            "question": "1. What are the strategies/principles used in Stacks and Queues?",
+            "answers": {
+                "a": "LILO and FILO",
+                "b": "FILO and LILO",
+                "c": "FIFO and LIFO",
+                "d": "LIFO and FIFO",
+                "e": "b and d"
+            },
+            "correctAnswer": "e",
+            "explanations": {},
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "2. How many pointers are used for reference in Stacks and Queues?",
+            "answers": {
+                "a": "1 and 2",
+                "b": "2 and 1",
+                "c": "Depends",
+                "d": "Can't say"
+            },
+            "correctAnswer": "a",
+            "explanations": {},
+            "difficulty": "advanced"
+        },
+        {
+            "question": "3. How many queues are needed to implement a stack. Consider the situation where no other data structure like arrays or linked list is available to you.?",
+            "answers": {
+                "a": "1",
+                "b": "2",
+                "c": "3",
+                "d": "4"
+            },
+            "correctAnswer": "b",
+            "explanations": {},
+            "difficulty": "intermediate"
+        }
+    ]
+}
