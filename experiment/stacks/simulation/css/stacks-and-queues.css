@@ -7,7 +7,6 @@
 }
 
 #question {
-    font-size: 1.5vw;
     text-align: justify;
     padding-bottom: 2%;
 }
@@ -53,8 +52,6 @@
 
 #stack_1, #stack_2, #stack_3 {
     display: inline-block;
-    margin: 0 auto;
-    width: 30%;
 }
 
 #twostacks, #threestacks {
@@ -63,10 +60,15 @@
     height: 60%;
 }
 
+#threestacks {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 #stackA, #stackB, #stackC{
     display: inline-block;
     margin: 0 auto;
-    width: 45%;
 }
 
 #queue,#queue_ex {
