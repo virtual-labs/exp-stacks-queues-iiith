@@ -37,8 +37,8 @@ stackA_canvas.fillStyle = "black";
 stackA_canvas.font = "20px arial";
 stackB_canvas.font = "20px arial";
 stackB_canvas.fillStyle = "black";
-stackA_canvas.fillText(txta,"220","270"); 
-stackB_canvas.fillText(txtb,"220","270"); 
+stackA_canvas.fillText(txta,"220","279"); 
+stackB_canvas.fillText(txtb,"220","279"); 
 ctx.rect(stack_exercise_artefact.rectStartx, stack_exercise_artefact.rectStarty, stack_exercise_artefact.rectWidth, stack_exercise_artefact.rectHeight*stack_exercise_artefact.rectNo + stack_exercise_artefact.lineNo*stack_exercise_artefact.lineDist);            		
 ctx.closePath();
 } 
