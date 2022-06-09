@@ -24,9 +24,9 @@
             //Distance between the boxes
             var boxDist = 148;
             var index, color_stopper, shift_stopper, keyc, numa, num, value, numb, color_stopperb;
-            var headX = 110;
-            var headY = 60;
-            var topgap = 230;
+			var headX = 120;
+            var headY = 110;
+            var topgap = 170;
             var leftgap = 70;
             var dotradius = 4;
             var ncolor = "white";
