@@ -1,28 +1,41 @@
-[{
-	"question": "1. Which among the following represents a stack?",
-	"answers": {
-		"a": "People waiting at a counter, where the action of popping is when someone has been served at the counter ",
-		"b": "A hand of bangles where pushing is wearing a new bangle  ",
-		"c": "A pile of plates at a dinner party ",
-		"d": "People going around a merry-go-round "
-	},
-	"correctAnswer": "c"
-}, {
-	"question": "2. What is the time complexity of push operation in a stack? What is the time complexity of pop operation in a stack? ",
-	"answers": {
-		"a": "O(n), O(n)  ",
-		"b": "O(1), O(n)",
-		"c": "O(n), O(1) ",
-		"d": " O(1), O(1) "
-	},
-	"correctAnswer": "d"
-}, {
-	"question": "3. Consider these operations on an empty stack: push(3), push(5), pop(), push(10), push(11), pop(), push(100). What will be the stack configuration (first number is top of the stack, last is the bottom)  ",
-	"answers": {
-		"a": "100,10,3 ",
-		"b": "3,5,10,11,100 ",
-		"c": " 3,10,100",
-		"d": " None of the above "
-	},
-	"correctAnswer": "a"
-}]
+{
+    "version": 2.0,
+    "questions": [
+        {
+            "question": "1. Which among the following represents a stack?",
+            "answers": {
+                "a": "People waiting at a counter, where the action of popping is when someone has been served at the counter",
+                "b": "A hand of bangles where pushing is wearing a new bangle",
+                "c": "A pile of plates at a dinner party",
+                "d": "People going around a merry-go-round"
+            },
+            "correctAnswer": "c",
+            "explanations": {},
+            "difficulty": "beginner"
+        },
+        {
+            "question": "2. What is the time complexity of push operation in a stack? What is the time complexity of pop operation in a stack?",
+            "answers": {
+                "a": "O(n), O(n)",
+                "b": "O(1), O(n)",
+                "c": "O(n), O(1)",
+                "d": "O(1), O(1)"
+            },
+            "correctAnswer": "d",
+            "explanations": {},
+            "difficulty": "beginner"
+        },
+        {
+            "question": "3. Consider these operations on an empty stack: push(3), push(5), pop(), push(10), push(11), pop(), push(100). What will be the stack configuration (first number is top of the stack, last is the bottom)",
+            "answers": {
+                "a": "100,10,3",
+                "b": "3,5,10,11,100",
+                "c": "3,10,100",
+                "d": "None of the above"
+            },
+            "correctAnswer": "a",
+            "explanations": {},
+            "difficulty": "intermediate"
+        }
+    ]
+}
