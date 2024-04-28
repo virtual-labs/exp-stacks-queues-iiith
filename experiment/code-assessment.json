@@ -4,7 +4,7 @@
     "problems": [
         {
             "problem name": "Stacks - Balanced bracket sequence",
-            "description": "You are given a bracket sequence consisting of '(' and ')'. You are to find whether the bracket sequence is balanced or not. A balanced bracket sequence is a string consisting of only brackets, such that this sequence, when inserted certain numbers and mathematical operations, gives a valid mathematical expression",
+            "description": "You are given a bracket sequence consisting of '(' and ')'. You are to find whether the bracket sequence is balanced or not. A balanced bracket sequence is a string consisting of only brackets, such that this sequence, when inserted with certain numbers and mathematical operations, gives a valid mathematical expression",
             "inputs": [
                 "()(()))"
             ],
@@ -14,7 +14,7 @@
         },
         {
             "problem name": "Queues - Reverse first K elements",
-            "description": "You are given a list of numbers and a number K. You are required to only reverse the first K numners of the list and return the modified list.",
+            "description": "You are given a list of numbers and a number K. You are required to only reverse the first K numbers of the list and return the modified list.",
             "inputs": [
                 [10,9,24,100,2,300,258,59],
                 4
