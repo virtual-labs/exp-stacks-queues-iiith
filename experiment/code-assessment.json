@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "experiment name": "Experiment Name",
+    "problems": [
+        {
+            "problem name": "Stacks - Balanced bracket sequence",
+            "description": "You are given a bracket sequence consisting of '(' and ')'. You are to find whether the bracket sequence is balanced or not. A balanced bracket sequence is a string consisting of only brackets, such that this sequence, when inserted certain numbers and mathematical operations, gives a valid mathematical expression",
+            "inputs": [
+                "()(()))"
+            ],
+            "expected": [false],
+            "inputs description": "Input consists of a bracket sequence of '(' and ')'.",
+            "expected description": "true if the sequence is valid otherwise false"
+        },
+        {
+            "problem name": "Queues - Reverse first K elements",
+            "description": "You are given a list of numbers and a number K. You are required to only reverse the first K numners of the list and return the modified list.",
+            "inputs": [
+                [10,9,24,100,2,300,258,59],
+                4
+            ],
+            "expected": [100,24,9,10,2,300,258,59],
+            "inputs description": "Input consists of an array of unsorted array - inp1. It may be of arbitrary length.",
+            "expected description": "An array of numbers Eg. 1,2,4,5 sorted in ascending orders"
+        }
+    ]
+}
