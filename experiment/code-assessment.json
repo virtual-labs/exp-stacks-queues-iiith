@@ -8,9 +8,10 @@
             "inputs": [
                 "()(()))"
             ],
-            "expected": [false],
+            "expected": false,
             "inputs description": "Input consists of a bracket sequence of '(' and ')'.",
-            "expected description": "true if the sequence is valid otherwise false"
+            "expected description": "true if the sequence is valid otherwise false",
+            "difficulty": "beginner"
         },
         {
             "problem name": "Queues - Reverse first K elements",
@@ -21,7 +22,20 @@
             ],
             "expected": [100,24,9,10,2,300,258,59],
             "inputs description": "Input consists of an array of numbers - inp1 and the number K - inp2.",
-            "expected description": "Array of numbers like the input array with the first k numbers reversed."
+            "expected description": "Array of numbers like the input array with the first k numbers reversed.",
+            "difficulty": "beginner"
+        },
+        {
+            "problem name": "Evaluate Reverse Polish Notation",
+            "description": "You are given a list of strings representing a Reverse Polish Notation (RPN) expression. Reverse Polish Notation is a mathematical notation in which operators follow their operands. For example, the expression '2 1 +' is evaluated as 2 + 1. Your task is to evaluate the given RPN expression and return the result. Valid operators are '+', '-', '*', and '/'. Each operand may be an integer or another expression.",
+            "inputs": [
+                ["2", "1", "+", "3", "*"]
+            ],
+            "expected": 9,
+            "inputs description": "Input consists of an array of strings representing a Reverse Polish Notation (RPN) expression. Each string is either an integer or one of the operators '+', '-', '*', or '/'.",
+            "expected description": "An integer representing the evaluated result of the RPN expression.",
+            "difficulty": "intermediate"
         }
+
     ]
 }
