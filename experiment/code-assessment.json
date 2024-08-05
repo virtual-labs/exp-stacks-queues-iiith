@@ -4,12 +4,12 @@
     "problems": [
         {
             "problem name": "Stacks - Balanced bracket sequence",
-            "description": "You are given a bracket sequence consisting of '(' and ')'. You are to find whether the bracket sequence is balanced or not. A balanced bracket sequence is a string consisting of only brackets, such that this sequence, when inserted with certain numbers and mathematical operations, gives a valid mathematical expression",
+            "description": "You are given a bracket sequence consisting of '(', ')', '{', '}', '[', and ']'. You are to find whether the bracket sequence is balanced or not. A balanced bracket sequence is a string consisting of only brackets, such that this sequence, when inserted with certain numbers and mathematical operations, gives a valid mathematical expression.",
             "inputs": [
-                "()(()))"
+                "{[()()]}"
             ],
-            "expected": false,
-            "inputs description": "Input consists of a bracket sequence of '(' and ')'.",
+            "expected": true,
+            "inputs description": "Input consists of a bracket sequence of '(', ')', '{', '}', '[', and ']'.",
             "expected description": "true if the sequence is valid otherwise false",
             "difficulty": "beginner"
         },
