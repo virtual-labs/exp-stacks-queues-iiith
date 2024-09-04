@@ -25,8 +25,8 @@ This document describes the design and UI of =Stacks and Queues Experiment=.
 |       9. | [[./stack-exercise][Stack Exercise]]           | Exercise for Stacks                                                                                     |
 |      10. | [[./stack-array.png][Stacks - Arrays]]          | Stacks using Arrays                                                                                     |
 |      11. | [[./queue-array.png][Queues - Arrays]]          | Queues using Arrays                                                                                     |
-|      12. | [[./stacks_example/Stacks:Example.jpeg][Stacks - Example]]         | Stacks example used in analysis artefact                                                                |
-|      13. | [[./stacks_example/Stacks_example.drawio][Stacks - Example(Source)]] | Source of stacks example image which is used in analysis artefact,can be edited in https://www.draw.io/ |
-|      14. | [[./queues_example/Queues_Example.jpeg][Queues - Example]]         | Queues example used in analysis artefact                                                                |
-|      15. | [[./queues_example/Queues_Example.xml][Queues - Example(Source)]] | Source of queues example image which is used in analysis artefact,can be edited in https://www.draw.io/ |
+|      12. | [[./stacks-example/Stacks:Example.jpeg][Stacks - Example]]         | Stacks example used in analysis artefact                                                                |
+|      13. | [[./stacks-example/Stacks_example.drawio][Stacks - Example(Source)]] | Source of stacks example image which is used in analysis artefact,can be edited in https://www.draw.io/ |
+|      14. | [[./queues-example/Queues_Example.jpeg][Queues - Example]]         | Queues example used in analysis artefact                                                                |
+|      15. | [[./queues-example/Queues_Example.xml][Queues - Example(Source)]] | Source of queues example image which is used in analysis artefact,can be edited in https://www.draw.io/ |
 |----------+--------------------------+---------------------------------------------------------------------------------------------------------|
