@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-13 Sat 05:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stacks Operations Demonstration</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="VLEAD" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Stacks Operations Demonstration</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org90da159">1. Introduction</a></li>
+<li><a href="#org7baaa2a">2. stack_class</a></li>
+<li><a href="#org6fa83bd">3. Initialization</a></li>
+<li><a href="#orge3a0b05">4. Clear the canvas</a></li>
+<li><a href="#org7866615">5. Draw the stack</a></li>
+<li><a href="#orgf232e49">6. Shade elements of stack</a></li>
+<li><a href="#org21898ed">7. Write values of stack into array</a></li>
+<li><a href="#orgd0c4e1a">8. Arrow pointing to the top of the stack</a></li>
+<li><a href="#org4d20e99">9. Function to check whether a number is prime or not</a></li>
+<li><a href="#org8b43464">10. Function Change Interval</a></li>
+<li><a href="#org37daa07">11. Pushing into the stack</a></li>
+<li><a href="#orgaef8888">12. Popping from the stack</a></li>
+<li><a href="#orgce24d4b">13. Function onpause</a></li>
+<li><a href="#org378a211">14. Function onstart</a></li>
+<li><a href="#org4eeedec">15. Function initializeArtefact</a></li>
+<li><a href="#orga3b34c3">16. Function reload</a></li>
+<li><a href="#org320f380">17. Adds all event handlers</a></li>
+<li><a href="#org825420c">18. Tangle</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org90da159" class="outline-2">
+<h2 id="org90da159"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This document contains the JavaScript code (Canvas API) for the
+requirement artifact - stacks operations Demonstration.
+</p>
+
+<p>
+The artefact provides stack A with a set of numbers.On clicking start ,the 
+demonstration starts. Numbers from stack A are popped and if it is a prime
+it is pushed into stack B else pushed into stack C.At the end of demonstration 
+all the numbers of stack A gets popped.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7baaa2a" class="outline-2">
+<h2 id="org7baaa2a"><span class="section-number-2">2</span> stack_class</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Creates <code>stack_class</code> class, which has all the variables used for canvas attributes and its corresponding</li>
+</ul>
+<p>
+positions on the canvas .
+</p>
+<ul class="org-ul">
+<li>We use "let" to create an object of this class</li>
+<li>Here we initialize the <code>canvas</code> and define a class name <code>stack_class</code></li>
+<li>Font of numbers to be inserted is defined by <code>txtSize</code></li>
+<li>Distance between lines is defined by <code>lineDist</code></li>
+<li>Number of array blocks is defined by <code>rectNo</code></li>
+<li>Number of lines to seperate the array blocks is defined by <code>lineNo</code></li>
+<li>Dimensions of stack rectangle is defined by <code>rectHeight</code> and <code>rectWidth</code></li>
+<li>Starting position of stack coordinates is defined by <code>rectStartx</code> and <code>rectStarty</code></li>
+<li><code>topOfStack</code> Points to top of stack, initialized to -1 and its coordinates</li>
+<li>Position of arrow pointing to top of stack is define by <code>arrowStartx</code> and <code>arrowEndx</code></li>
+<li>Position of arrow heads to the top of the stack is defined by <code>arrowHeadOffsetx</code> and <code>arrowHeadOffsety</code></li>
+<li><code>arrowTopx</code> and <code>arrowTopy</code> are used to define the Coordinates of 'Top' text below arrow</li>
+<li>Position of error messages is defined by <code>errorPosx</code> and <code>errorPosy</code></li>
+<li>Values of Stack are stored in <code>values</code> array</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript" id="org3fd7a18"><span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">canvasA</span> = document.getElementById(<span style="font-style: italic;">"stack_1"</span>);
+canvasA.width = 400;
+canvasA.height = 340;
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">stackA_canvas</span> = canvasA.getContext(<span style="font-style: italic;">"2d"</span>);
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">canvasB</span> = document.getElementById(<span style="font-style: italic;">"stack_2"</span>);
+canvasB.width = 400;
+canvasB.height = 340;
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">stackB_canvas</span> = canvasB.getContext(<span style="font-style: italic;">"2d"</span>);
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">canvasC</span> = document.getElementById(<span style="font-style: italic;">"stack_3"</span>);
+canvasC.width = 400;
+canvasC.height = 340;
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">stackC_canvas</span> = canvasC.getContext(<span style="font-style: italic;">"2d"</span>);
+<span style="font-weight: bold;">class</span> stack_class {
+    constructor(){          
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.txtSize = 25;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.lineDist = 1;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.rectNo = 7;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.lineNo = <span style="font-weight: bold; text-decoration: underline;">this</span>.rectNo - 1;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.rectHeight = 37;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.rectWidth = <span style="font-weight: bold; text-decoration: underline;">this</span>.rectHeight * 4;       
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.rectStartx = 100;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.rectStarty = 30;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.topOfStack = -1; 
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.arrowStartx = <span style="font-weight: bold; text-decoration: underline;">this</span>.rectStartx + <span style="font-weight: bold; text-decoration: underline;">this</span>.rectWidth + 20;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.arrowEndx = <span style="font-weight: bold; text-decoration: underline;">this</span>.arrowStartx + 40;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.arrowHeadOffsetx = 10;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.arrowHeadOffsety = 10;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.arrowTopx = 5;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.arrowTopy = 30;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.values = [];
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.topB = -1;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.topC = -1;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.demo_values = [];
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.demo_valuesB = [];
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.demo_valuesC = [];
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.interval = 0;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.started = 0;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.prev = -1;
+        <span style="font-weight: bold; text-decoration: underline;">this</span>.ispaused = 0;
+    };
+};
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6fa83bd" class="outline-2">
+<h2 id="org6fa83bd"><span class="section-number-2">3</span> Initialization</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-javascript" id="org185ab5c"><span style="font-weight: bold;">let</span> <span style="font-weight: bold; font-style: italic;">stack_demo</span> = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">stack_class</span>();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge3a0b05" class="outline-2">
+<h2 id="orge3a0b05"><span class="section-number-2">4</span> Clear the canvas</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+A function that clears the Canvas and makes it blank.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org3d63246"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">clearCanvas</span>(<span style="font-weight: bold; font-style: italic;">ctx</span>) {
+    <span style="font-weight: bold;">if</span>(ctx===stackA_canvas)ctx.clearRect(0, 0, canvasA.width, canvasA.height);
+    <span style="font-weight: bold;">if</span>(ctx===stackB_canvas)ctx.clearRect(0, 0, canvasB.width, canvasB.height);
+    <span style="font-weight: bold;">if</span>(ctx===stackC_canvas)ctx.clearRect(0, 0, canvasC.width, canvasC.height);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7866615" class="outline-2">
+<h2 id="org7866615"><span class="section-number-2">5</span> Draw the stack</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+A basic stack structure is drawn.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org4bcd47e"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">drawStackStructure</span>(<span style="font-weight: bold; font-style: italic;">ctx</span>) {
+ctx.beginPath();
+ctx.rect(stack_demo.rectStartx, stack_demo.rectStarty, stack_demo.rectWidth, stack_demo.rectHeight*stack_demo.rectNo + stack_demo.lineNo*stack_demo.lineDist);
+ctx.strokeStyle = <span style="font-style: italic;">"#969696"</span>;
+ctx.stroke();
+
+ctx.closePath();
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf232e49" class="outline-2">
+<h2 id="orgf232e49"><span class="section-number-2">6</span> Shade elements of stack</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+As per the designs given by the UI team, all elements of the stack
+that are present so far have been shaded with blue color.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org0b2e288"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">writeNumbers</span>(<span style="font-weight: bold; font-style: italic;">ctx</span>) {
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">stackhere</span> = [];
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">tophere</span> = -1;
+<span style="font-weight: bold;">if</span>(ctx===stackA_canvas)
+{
+   stackhere = stack_demo.demo_values;
+   tophere = stack_demo.topOfStack;
+}
+<span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span> (ctx === stackB_canvas)
+{
+    stackhere = stack_demo.demo_valuesB.slice();
+    tophere = stack_demo.topB;
+}       
+<span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span>(ctx === stackC_canvas)
+{
+    stackhere = stack_demo.demo_valuesC.slice();
+    tophere = stack_demo.topC;
+}                       
+clearCanvas(ctx);
+drawStackStructure(ctx);
+                
+ctx.beginPath();
+<span style="font-weight: bold;">if</span>(ctx===stackA_canvas)
+{
+    stackA_canvas.font = <span style="font-style: italic;">"20px"</span>;
+    stackA_canvas.fillStyle = <span style="font-style: italic;">"black"</span>;
+    stackA_canvas.fillText(<span style="font-style: italic;">"Stack A"</span>,<span style="font-style: italic;">"150"</span>,<span style="font-style: italic;">"335"</span>);
+}
+<span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span>(ctx===stackB_canvas)
+{
+    stackB_canvas.font = <span style="font-style: italic;">"20px"</span>;
+    stackB_canvas.fillStyle = <span style="font-style: italic;">"black"</span>;
+    stackB_canvas.fillText(<span style="font-style: italic;">"Stack B"</span>,<span style="font-style: italic;">"150"</span>,<span style="font-style: italic;">"335"</span>);
+}
+<span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span>(ctx===stackC_canvas)
+{
+    stackC_canvas.font = <span style="font-style: italic;">"20px"</span>;
+    stackC_canvas.fillStyle = <span style="font-style: italic;">"black"</span>;
+    stackC_canvas.fillText(<span style="font-style: italic;">"Stack C"</span>,<span style="font-style: italic;">"150"</span>,<span style="font-style: italic;">"335"</span>);
+}
+<span style="font-weight: bold;">for</span>(<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">i</span>=0; i&lt;stackhere.length; i++)
+{
+    ctx.fillStyle = <span style="font-style: italic;">"#288ec8"</span>;
+    ctx.fillRect(stack_demo.rectStartx, stack_demo.rectStarty+(stack_demo.lineDist*stack_demo.lineNo)+(stack_demo.rectNo*stack_demo.rectHeight)-((i+1)*stack_demo.rectHeight)-(i*stack_demo.lineDist), stack_demo.rectWidth, stack_demo.rectHeight);
+}
+ctx.closePath();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org21898ed" class="outline-2">
+<h2 id="org21898ed"><span class="section-number-2">7</span> Write values of stack into array</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Function to write all the values present inside the stack into the
+stack displayed to user. 
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org1494fa0">ctx.beginPath();
+        
+<span style="font-weight: bold;">for</span>(<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">i</span>=0; i&lt;stackhere.length; i++) 
+{
+    ctx.font = <span style="font-style: italic;">"15px Arial"</span>;
+    ctx.fillStyle = <span style="font-style: italic;">"white"</span>;
+                    
+    txt = stackhere[i].toString();
+    txtWidth = ctx.measureText(txt).width;
+                    
+    txtX = stack_demo.rectStartx + (stack_demo.rectWidth-txtWidth)/2;
+    txtY = stack_demo.rectStarty+(stack_demo.lineDist*stack_demo.lineNo)+(stack_demo.rectNo*stack_demo.rectHeight)-(i*stack_demo.lineDist)-((i+1)*stack_demo.rectHeight)+stack_demo.rectHeight/2+8;
+                    
+    ctx.fillText(txt, txtX, txtY);  
+}
+
+ctx.closePath();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd0c4e1a" class="outline-2">
+<h2 id="orgd0c4e1a"><span class="section-number-2">8</span> Arrow pointing to the top of the stack</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+An arrow points to the top of the stack to indicate where it is. The
+code draws a line and then the arrow head.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgde1e986"><span style="font-weight: bold;">if</span>(tophere &gt; -1) 
+{
+    ctx.beginPath();
+                    
+    ctx.moveTo(stack_demo.arrowStartx, stack_demo.rectStarty+(stack_demo.lineDist*stack_demo.lineNo)+(stack_demo.rectNo*stack_demo.rectHeight)-(tophere*stack_demo.lineDist)-((tophere+1)*stack_demo.rectHeight)+stack_demo.rectHeight/2);
+    ctx.lineTo(stack_demo.arrowEndx, stack_demo.rectStarty+(stack_demo.lineDist*stack_demo.lineNo)+(stack_demo.rectNo*stack_demo.rectHeight)-(tophere*stack_demo.lineDist)-((tophere+1)*stack_demo.rectHeight)+stack_demo.rectHeight/2);
+    ctx.strokeStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.lineWidth=1.5;
+    ctx.stroke();
+                    
+    ctx.moveTo(stack_demo.arrowStartx, stack_demo.rectStarty+(stack_demo.lineDist*stack_demo.lineNo)+(stack_demo.rectNo*stack_demo.rectHeight)-(tophere*stack_demo.lineDist)-((tophere+1)*stack_demo.rectHeight)+stack_demo.rectHeight/2);
+    ctx.lineTo(stack_demo.arrowStartx + stack_demo.arrowHeadOffsetx, stack_demo.rectStarty+(stack_demo.lineDist*stack_demo.lineNo)+(stack_demo.rectNo*stack_demo.rectHeight)-(tophere*stack_demo.lineDist)-((tophere+1)*stack_demo.rectHeight)+stack_demo.rectHeight/2+stack_demo.arrowHeadOffsety);
+    ctx.strokeStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.stroke();
+                                    
+    ctx.moveTo(stack_demo.arrowStartx, stack_demo.rectStarty+(stack_demo.lineDist*stack_demo.lineNo)+(stack_demo.rectNo*stack_demo.rectHeight)-(tophere*stack_demo.lineDist)-((tophere+1)*stack_demo.rectHeight)+stack_demo.rectHeight/2);
+    ctx.lineTo(stack_demo.arrowStartx + stack_demo.arrowHeadOffsetx, stack_demo.rectStarty+(stack_demo.lineDist*stack_demo.lineNo)+(stack_demo.rectNo*stack_demo.rectHeight)-(tophere*stack_demo.lineDist)-((tophere+1)*stack_demo.rectHeight)+stack_demo.rectHeight/2-stack_demo.arrowHeadOffsety);
+    ctx.strokeStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.stroke();
+
+    txt = <span style="font-style: italic;">"Top"</span>;
+    ctx.font = <span style="font-style: italic;">"18px Arial"</span>;
+    ctx.fillStyle = <span style="font-style: italic;">"black"</span>;
+    txtWidth = ctx.measureText(txt).width;
+    ctx.fillText(txt, stack_demo.arrowEndx + 10, stack_demo.rectStarty+(stack_demo.lineDist*stack_demo.lineNo)+(stack_demo.rectNo*stack_demo.rectHeight)-(tophere*stack_demo.lineDist)-((tophere+1)*stack_demo.rectHeight)+stack_demo.rectHeight/2+18/2);
+    ctx.closePath();
+}       
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4d20e99" class="outline-2">
+<h2 id="org4d20e99"><span class="section-number-2">9</span> Function to check whether a number is prime or not</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-javascript" id="org5354ade"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">test_prime</span>(<span style="font-weight: bold; font-style: italic;">n</span>)
+{
+  <span style="font-weight: bold;">if</span> (n===1)<span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">false</span>;
+  <span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span>(n === 2)<span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">true</span>;
+  <span style="font-weight: bold;">else</span>
+  {
+    <span style="font-weight: bold;">for</span>(<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">x</span> = 2; x &lt; n; x++)
+    {
+      <span style="font-weight: bold;">if</span>(n % x === 0)
+      <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">false</span>;
+      
+    }
+    <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">true</span>;  
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8b43464" class="outline-2">
+<h2 id="org8b43464"><span class="section-number-2">10</span> Function Change Interval</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Supports changing time interval when the slider is changed in the webpage</li>
+<li>Also, changes the background colour of Pause button if required</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orga8b1bc1"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">change_interval</span>()
+{
+  <span style="font-weight: bold;">if</span>(stack_demo.interval != 0) { clearInterval(stack_demo.interval); }
+  
+  <span style="font-weight: bold;">if</span>(document.getElementById(<span style="font-style: italic;">"interval"</span>).value != 100)
+  {
+     stack_demo.interval = setInterval(pop_demo, 3400-document.getElementById(<span style="font-style: italic;">"interval"</span>).value); 
+     document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).style.backgroundColor = <span style="font-style: italic;">"#288ec8"</span>;
+  }
+  <span style="font-weight: bold;">else</span> document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).style.backgroundColor = <span style="font-style: italic;">"grey"</span>;
+};
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org37daa07" class="outline-2">
+<h2 id="org37daa07"><span class="section-number-2">11</span> Pushing into the stack</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Function to push values into the stack and display on screen. 
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgf56ebbb"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">push_common</span>(<span style="font-weight: bold; font-style: italic;">ctx</span>,<span style="font-weight: bold; font-style: italic;">value</span>)
+{
+    <span style="font-weight: bold;">if</span>(ctx === stackB_canvas){
+        valueshere = stack_demo.demo_valuesB;
+        tophere = stack_demo.topB;
+    }
+    <span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span>(ctx === stackC_canvas)
+    {
+        valueshere = stack_demo.demo_valuesC;
+        tophere = stack_demo.topC;
+    }
+    <span style="font-weight: bold;">if</span> (value === <span style="font-weight: bold; text-decoration: underline;">null</span> || value === <span style="font-style: italic;">""</span>)<span style="font-weight: bold;">return</span>;
+    <span style="font-weight: bold;">if</span>(valueshere.length &gt;= stack_demo.rectNo)<span style="font-weight: bold;">return</span>;
+    <span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span> (value===<span style="font-weight: bold; text-decoration: underline;">null</span> || value===<span style="font-style: italic;">""</span>) <span style="font-weight: bold;">return</span>;
+    <span style="font-weight: bold;">else</span>
+    {
+        valueshere.push(value);
+        tophere++;
+        <span style="font-weight: bold;">if</span>(ctx===stackB_canvas)
+        {
+            stack_demo.topB++;
+        }
+        <span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span> (ctx===stackC_canvas)
+        {
+            stack_demo.topC++;
+        }
+    drawStackStructure(stackA_canvas);
+    writeNumbers(stackA_canvas);
+    drawStackStructure(ctx);
+    writeNumbers(ctx);
+    }   
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaef8888" class="outline-2">
+<h2 id="orgaef8888"><span class="section-number-2">12</span> Popping from the stack</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+Function to pop values from the stack and display resulting array on screen.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org9415a1a"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">pop_demo</span>(){
+    <span style="font-weight: bold;">if</span>(stack_demo.topOfStack === -1)
+    {
+        document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML = <span style="font-style: italic;">"As stack A is empty.&lt;br&gt;&lt;b&gt;Demonstration is complete!!.&lt;/b&gt;"</span>;
+    }
+    <span style="font-weight: bold;">else</span>
+    {
+        pop_value = stack_demo.demo_values.pop();
+        stack_demo.topOfStack--;
+        <span style="font-weight: bold;">if</span>(test_prime(pop_value))
+        {
+            document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML = <span style="font-style: italic;">"The number popped from stack A (i.e "</span> + pop_value + <span style="font-style: italic;">") is prime, so it is pushed into stack B"</span>;
+            push_common(stackB_canvas,pop_value);
+        }
+        <span style="font-weight: bold;">else</span>{
+            document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML = <span style="font-style: italic;">"The number popped from stack A (i.e "</span> + pop_value + <span style="font-style: italic;">") is not a prime, so it is pushed into stack C"</span>;
+            push_common(stackC_canvas,pop_value);
+        }
+        <span style="font-weight: bold;">if</span>(stack_demo.topOfStack === -1)
+        {
+            document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML += <span style="font-style: italic;">"&lt;br&gt;As stack A is empty.&lt;br&gt;&lt;b&gt;Demonstration is complete!!.&lt;/b&gt;"</span>;
+            document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">true</span>;
+            document.getElementById(<span style="font-style: italic;">"start-stdemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">true</span>;
+            document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).style.backgroundColor=<span style="font-style: italic;">"grey"</span>;
+            document.getElementById(<span style="font-style: italic;">"start-stdemo"</span>).style.backgroundColor=<span style="font-style: italic;">"grey"</span>;
+        }
+    drawStackStructure(stackA_canvas);
+    writeNumbers(stackA_canvas);
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce24d4b" class="outline-2">
+<h2 id="orgce24d4b"><span class="section-number-2">13</span> Function onpause</h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>Used to pause the demonstration when <code>pause</code> button is clicked</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgadae0e4"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">onpause</span>(){
+    <span style="font-weight: bold;">if</span>(stack_demo.prev === -1){
+    stack_demo.prev = document.getElementById(<span style="font-style: italic;">"interval"</span>).value;
+    <span style="font-weight: bold;">if</span>(stack_demo.interval != 0){ 
+      clearInterval(stack_demo.interval);
+    }
+    stack_demo.ispaused = 1;
+    document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).value = <span style="font-style: italic;">"Play"</span>;
+  }<span style="font-weight: bold;">else</span>{
+    stack_demo.prev = -1;
+    stack_demo.ispaused = 0;
+    clearInterval(stack_demo.interval);
+    stack_demo.interval = setInterval(pop_demo, 3400-document.getElementById(<span style="font-style: italic;">"interval"</span>).value);
+    document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).value = <span style="font-style: italic;">"Pause"</span>;
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org378a211" class="outline-2">
+<h2 id="org378a211"><span class="section-number-2">14</span> Function onstart</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li>Used to start the demonstration when <code>start</code> button is clicked</li>
+<li>Used to perform next step when <code>next</code> button is clicked</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgd7a116e"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">onstart</span>(){
+document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).style.backgroundColor=<span style="font-style: italic;">"#288ec8"</span>;
+document.getElementById(<span style="font-style: italic;">"reset-stackdemo"</span>).style.backgroundColor=<span style="font-style: italic;">"#288ec8"</span>;
+document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">false</span>;
+document.getElementById(<span style="font-style: italic;">"reset-stackdemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">false</span>;
+<span style="font-weight: bold;">if</span>(document.getElementById(<span style="font-style: italic;">"interval"</span>).value === 100 || stack_demo.started ===1)
+  {
+    document.getElementById(<span style="font-style: italic;">"start-stdemo"</span>).value = <span style="font-style: italic;">"Next"</span>;
+    document.getElementById(<span style="font-style: italic;">"start-stdemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">false</span>;
+    clearInterval(stack_demo.interval);
+    <span style="font-weight: bold;">if</span>(stack_demo.ispaused==1){
+        pop_demo();
+    }
+    <span style="font-weight: bold;">else</span>{
+        pop_demo();
+        stack_demo.interval = setInterval(pop_demo, 3400-document.getElementById(<span style="font-style: italic;">"interval"</span>).value);
+    }
+    document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).style.visibility = <span style="font-style: italic;">"visible"</span>;
+  }
+<span style="font-weight: bold;">else</span>{
+    document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML = <span style="font-style: italic;">"&lt;b&gt;Demonstration started&lt;/b&gt;"</span>;
+    document.getElementById(<span style="font-style: italic;">"interval"</span>).value === 1500;
+    document.getElementById(<span style="font-style: italic;">"start-stdemo"</span>).value = <span style="font-style: italic;">"Next"</span>;
+    stack_demo.started = 1;
+    change_interval();
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4eeedec" class="outline-2">
+<h2 id="org4eeedec"><span class="section-number-2">15</span> Function initializeArtefact</h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li>Function which gets performed on loading the artefact</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org945d51d"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">initializeArtefact</span>(){
+    stack_demo.topOfStack = 6;
+    stack_demo.demo_values = [];
+    stack_demo.demo_valuesB = [];
+    stack_demo.demo_valuesC = [];
+    stack_demo.topB = -1;
+    stack_demo.topC = -1;
+    <span style="font-weight: bold;">while</span>(stack_demo.demo_values.length &lt; 7){
+        <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">random_number</span> = Math.floor((Math.random() * 100) + 1) ;
+        <span style="font-weight: bold;">if</span>(stack_demo.demo_values.indexOf(random_number) === -1) {
+            stack_demo.demo_values.push(random_number);
+        }
+    }
+    document.getElementById(<span style="font-style: italic;">"interval"</span>).value = 1500;
+    document.getElementById(<span style="font-style: italic;">"start-stdemo"</span>).value = <span style="font-style: italic;">"Start"</span>;
+    document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">true</span>;
+    document.getElementById(<span style="font-style: italic;">"reset-stackdemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">true</span>;
+    document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).style.backgroundColor=<span style="font-style: italic;">"grey"</span>;
+    document.getElementById(<span style="font-style: italic;">"reset-stackdemo"</span>).style.backgroundColor=<span style="font-style: italic;">"grey"</span>;
+
+    drawStackStructure(stackA_canvas);
+    writeNumbers(stackA_canvas);
+    drawStackStructure(stackB_canvas);
+    writeNumbers(stackB_canvas);
+    drawStackStructure(stackC_canvas);
+    writeNumbers(stackC_canvas);
+    handlers();
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga3b34c3" class="outline-2">
+<h2 id="orga3b34c3"><span class="section-number-2">16</span> Function reload</h2>
+<div class="outline-text-2" id="text-16">
+<ul class="org-ul">
+<li>Used to reload the artefact when <code>reset</code> button is clicked</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org837945e"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">reload</span>(){
+  location.reload(<span style="font-weight: bold; text-decoration: underline;">true</span>);
+};
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org320f380" class="outline-2">
+<h2 id="org320f380"><span class="section-number-2">17</span> Adds all event handlers</h2>
+<div class="outline-text-2" id="text-17">
+<ul class="org-ul">
+<li>A function that adds all the <code>event handlers</code> to the html document</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orge7bd758"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">handlers</span>() { 
+ document.getElementById(<span style="font-style: italic;">"interval"</span>).oninput = <span style="font-weight: bold;">function</span>() { change_interval(); };
+ document.getElementById(<span style="font-style: italic;">"interval"</span>).onchange = <span style="font-weight: bold;">function</span>() { 
+    <span style="font-weight: bold;">if</span>(document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).value == <span style="font-style: italic;">"Play"</span>)<span style="font-weight: bold;">return</span>;
+    <span style="font-weight: bold;">else</span> change_interval(); };
+ document.getElementById(<span style="font-style: italic;">"start-stdemo"</span>).onclick = <span style="font-weight: bold;">function</span>() { onstart(); };
+ document.getElementById(<span style="font-style: italic;">"reset-stackdemo"</span>).onclick = <span style="font-weight: bold;">function</span>() { reload(); };
+ document.getElementById(<span style="font-style: italic;">"pause-stackdemo"</span>).onclick = <span style="font-weight: bold;">function</span>() { onpause(); };
+};
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org825420c" class="outline-2">
+<h2 id="org825420c"><span class="section-number-2">18</span> Tangle</h2>
+<div class="outline-text-2" id="text-18">
+<div class="org-src-container">
+<pre class="src src-javascript">  &lt;&lt;stack_class&gt;&gt;
+  &lt;&lt;initialize&gt;&gt;
+  &lt;&lt;clear-canvas&gt;&gt;
+  &lt;&lt;change-<span style="font-weight: bold; text-decoration: underline;">int</span>&gt;&gt;
+  &lt;&lt;test-prime&gt;&gt;
+  &lt;&lt;draw-array-struct&gt;&gt; 
+  &lt;&lt;shade-top-stack&gt;&gt;
+  &lt;&lt;write-values&gt;&gt;
+  &lt;&lt;draw-arrow&gt;&gt;
+  &lt;&lt;pause_function&gt;&gt;
+  &lt;&lt;start_function&gt;&gt;
+  &lt;&lt;reload_function&gt;&gt;
+  &lt;&lt;handlers&gt;&gt;
+  &lt;&lt;onload_function&gt;&gt;
+  &lt;&lt;push-stack&gt;&gt;
+  &lt;&lt;pop-stack&gt;&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2018-06-12 Tue 00:00</p>
+<p class="author">Author: VLEAD</p>
+<p class="date">Created: 2021-03-13 Sat 05:43</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

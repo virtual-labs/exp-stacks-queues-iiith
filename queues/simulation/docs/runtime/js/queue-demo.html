@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-13 Sat 05:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Queue Demonstration</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="VLEAD" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Queue Demonstration</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7a736a0">1. Introduction</a></li>
+<li><a href="#org48d6d37">2. queue class</a></li>
+<li><a href="#org8df0eda">3. Initialization</a></li>
+<li><a href="#orgfed411d">4. Function Change Interval</a></li>
+<li><a href="#org370fe5f">5. Clear the canvas</a></li>
+<li><a href="#org3d43ec5">6. Draw the queue</a></li>
+<li><a href="#org5671d85">7. Write values of queue into array</a></li>
+<li><a href="#org7e2787b">8. Arrow pointing to the head of the queue</a></li>
+<li><a href="#org89fed0d">9. Arrow pointing to the tail of the queue</a></li>
+<li><a href="#org757ceb9">10. Function enqueue to queue B</a></li>
+<li><a href="#orgf4c8299">11. Function enqueue to queue A</a></li>
+<li><a href="#orgda987bc">12. Function check</a></li>
+<li><a href="#org494b058">13. Function onpause</a></li>
+<li><a href="#org3af211c">14. Function initializeArtefact</a></li>
+<li><a href="#org433fa3c">15. Function onstart</a></li>
+<li><a href="#org3a86f38">16. Function reset</a></li>
+<li><a href="#org6ad6117">17. Adds all event handlers</a></li>
+<li><a href="#orgc559819">18. Tangle</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7a736a0" class="outline-2">
+<h2 id="org7a736a0"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This document contains the JavaScript code (Canvas API) for the
+requirement artifact - queues demonstration
+</p>
+
+<p>
+The artefact provides queue A with a jumbled word and an empty queue B.
+The objective of this demonstration is to obtain the proper word in 
+queue B using enqueue and dequeue operations on queue A and enqueue 
+operations on queue B.
+</p>
+
+<p>
+This Demonstration will help a user get more comfortable with the idea of
+queues in general.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org48d6d37" class="outline-2">
+<h2 id="org48d6d37"><span class="section-number-2">2</span> queue class</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Creates queue class, which has all the variables used for canvas attributes and its corresponding</li>
+</ul>
+<p>
+positions on the canvas .
+</p>
+<ul class="org-ul">
+<li>We use "let" to create an object of this class</li>
+<li>Here we initialize the <code>canvas</code> and define a class name <code>queue</code></li>
+<li>Font of numbers to be inserted in the queue is defined by <code>txtSize</code></li>
+<li>Dimensions of array rectangle is defined by <code>rectHeight</code> and <code>rectWidth</code></li>
+<li>Starting position of array coordinates are given by <code>rectStartx</code> and <code>rectStarty</code></li>
+<li>Position of the indices of the array are given by <code>indexPosx</code> and <code>indexPosy</code></li>
+<li>Head of queue (initialized to -1) is defined by <code>head</code> and its coordinates are given by <code>headPosx</code> and <code>headPosy</code></li>
+<li>Tail of queue (initialized to 0) is defined by <code>tail</code> and its coordinates are given by <code>tailPosy</code></li>
+<li>Position of arrow pointing to head are given by <code>hArrowStartx</code> , <code>hArrowStarty</code> , <code>hArrowEndx</code> and <code>hArrowEndy</code></li>
+<li>Position of arrow heads to the head of queue are given by <code>hArrowHeadOffsetx</code> and <code>hArrowHeadOffsety</code></li>
+<li>Coordinates of 'Head' text below arrow are given by <code>hArrowHeadx</code> and <code>hArrowHeady</code></li>
+<li>Position of arrow pointing to tail are given by <code>tArrowStartx</code> , <code>tArrowStarty</code> , <code>tArrowEndx</code> and <code>tArrowEndy</code></li>
+<li>Position of arrow heads to the tail of queue are given by <code>tArrowHeadOffsetx</code> and <code>tArrowHeadOffsety</code></li>
+<li>Coordinates of 'Tail' text below arrow are given by <code>tArrowTailx</code> and <code>tArrowTaily</code></li>
+<li>Values of Queue are stored in <code>values</code> array</li>
+<li><code>queue_artefact</code> is the object of this class</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-javascript" id="org2f672aa"><span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">canvasA</span> = document.getElementById(<span style="font-style: italic;">"queue-demo-canvas1"</span>);
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">canvasB</span> = document.getElementById(<span style="font-style: italic;">"queue-demo-canvas2"</span>);
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">queueA_canvas</span> = canvasA.getContext(<span style="font-style: italic;">"2d"</span>);
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">queueB_canvas</span> = canvasB.getContext(<span style="font-style: italic;">"2d"</span>);
+
+<span style="font-weight: bold;">class</span> queue_class{
+    constructor(){
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.rand = 0;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.txtSize = 25;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.rectWidth = 60;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.rectHeight = 60;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.rectStartx = 450;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.rectStarty = 83;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.arrayDist = 5;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.head = -1;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tail = -1;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.headb = -1;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tailb = -1;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowStartx = <span style="font-weight: bold; text-decoration: underline;">this</span>.rectStartx + <span style="font-weight: bold; text-decoration: underline;">this</span>.rectWidth / 2;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowStarty = <span style="font-weight: bold; text-decoration: underline;">this</span>.rectStarty - 10; 
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowEndx = <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowStartx;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowEndy = <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowStarty - 40;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowHeadOffsetx = 10;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowHeadOffsety = 10;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowHeadx = 5;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.hArrowHeady = 10; 
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowStartx = <span style="font-weight: bold; text-decoration: underline;">this</span>.rectStartx + <span style="font-weight: bold; text-decoration: underline;">this</span>.rectWidth / 2;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowStarty = <span style="font-weight: bold; text-decoration: underline;">this</span>.rectStarty + <span style="font-weight: bold; text-decoration: underline;">this</span>.rectHeight + 10; 
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowEndx = <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowStartx;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowEndy = <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowStarty + 40;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowHeadOffsetx = 10;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowHeadOffsety = 10;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowTailx = 5;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.tArrowTaily = 17; 
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.values = [];
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.val = [];
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.reset_array = [];
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.resethead = -1;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.resettail = -1;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.correct = [<span style="font-style: italic;">"E"</span>,<span style="font-style: italic;">"N"</span>,<span style="font-style: italic;">"C"</span>,<span style="font-style: italic;">"R"</span>,<span style="font-style: italic;">"Y"</span>,<span style="font-style: italic;">"P"</span>,<span style="font-style: italic;">"T"</span>];
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.count = 0;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.interval = 0;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.started = 0;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.prev = -1;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.popped;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.checker = 0;
+    <span style="font-weight: bold; text-decoration: underline;">this</span>.ispaused = 0;
+    };
+};
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8df0eda" class="outline-2">
+<h2 id="org8df0eda"><span class="section-number-2">3</span> Initialization</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgfc660f8"><span style="font-weight: bold;">let</span> <span style="font-weight: bold; font-style: italic;">queue_artefact</span> = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">queue_class</span>();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfed411d" class="outline-2">
+<h2 id="orgfed411d"><span class="section-number-2">4</span> Function Change Interval</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Supports changing time interval when the slider is changed in the webpage</li>
+<li>Also, changes the background colour of Pause button if required</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-js" id="org360a466"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">change_interval</span>()
+{
+  <span style="font-weight: bold;">if</span>(queue_artefact.interval != 0) { clearInterval(queue_artefact.interval); }
+  
+  <span style="font-weight: bold;">if</span>(document.getElementById(<span style="font-style: italic;">"interval"</span>).value != 100)
+  {
+     queue_artefact.interval = setInterval(check, 3400-document.getElementById(<span style="font-style: italic;">"interval"</span>).value); 
+     document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).style.backgroundColor = <span style="font-style: italic;">"#288ec8"</span>;
+  }
+  <span style="font-weight: bold;">else</span> document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).style.backgroundColor = <span style="font-style: italic;">"grey"</span>;
+};
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org370fe5f" class="outline-2">
+<h2 id="org370fe5f"><span class="section-number-2">5</span> Clear the canvas</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+A function to clear the entire canvas and make it blank. 
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgccca353"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">clearCanvas</span>(<span style="font-weight: bold; font-style: italic;">ctx</span>) {
+    <span style="font-weight: bold;">if</span> (ctx === queueA_canvas) ctx.clearRect(0, 0, canvasA.width, canvasA.height);
+    <span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span> (ctx === queueB_canvas) ctx.clearRect(0, 0, canvasB.width, canvasB.height);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3d43ec5" class="outline-2">
+<h2 id="org3d43ec5"><span class="section-number-2">6</span> Draw the queue</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Function to draw the basic queue.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org927dcd9"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">drawQueueStructure</span>(<span style="font-weight: bold; font-style: italic;">ctx</span>) {
+<span style="font-weight: bold;">if</span> (ctx === queueA_canvas) 
+{
+    headhere = 0;
+    tailhere = queue_artefact.tail-queue_artefact.head;
+}
+<span style="font-weight: bold;">else</span> 
+{
+    headhere = 0;
+    tailhere = queue_artefact.tailb-queue_artefact.headb;
+}
+ctx.beginPath();
+<span style="font-weight: bold;">if</span> (headhere &gt;= -1 &amp;&amp; tailhere &gt;= -1) 
+{
+    <span style="font-weight: bold;">if</span>(headhere===-1 &amp;&amp; tailhere===-1)
+    {
+        headhere = 0;
+        tailhere = 0;
+    }
+    ctx.strokeStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.fillStyle = <span style="font-style: italic;">"#a4c652"</span>;
+
+    txta = <span style="font-style: italic;">"Queue A"</span>;
+    txtb = <span style="font-style: italic;">"Queue B"</span>;
+    queueA_canvas.fillStyle = <span style="font-style: italic;">"black"</span>;
+    queueA_canvas.font = <span style="font-style: italic;">"25px arial"</span>;
+    queueB_canvas.font = <span style="font-style: italic;">"25px arial"</span>;
+    queueB_canvas.fillStyle = <span style="font-style: italic;">"black"</span>;
+    queueA_canvas.fillText(txta,<span style="font-style: italic;">"225"</span>,<span style="font-style: italic;">"125"</span>); 
+    queueB_canvas.fillText(txtb,<span style="font-style: italic;">"225"</span>,<span style="font-style: italic;">"125"</span>); 
+
+    ctx.strokeStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.fillStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.fillRect( queue_artefact.rectStartx + (headhere * queue_artefact.rectWidth) + (headhere * queue_artefact.arrayDist), queue_artefact.rectStarty, queue_artefact.rectWidth, queue_artefact.rectHeight);
+    <span style="font-weight: bold;">for</span> (<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">i</span> = headhere ; i &lt;= tailhere; i++) 
+    {
+        ctx.fillStyle = <span style="font-style: italic;">"#288ec8"</span>;
+        ctx.fillRect(queue_artefact.rectStartx + (i * queue_artefact.rectWidth) + (i * queue_artefact.arrayDist), queue_artefact.rectStarty, queue_artefact.rectWidth, queue_artefact.rectHeight);
+    }
+    ctx.fillStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.fillRect(queue_artefact.rectStartx + (headhere * queue_artefact.rectWidth) + (headhere * queue_artefact.arrayDist), queue_artefact.rectStarty, queue_artefact.rectWidth, queue_artefact.rectHeight);
+    ctx.fillRect(queue_artefact.rectStartx + (tailhere * queue_artefact.rectWidth) + (tailhere * queue_artefact.arrayDist), queue_artefact.rectStarty, queue_artefact.rectWidth, queue_artefact.rectHeight);
+}
+ctx.closePath();
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5671d85" class="outline-2">
+<h2 id="org5671d85"><span class="section-number-2">7</span> Write values of queue into array</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Function to write all the values present inside the queue displayed to user.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org92dcb79"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">writeNumbers</span>(<span style="font-weight: bold; font-style: italic;">ctx</span>) {
+clearCanvas(ctx);
+drawQueueStructure(ctx);
+
+ctx.shadowBlur = 0;
+valueshere = [];
+ctx.beginPath();
+<span style="font-weight: bold;">if</span> (ctx === queueA_canvas) {
+    valueshere = queue_artefact.values;
+    headhere = 0;
+    tailhere = queue_artefact.tail-queue_artefact.head;
+} <span style="font-weight: bold;">else</span> {
+    valueshere = queue_artefact.val;
+    headhere = 0;
+    tailhere = queue_artefact.tailb-queue_artefact.headb;
+}
+
+<span style="font-weight: bold;">if</span> (headhere &gt; -1 &amp;&amp; valueshere.length &gt; 0 &amp;&amp; tailhere &gt; -1) {
+    <span style="font-weight: bold;">for</span> (<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">i</span> = headhere; i &lt;=tailhere; i++) {
+        ctx.font = <span style="font-style: italic;">"20px Arial"</span>
+        ctx.fillStyle = <span style="font-style: italic;">"white"</span>;
+        txt = valueshere[i].toString();
+        txtWidth = ctx.measureText(txt).width;
+
+    txtX = queue_artefact.rectStartx + (i * queue_artefact.rectWidth) + (i * queue_artefact.arrayDist) + (queue_artefact.rectWidth - txtWidth) / 2;;
+    txtY = queue_artefact.rectStarty + queue_artefact.rectHeight - ((queue_artefact.rectHeight - queue_artefact.txtSize) / 2);
+
+    ctx.fillText(txt, txtX, txtY);
+    }
+}
+
+ctx.closePath();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e2787b" class="outline-2">
+<h2 id="org7e2787b"><span class="section-number-2">8</span> Arrow pointing to the head of the queue</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Function to draw the arrow pointing to head of the queue displayed to the user.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgc953197"><span style="font-weight: bold;">if</span> (headhere &gt; -1) {
+    <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">relativeArrowPos</span> = headhere * queue_artefact.rectWidth + headhere * queue_artefact.arrayDist;
+
+    ctx.beginPath();
+
+    ctx.moveTo(queue_artefact.hArrowStartx + relativeArrowPos, queue_artefact.hArrowStarty);
+    ctx.lineTo(queue_artefact.hArrowEndx + relativeArrowPos, queue_artefact.hArrowEndy);
+    ctx.strokeStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.moveTo(queue_artefact.hArrowStartx + relativeArrowPos, queue_artefact.hArrowStarty);
+    ctx.lineTo(queue_artefact.hArrowStartx + relativeArrowPos - queue_artefact.hArrowHeadOffsetx, queue_artefact.hArrowStarty - queue_artefact.hArrowHeadOffsety);
+    ctx.strokeStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.stroke();
+
+    ctx.moveTo(queue_artefact.hArrowStartx + relativeArrowPos, queue_artefact.hArrowStarty);
+    ctx.lineTo(queue_artefact.hArrowStartx + relativeArrowPos + queue_artefact.hArrowHeadOffsetx, queue_artefact.hArrowStarty - queue_artefact.hArrowHeadOffsety);
+    ctx.strokeStyle = <span style="font-style: italic;">"#a4c652"</span>;
+    ctx.stroke();
+
+    htxt = <span style="font-style: italic;">"Front of the queue"</span>;
+    ctx.font = <span style="font-style: italic;">"18px arial"</span>;
+    ctx.fillStyle = <span style="font-style: italic;">"black"</span>;
+    htxtWidth = ctx.measureText(htxt).width;
+    ctx.fillText(htxt, queue_artefact.hArrowEndx + relativeArrowPos - htxtWidth / 2, queue_artefact.hArrowEndy - queue_artefact.hArrowHeady);
+
+    ctx.closePath();
+}     
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org89fed0d" class="outline-2">
+<h2 id="org89fed0d"><span class="section-number-2">9</span> Arrow pointing to the tail of the queue</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Function to draw the arrow pointing to tail of the queue displayed to the user.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgb681b80"> <span style="font-weight: bold;">if</span> (tailhere &gt; -1) {
+<span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">relativeArrowPos</span> = tailhere * queue_artefact.rectWidth + tailhere * queue_artefact.arrayDist;;
+
+ctx.beginPath();
+
+ctx.moveTo(queue_artefact.tArrowStartx + relativeArrowPos, queue_artefact.tArrowStarty);
+ctx.lineTo(queue_artefact.tArrowEndx + relativeArrowPos, queue_artefact.tArrowEndy);
+ctx.strokeStyle = <span style="font-style: italic;">"#7bde3d"</span>;
+ctx.lineWidth = 1.5;
+ctx.stroke();
+
+ctx.moveTo(queue_artefact.tArrowStartx + relativeArrowPos, queue_artefact.tArrowStarty);
+ctx.lineTo(queue_artefact.tArrowStartx + relativeArrowPos - queue_artefact.tArrowHeadOffsetx, queue_artefact.tArrowStarty + queue_artefact.tArrowHeadOffsety);
+ctx.strokeStyle = <span style="font-style: italic;">"#7bde3d"</span>;
+ctx.stroke();
+
+ctx.moveTo(queue_artefact.tArrowStartx + relativeArrowPos, queue_artefact.tArrowStarty);
+ctx.lineTo(queue_artefact.tArrowStartx + relativeArrowPos + queue_artefact.tArrowHeadOffsetx, queue_artefact.tArrowStarty + queue_artefact.tArrowHeadOffsety);
+ctx.strokeStyle = <span style="font-style: italic;">"#7bde3d"</span>;
+ctx.stroke();
+
+ttxt = <span style="font-style: italic;">"Rear of the queue"</span>;
+ctx.font = <span style="font-style: italic;">"18px arial"</span>;
+ctx.fillStyle = <span style="font-style: italic;">"black"</span>;
+ttxtWidth = ctx.measureText(ttxt).width;
+ctx.fillText(ttxt, queue_artefact.tArrowEndx + relativeArrowPos - ttxtWidth / 2, queue_artefact.tArrowEndy + queue_artefact.tArrowTaily);
+
+ctx.closePath();
+}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org757ceb9" class="outline-2">
+<h2 id="org757ceb9"><span class="section-number-2">10</span> Function enqueue to queue B</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Function to dequeue the element from queue A and enqueue to queue B</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org952660a"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">enqueuetob</span>(){
+    <span style="font-weight: bold;">if</span> (queue_artefact.head === -1 &amp;&amp; queue_artefact.tail === -1) {
+        <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">alert("Queue A is empty!!!");</span>
+    } <span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span> (queue_artefact.tailb &gt; 16) {
+        alert(<span style="font-style: italic;">"Queue B is full!!!"</span>);
+    } <span style="font-weight: bold;">else</span> {
+        <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">value</span> = queue_artefact.values.shift();
+        queue_artefact.head++;
+        <span style="font-weight: bold;">if</span> (queue_artefact.head &gt; queue_artefact.tail) {
+            queue_artefact.values = [];
+            queue_artefact.head = -1;
+            queue_artefact.tail = -1;
+        }
+        <span style="font-weight: bold;">if</span> (value === <span style="font-style: italic;">""</span> || value === <span style="font-weight: bold; text-decoration: underline;">null</span>) <span style="font-weight: bold;">return</span>;
+        <span style="font-weight: bold;">else</span> {
+            queue_artefact.val.push(value);
+            <span style="font-weight: bold;">if</span> (queue_artefact.headb === -1) queue_artefact.headb++;
+            queue_artefact.tailb++;
+            writeNumbers(queueA_canvas);
+            writeNumbers(queueB_canvas);
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4c8299" class="outline-2">
+<h2 id="orgf4c8299"><span class="section-number-2">11</span> Function enqueue to queue A</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li>Function to dequeue the element from queue A and enqueue to queue A</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org1e6a182"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">dequeuea</span>(){
+    <span style="font-weight: bold;">if</span> (queue_artefact.head=== -1 &amp;&amp; queue_artefact.tail === -1) {
+        alert(<span style="font-style: italic;">"Queue A is empty"</span>);
+    } <span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span> (queue_artefact.tail &gt; 16) {
+        alert(<span style="font-style: italic;">"Queue A is full!!!"</span>);
+    } <span style="font-weight: bold;">else</span> {
+        <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">value</span> = queue_artefact.values.shift();
+        queue_artefact.head++;
+        <span style="font-weight: bold;">if</span> (queue_artefact.head &gt; queue_artefact.tail) {
+            queue_artefact.values = [];
+            queue_artefact.head = -1;
+            queue_artefact.tail = -1;
+        }
+        queue_artefact.popped = value; 
+        writeNumbers(queueA_canvas);
+        writeNumbers(queueB_canvas);
+    }
+}            
+<span style="font-weight: bold;">function</span> <span style="font-weight: bold;">enqueuetoa</span>()
+{
+value = queue_artefact.popped;
+<span style="font-weight: bold;">if</span> (value === <span style="font-style: italic;">""</span> || value === <span style="font-weight: bold; text-decoration: underline;">null</span>) <span style="font-weight: bold;">return</span>;
+    <span style="font-weight: bold;">else</span> {
+        queue_artefact.values.push(value);
+        <span style="font-weight: bold;">if</span> (queue_artefact.head === -1) queue_artefact.head++;
+        queue_artefact.tail++;
+        document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML = <span style="font-style: italic;">"The letter Dequeued from queue A (i.e "</span> + value + <span style="font-style: italic;">" ) is Enqueued to &lt;b&gt;Queue A&lt;/b&gt; as it is not the required one"</span>;
+        writeNumbers(queueA_canvas);
+        writeNumbers(queueB_canvas);
+    }
+} 
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgda987bc" class="outline-2">
+<h2 id="orgda987bc"><span class="section-number-2">12</span> Function check</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li>Function used to check whether to enqueue the letter to queue B or not</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org486f454"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">check</span>(){
+<span style="font-weight: bold;">if</span>(queue_artefact.values.length &lt;= 0)
+{
+    document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML = <span style="font-style: italic;">"&lt;b&gt;Demonstration is complete!!!&lt;/b&gt;"</span>;
+    document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">true</span>;
+    document.getElementById(<span style="font-style: italic;">"startbutton-queuedemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">true</span>;
+    document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).style.backgroundColor=<span style="font-style: italic;">"grey"</span>;
+    document.getElementById(<span style="font-style: italic;">"startbutton-queuedemo"</span>).style.backgroundColor=<span style="font-style: italic;">"grey"</span>;
+}
+<span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span>(queue_artefact.checker === 1){
+    enqueuetoa();
+    queue_artefact.checker = 0;
+    <span style="font-weight: bold;">return</span>;
+}
+<span style="font-weight: bold;">else</span> <span style="font-weight: bold;">if</span>(queue_artefact.correct[queue_artefact.count] === queue_artefact.values[0])
+{
+    document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML = <span style="font-style: italic;">"The letter pointed by the Front pointer (i.e "</span> + queue_artefact.values[0] + <span style="font-style: italic;">" ) is the required one so it is Dequeued from &lt;b&gt;Queue A&lt;/b&gt; and Enqueued to &lt;b&gt;Queue B&lt;/b&gt;"</span>;
+    queue_artefact.count++;
+    enqueuetob();    
+}
+<span style="font-weight: bold;">else</span>
+    {
+        <span style="font-weight: bold;">if</span>(queue_artefact.checker === 0)
+        {
+            queue_artefact.checker = 1;
+            document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML = <span style="font-style: italic;">"The letter pointed by the Front pointer (i.e "</span> + queue_artefact.values[0] + <span style="font-style: italic;">" ) is not the required one so it is Dequeued from &lt;b&gt;Queue A&lt;/b&gt;"</span>; 
+            dequeuea();
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org494b058" class="outline-2">
+<h2 id="org494b058"><span class="section-number-2">13</span> Function onpause</h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>Function which gets called on clicking <code>pause</code> button</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org89b80a7"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">onpause</span>(){
+<span style="font-weight: bold;">if</span>(queue_artefact.prev === -1){
+    queue_artefact.prev = document.getElementById(<span style="font-style: italic;">"interval"</span>).value;
+    <span style="font-weight: bold;">if</span>(queue_artefact.interval != 0){ 
+      clearInterval(queue_artefact.interval);
+}
+queue_artefact.ispaused = 1;
+document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).value = <span style="font-style: italic;">"Play"</span>;
+  }<span style="font-weight: bold;">else</span>{
+    queue_artefact.prev = -1;
+    queue_artefact.ispaused = 0;
+    clearInterval(queue_artefact.interval);
+    queue_artefact.interval = setInterval(check, 3400-document.getElementById(<span style="font-style: italic;">"interval"</span>).value);
+    document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).value = <span style="font-style: italic;">"Pause"</span>;
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3af211c" class="outline-2">
+<h2 id="org3af211c"><span class="section-number-2">14</span> Function initializeArtefact</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li>Function which gets performed on loading the artefact</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgd751b5f"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">initializeArtefact</span>(){
+    queue_artefact.values = [];
+    queue_artefact.headb = -1;
+    queue_artefact.tailb = -1;
+    queue_artefact.val = [];
+    queue_artefact.reset_array = [];
+    queue_artefact.values = [<span style="font-style: italic;">"T"</span>,<span style="font-style: italic;">"R"</span>,<span style="font-style: italic;">"E"</span>,<span style="font-style: italic;">"P"</span>,<span style="font-style: italic;">"N"</span>,<span style="font-style: italic;">"Y"</span>,<span style="font-style: italic;">"C"</span>];
+    <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">elementNo</span> = queue_artefact.values.length;
+    queue_artefact.tail = elementNo - 1;
+    queue_artefact.head = elementNo - queue_artefact.tail - 1;
+    queue_artefact.resethead = queue_artefact.head;
+    queue_artefact.resettail = queue_artefact.tail;
+    queue_artefact.count = 0;
+    document.getElementById(<span style="font-style: italic;">"interval"</span>).value = 1500;
+    document.getElementById(<span style="font-style: italic;">"startbutton-queuedemo"</span>).value = <span style="font-style: italic;">"Start"</span>;
+    document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">true</span>;
+    document.getElementById(<span style="font-style: italic;">"reset-queuedemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">true</span>;
+    document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).style.backgroundColor=<span style="font-style: italic;">"grey"</span>;
+    document.getElementById(<span style="font-style: italic;">"reset-queuedemo"</span>).style.backgroundColor=<span style="font-style: italic;">"grey"</span>;
+    handlers();
+    drawQueueStructure(queueA_canvas);
+    writeNumbers(queueA_canvas);
+    drawQueueStructure(queueB_canvas);
+    writeNumbers(queueB_canvas);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org433fa3c" class="outline-2">
+<h2 id="org433fa3c"><span class="section-number-2">15</span> Function onstart</h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li>Used to start the demonstration when <code>start</code> button is clicked</li>
+<li>Used to perform next step when <code>next</code> button is clicked</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="org2c1377c"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">onstart</span>(){
+document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).style.backgroundColor=<span style="font-style: italic;">"#288ec8"</span>;
+document.getElementById(<span style="font-style: italic;">"reset-queuedemo"</span>).style.backgroundColor=<span style="font-style: italic;">"#288ec8"</span>;
+document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">false</span>;
+document.getElementById(<span style="font-style: italic;">"reset-queuedemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">false</span>;
+
+<span style="font-weight: bold;">if</span>(document.getElementById(<span style="font-style: italic;">"interval"</span>).value === 100 || queue_artefact.started === 1)
+  {
+    document.getElementById(<span style="font-style: italic;">"startbutton-queuedemo"</span>).value = <span style="font-style: italic;">"Next"</span>;
+    document.getElementById(<span style="font-style: italic;">"startbutton-queuedemo"</span>).disabled = <span style="font-weight: bold; text-decoration: underline;">false</span>;
+    clearInterval(queue_artefact.interval);
+    <span style="font-weight: bold;">if</span>(queue_artefact.ispaused==1){
+            check();
+        }
+    <span style="font-weight: bold;">else</span>{
+        check();        
+        queue_artefact.interval = setInterval(check, 3400-document.getElementById(<span style="font-style: italic;">"interval"</span>).value); 
+    }
+    document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).style.visibility = <span style="font-style: italic;">"visible"</span>;
+  }
+<span style="font-weight: bold;">else</span>{
+    document.getElementById(<span style="font-style: italic;">"ins"</span>).innerHTML = <span style="font-style: italic;">"&lt;b&gt;Demonstration started&lt;/b&gt;"</span>;
+    document.getElementById(<span style="font-style: italic;">"interval"</span>).value === 1500;
+    document.getElementById(<span style="font-style: italic;">"startbutton-queuedemo"</span>).value = <span style="font-style: italic;">"Next"</span>;
+    queue_artefact.started = 1;
+    change_interval();
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3a86f38" class="outline-2">
+<h2 id="org3a86f38"><span class="section-number-2">16</span> Function reset</h2>
+<div class="outline-text-2" id="text-16">
+<ul class="org-ul">
+<li>Function which gets called on clicking <code>reset</code> button</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgc6ec792"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">onreset</span>(){
+    location.reload(<span style="font-weight: bold; text-decoration: underline;">true</span>);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6ad6117" class="outline-2">
+<h2 id="org6ad6117"><span class="section-number-2">17</span> Adds all event handlers</h2>
+<div class="outline-text-2" id="text-17">
+<ul class="org-ul">
+<li>A function that adds all the <code>event handlers</code> to the html document</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-javascript" id="orgdc8b46a"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">handlers</span>()
+{ 
+ document.getElementById(<span style="font-style: italic;">"interval"</span>).oninput = <span style="font-weight: bold;">function</span>() { change_interval(); };
+ document.getElementById(<span style="font-style: italic;">"interval"</span>).onchange = <span style="font-weight: bold;">function</span>() { change_interval(); };
+ document.getElementById(<span style="font-style: italic;">"startbutton-queuedemo"</span>).onclick = <span style="font-weight: bold;">function</span>() { onstart(); };
+ document.getElementById(<span style="font-style: italic;">"reset-queuedemo"</span>).onclick = <span style="font-weight: bold;">function</span>() { onreset(); };
+ document.getElementById(<span style="font-style: italic;">"pause-queuedemo"</span>).onclick = <span style="font-weight: bold;">function</span>() { onpause(); };
+};
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgc559819" class="outline-2">
+<h2 id="orgc559819"><span class="section-number-2">18</span> Tangle</h2>
+<div class="outline-text-2" id="text-18">
+<div class="org-src-container">
+<pre class="src src-javascript">        
+&lt;&lt;queue-<span style="font-weight: bold;">class</span>&gt;&gt;
+&lt;&lt;initialize&gt;&gt;
+&lt;&lt;change-<span style="font-weight: bold; text-decoration: underline;">int</span>&gt;&gt;
+&lt;&lt;clear-canvas&gt;&gt;
+&lt;&lt;draw-array-struct&gt;&gt; 
+&lt;&lt;write-values&gt;&gt;
+&lt;&lt;draw-head-arrow&gt;&gt;
+&lt;&lt;draw-tail-arrow&gt;&gt;
+&lt;&lt;enqueuetob_function&gt;&gt;
+&lt;&lt;enqueuetoa_function&gt;&gt;
+&lt;&lt;oncheck_function&gt;&gt;
+&lt;&lt;onpause_function&gt;&gt;
+&lt;&lt;onload_function&gt;&gt;
+&lt;&lt;start_function&gt;&gt;
+&lt;&lt;onreset_function&gt;&gt;
+&lt;&lt;handlers&gt;&gt;
+       
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2018-06-12 Tue 00:00</p>
+<p class="author">Author: VLEAD</p>
+<p class="date">Created: 2021-03-13 Sat 05:43</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
