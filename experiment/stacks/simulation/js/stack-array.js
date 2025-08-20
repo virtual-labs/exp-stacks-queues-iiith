@@ -214,7 +214,8 @@ function onpush() {
     // Determine type: int or float
     let isInt = /^[-+]?\d+$/.test(value);
     let isFloat = /^[-+]?\d*\.\d+$/.test(value);
-    if (!isInt && !isFloat) {
+    let isNumber = /^[-+]?\d*\.?\d+$/.test(value);
+    if (!isNumber) {
       document.getElementById("ins").innerHTML =
         "Please enter a valid <b>integer</b> or <b>float</b> value only.";
     } else {
@@ -242,14 +243,7 @@ function onpush() {
           "<br>The index of the top of stack:" +
           stackarray_artefact.topOfStack;
       } else if (stackarray_artefact.stackType === "float") {
-        // Only allow floats (must have a decimal point)
-        if (!isFloat) {
-          document.getElementById(
-            "ins"
-          ).innerHTML = `Stack only allows <b>float</b> values. Please enter a valid float (with a decimal point).`;
-          document.getElementById("numbers-stackarray").value = "";
-          return;
-        }
+        // Allow any valid number, store/display as float
         var numValue = parseFloat(value).toFixed(1);
         stackarray_artefact.values.push(numValue);
         stackarray_artefact.topOfStack++;

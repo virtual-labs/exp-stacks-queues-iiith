@@ -4,6 +4,10 @@
     <title>Queues Exercise</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../../assets/css/common-styles-responsive.css"
+    />
     <link rel="stylesheet" href="css/stacks-and-queues.css" />
     <style>
       body {
@@ -21,20 +25,6 @@
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         padding: 24px 32px 32px 32px;
         width: 96vw;
-      }
-      .instruction-box {
-        margin-bottom: 18px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .instruction-box ul {
-        margin: 0 0 0 18px;
-        padding: 0;
-      }
-      .instruction-box li {
-        margin-bottom: 6px;
-        line-height: 1.5;
       }
       #question {
         font-size: 1.1em;
@@ -120,8 +110,8 @@
   </head>
   <body onload="generateQuestion()">
     <div class="instruction-box">
-      <button class="collapsible" id="instructions-toggle">Instructions</button>
-      <div class="content" id="instructions-content" style="display: none">
+      <button class="collapsible">Instructions</button>
+      <div class="content">
         <ol>
           <li>
             Click <b>New Question</b> to generate Queue A (with random numbers)
@@ -212,23 +202,7 @@
         </div>
       </div>
     </div>
-    <script>
-      // Collapsible instructions toggle
-      document.addEventListener("DOMContentLoaded", function () {
-        var btn = document.getElementById("instructions-toggle");
-        var content = document.getElementById("instructions-content");
-        btn.addEventListener("click", function () {
-          if (
-            content.style.display === "none" ||
-            content.style.display === ""
-          ) {
-            content.style.display = "block";
-          } else {
-            content.style.display = "none";
-          }
-        });
-      });
-    </script>
     <script src="js/queue-exercise.js"></script>
+    <script src="../../assets/js/instruction-box.js"></script>
   </body>
 </html>
