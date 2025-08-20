@@ -1,74 +1,206 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Queues Exercise</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/common-styles-responsive.css">
-    <link rel="stylesheet" href="css/stacks-and-queues.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../../assets/css/common-styles-responsive.css"
+    />
+    <link rel="stylesheet" href="css/stacks-and-queues.css" />
+    <style>
+      body {
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 16px;
+        background: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
+      #wrapper {
+        max-width: 1400px;
+        margin: 30px auto 0 auto;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        padding: 24px 32px 32px 32px;
+        width: 96vw;
+      }
+      #question {
+        font-size: 1.1em;
+        margin-bottom: 18px;
+      }
+      #canvas-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4vw;
+        margin-bottom: 18px;
+      }
+      #queue_ex,
+      #queue_2_ex {
+        width: 48%;
+        min-width: 300px;
+        background: #f4f7fa;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      }
+      .comment-box {
+        margin: 18px 0 18px 0;
+        padding: 12px 18px;
+        background: #f6f6f6;
+        border-radius: 6px;
+        min-height: 60px;
+        font-size: 1em;
+      }
+      .buttons-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 18px;
+        gap: 10px;
+      }
+      #enque-deque-btns,
+      #controller-btns {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        justify-content: center;
+      }
+      .button-input {
+        font-size: 1em;
+        padding: 8px 18px;
+        border-radius: 5px;
+        border: 1px solid #2180bc;
+        background: #2180bc;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .button-input:hover {
+        background: #17649a;
+      }
+      @media (max-width: 900px) {
+        #wrapper {
+          padding: 12px 4vw;
+        }
+        #canvas-wrapper {
+          flex-direction: column;
+          gap: 12px;
+        }
+        #queue_ex,
+        #queue_2_ex {
+          width: 100%;
+          min-width: 0;
+        }
+        .buttons-wrapper {
+          flex-direction: row;
+          gap: 10px;
+          justify-content: center;
+        }
+        #enque-deque-btns,
+        #controller-btns {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   </head>
   <body onload="generateQuestion()">
     <div class="instruction-box">
       <button class="collapsible">Instructions</button>
       <div class="content">
-        <ul>
-          <li><b>New question</b> generates Queue A with a set
-            of random numbers and an empty Queue B</li>
-          <li>You need to dequeue the elements of the Queue A
-            in Ascending order/Descending order based on
-            question given, using Queue B.</li>
-          <li><b>Dequeue A</b> dequeues the element from queue
-            A and <b>Dequeue B</b> dequeues the element from
-            queue B</li>
-          <li><b>Enqueue to A</b> dequeues the element from
-            queue B and enqueues it to queue A and <b>Enqueue to
-              B</b> dequeues the element from queue A and enqueues
-            it to queue B</li>
-          <li><b>Reset</b> restarts the same question
-            again</li>
-          <li>To check the sequence dequeued is correct or not
-            click on <b>Submit</b> button and feedback is
-            displayed in comments box
+        <ol>
+          <li>
+            Click <b>New Question</b> to generate Queue A (with random numbers)
+            and an empty Queue B.
           </li>
-        </ul>
+          <li>
+            Your goal: Dequeue all elements from Queue A in <b>ascending</b> or
+            <b>descending</b> order (as specified in the question), using only
+            the allowed queue operations and Queue B as a helper.
+          </li>
+          <li>
+            <b>Dequeue A</b>: Remove the front element from Queue A.<br />
+            <b>Dequeue B</b>: Remove the front element from Queue B.
+          </li>
+          <li>
+            <b>Enqueue to B</b>: Move the front element from Queue A to the rear
+            of Queue B.<br />
+            <b>Enqueue to A</b>: Move the front element from Queue B to the rear
+            of Queue A.
+          </li>
+          <li><b>Reset</b>: Restart the current question.</li>
+          <li>
+            When you think you have dequeued the sequence correctly, click
+            <b>Submit</b> to check your answer. The Observations box will show
+            feedback and, if incorrect, the correct answer.
+          </li>
+        </ol>
       </div>
     </div>
-    
+
     <div id="wrapper">
       <div id="question">
         <b>Question:</b>
       </div>
-      
       <div id="canvas-wrapper">
         <canvas id="queue_ex" width="660" height="220">
-            Your browser does not support canvas.
+          Your browser does not support canvas.
         </canvas>
-        
         <canvas id="queue_2_ex" width="660" height="220">
-            Your browser does not support canvas.
+          Your browser does not support canvas.
         </canvas>
-        
       </div>
       <div class="comment-box" id="comments-qex">
-        <b>Observations</b><br>
-        <p id="ins"> </p>
+        <b>Observations</b><br />
+        <p id="ins"></p>
       </div>
-      
-      <div class="buttons-wrapper">  
+      <div class="buttons-wrapper">
         <div id="enque-deque-btns">
-          <input type="button" class="button-input" value="Dequeue A" id="dequeue-button">
-          <input type="button" class="button-input" value="Dequeue B" id="dequeue-buttonB">
-          <input type="button" class="button-input" value="Enqueue to B" id="enqueue-to-B">
-          <input type="button" class="button-input" value="Enqueue to A" id="enqueue-to-A" >
+          <input
+            type="button"
+            class="button-input"
+            value="Dequeue A"
+            id="dequeue-button"
+          />
+          <input
+            type="button"
+            class="button-input"
+            value="Dequeue B"
+            id="dequeue-buttonB"
+          />
+          <input
+            type="button"
+            class="button-input"
+            value="Enqueue to B"
+            id="enqueue-to-B"
+          />
+          <input
+            type="button"
+            class="button-input"
+            value="Enqueue to A"
+            id="enqueue-to-A"
+          />
         </div>
         <div id="controller-btns">
-          <input type="button" class="button-input" value="Reset" id="reset">
-          <input type="button" class="button-input" value="New Question" id="generate-question-queue" >
-          <input type="button" class="button-input" value="Submit" id="checkButton-queue" >
+          <input type="button" class="button-input" value="Reset" id="reset" />
+          <input
+            type="button"
+            class="button-input"
+            value="New Question"
+            id="generate-question-queue"
+          />
+          <input
+            type="button"
+            class="button-input"
+            value="Submit"
+            id="checkButton-queue"
+          />
         </div>
       </div>
-      
     </div>
     <script src="js/queue-exercise.js"></script>
     <script src="../../assets/js/instruction-box.js"></script>
