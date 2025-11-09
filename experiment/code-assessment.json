@@ -1,41 +1,33 @@
 {
-    "version": 1,
-    "experiment name": "Experiment Name",
-    "problems": [
-        {
-            "problem name": "Stacks - Balanced bracket sequence",
-            "description": "You are given a bracket sequence consisting of '(', ')', '{', '}', '[', and ']'. You are to find whether the bracket sequence is balanced or not. A balanced bracket sequence is a string consisting of only brackets, such that this sequence, when inserted with certain numbers and mathematical operations, gives a valid mathematical expression.",
-            "inputs": [
-                "{[()()]}"
-            ],
-            "expected": true,
-            "inputs description": "Input consists of a bracket sequence of '(', ')', '{', '}', '[', and ']'.",
-            "expected description": "true if the sequence is valid otherwise false",
-            "difficulty": "beginner"
-        },
-        {
-            "problem name": "Queues - Reverse first K elements",
-            "description": "You are given a list of numbers and a number K. You are required to only reverse the first K numbers of the list and return the modified list.",
-            "inputs": [
-                [10,9,24,100,2,300,258,59],
-                4
-            ],
-            "expected": [100,24,9,10,2,300,258,59],
-            "inputs description": "Input consists of an array of numbers - inp1 and the number K - inp2.",
-            "expected description": "Array of numbers like the input array with the first k numbers reversed.",
-            "difficulty": "beginner"
-        },
-        {
-            "problem name": "Evaluate Reverse Polish Notation",
-            "description": "You are given a list of strings representing a Reverse Polish Notation (RPN) expression. Reverse Polish Notation is a mathematical notation in which operators follow their operands. For example, the expression '2 1 +' is evaluated as 2 + 1. Your task is to evaluate the given RPN expression and return the result. Valid operators are '+', '-', '*', and '/'. Each operand may be an integer or another expression.",
-            "inputs": [
-                ["2", "1", "+", "3", "*"]
-            ],
-            "expected": 9,
-            "inputs description": "Input consists of an array of strings representing a Reverse Polish Notation (RPN) expression. Each string is either an integer or one of the operators '+', '-', '*', or '/'.",
-            "expected description": "An integer representing the evaluated result of the RPN expression.",
-            "difficulty": "intermediate"
-        }
-
-    ]
+  "version": 1,
+  "experiment name": "Stacks and Queues Implementation",
+  "problems": [
+    {
+      "problem name": "Stacks - Balanced bracket sequence",
+      "description": "Implement a function to check if a bracket sequence is balanced using a stack data structure. Push opening brackets onto the stack and pop when encountering closing brackets, ensuring they match the most recent opening bracket. The sequence is balanced if the stack is empty at the end and all brackets are properly paired. Example: '{[()()]}' should return true, while '([)]' should return false. Only JavaScript is allowed.",
+      "inputs": ["{[()()]}"],
+      "expected": true,
+      "inputs description": "Input consists of a bracket sequence of '(', ')', '{', '}', '[', and ']'.",
+      "expected description": "true if the sequence is valid otherwise false",
+      "difficulty": "beginner"
+    },
+    {
+      "problem name": "Queues - Reverse first K elements",
+      "description": "Implement a function that reverses only the first K elements of a queue while maintaining the order of remaining elements. Use a stack to temporarily store the first K elements (dequeue K elements and push to stack), then pop from stack back to queue to reverse their order, finally dequeue and re-enqueue the remaining elements to restore their original positions. Example: [10,9,24,100,2,300,258,59] with K=4 should become [100,24,9,10,2,300,258,59]. Only JavaScript is allowed.",
+      "inputs": [[10, 9, 24, 100, 2, 300, 258, 59], 4],
+      "expected": [100, 24, 9, 10, 2, 300, 258, 59],
+      "inputs description": "Input consists of an array of numbers - inp1 and the number K - inp2.",
+      "expected description": "Array of numbers like the input array with the first k numbers reversed.",
+      "difficulty": "beginner"
+    },
+    {
+      "problem name": "Evaluate Reverse Polish Notation",
+      "description": "Implement a stack-based evaluator for Reverse Polish Notation (RPN) expressions. Process tokens left to right: push operands onto the stack, and when encountering an operator, pop two operands, perform the operation (second popped operand first), and push the result back. The final stack should contain exactly one element - the result. Example: ['2', '1', '+', '3', '*'] evaluates as (2+1)*3 = 9. Only JavaScript is allowed.",
+      "inputs": [["2", "1", "+", "3", "*"]],
+      "expected": 9,
+      "inputs description": "Input consists of an array of strings representing a Reverse Polish Notation (RPN) expression. Each string is either an integer or one of the operators '+', '-', '*', or '/'.",
+      "expected description": "An integer representing the evaluated result of the RPN expression.",
+      "difficulty": "intermediate"
+    }
+  ]
 }
