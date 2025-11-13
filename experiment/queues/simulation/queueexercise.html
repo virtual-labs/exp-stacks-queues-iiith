@@ -82,8 +82,16 @@
         background: #17649a;
       }
       @media (max-width: 900px) {
+        body {
+          font-size: 14px;
+        }
         #wrapper {
           padding: 12px 4vw;
+          margin: 10px auto 0 auto;
+          width: 94vw;
+        }
+        #question {
+          font-size: 1em;
         }
         #canvas-wrapper {
           flex-direction: column;
@@ -93,16 +101,89 @@
         #queue_2_ex {
           width: 100%;
           min-width: 0;
+          max-width: 100%;
+        }
+        .comment-box {
+          margin: 12px 0;
+          padding: 10px 12px;
+          font-size: 0.95em;
+          word-wrap: break-word;
         }
         .buttons-wrapper {
-          flex-direction: row;
-          gap: 10px;
-          justify-content: center;
+          flex-direction: column;
+          gap: 8px;
         }
         #enque-deque-btns,
         #controller-btns {
           flex-direction: column;
+          gap: 8px;
+          width: 100%;
+        }
+        .button-input {
+          width: 100%;
+          padding: 10px 12px;
+          font-size: 0.95em;
+        }
+      }
+      @media (max-width: 480px) {
+        body {
+          font-size: 13px;
+        }
+        #wrapper {
+          padding: 8px 3vw;
+          margin: 5px auto 0 auto;
+          width: 92vw;
+          border-radius: 5px;
+        }
+        #question {
+          font-size: 0.95em;
+          margin-bottom: 12px;
+        }
+        #canvas-wrapper {
           gap: 10px;
+          margin-bottom: 12px;
+        }
+        #queue_ex,
+        #queue_2_ex {
+          border-radius: 5px;
+        }
+        .comment-box {
+          margin: 10px 0;
+          padding: 8px 10px;
+          font-size: 0.9em;
+          border-radius: 5px;
+          min-height: 50px;
+        }
+        .instruction-box {
+          font-size: 0.9em;
+        }
+        .content ol {
+          padding-left: 20px;
+        }
+        .content li {
+          margin-bottom: 8px;
+        }
+        .button-input {
+          padding: 10px;
+          font-size: 0.9em;
+          border-radius: 4px;
+        }
+        #enque-deque-btns,
+        #controller-btns {
+          gap: 6px;
+        }
+      }
+      @media (max-width: 360px) {
+        body {
+          font-size: 12px;
+        }
+        #wrapper {
+          padding: 6px 2vw;
+          width: 90vw;
+        }
+        .button-input {
+          padding: 8px;
+          font-size: 0.85em;
         }
       }
     </style>
