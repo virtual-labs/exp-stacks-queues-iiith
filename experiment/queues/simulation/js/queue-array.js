@@ -1,5 +1,5 @@
 var canvas = document.getElementById("queueArray");
-canvas.width = 1500;
+canvas.width = 1200;
 canvas.height = 340;
 var ctx = canvas.getContext("2d");
 class queue_Array {
@@ -10,7 +10,7 @@ class queue_Array {
     this.lineNo = this.rectNo - 1;
     this.rectWidth = 95;
     this.rectHeight = 80;
-    this.rectStartx = 250;
+    this.rectStartx = (canvas.width - (8 * 95 + 7 * 3)) / 2;
     this.rectStarty = 120;
     this.indexPosx = this.rectStartx;
     this.indexPosy = this.rectStarty + this.rectHeight + 40;

@@ -8,7 +8,7 @@ class queue_Exercise {
     this.txtSize = 25;
     this.rectWidth = 60;
     this.rectHeight = 60;
-    this.rectStartx = 165;
+    this.rectStartx = (canvasA.width - (7 * 60 + 6 * 5)) / 2;
     this.rectStarty = 83;
     this.arrayDist = 5;
     this.head = -1;
@@ -66,11 +66,11 @@ function drawQueueStructure(ctx) {
     txta = "Queue A";
     txtb = "Queue B";
     queueA_canvas.fillStyle = "black";
-    queueA_canvas.font = "25px arial";
-    queueB_canvas.font = "25px arial";
+    queueA_canvas.font = "22px arial";
+    queueB_canvas.font = "22px arial";
     queueB_canvas.fillStyle = "black";
-    queueA_canvas.fillText(txta, "10", "125");
-    queueB_canvas.fillText(txtb, "10", "125");
+    queueA_canvas.fillText(txta, 15, 265);
+    queueB_canvas.fillText(txtb, 15, 265);
 
     ctx.strokeStyle = "#a4c652";
     ctx.fillStyle = "#a4c652";
