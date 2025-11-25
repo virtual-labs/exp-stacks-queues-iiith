@@ -14,7 +14,7 @@ class stack_exercise {
     this.lineNo = this.rectNo - 1;
     this.rectHeight = 30;
     this.rectWidth = this.rectHeight * 4;
-    this.rectStartx = 200;
+    this.rectStartx = (canvasA.width - this.rectHeight * 4) / 2;
     this.rectStarty = 5;
     this.valuesA = [];
     this.checkLength = 8;
@@ -37,8 +37,13 @@ function drawStackStructure(ctx) {
   stackA_canvas.font = "20px arial";
   stackB_canvas.font = "20px arial";
   stackB_canvas.fillStyle = "black";
-  stackA_canvas.fillText(txta, "220", "279");
-  stackB_canvas.fillText(txtb, "220", "279");
+
+  // Center the labels
+  var txtaWidth = stackA_canvas.measureText(txta).width;
+  var txtbWidth = stackB_canvas.measureText(txtb).width;
+  stackA_canvas.fillText(txta, (canvasA.width - txtaWidth) / 2, 279);
+  stackB_canvas.fillText(txtb, (canvasB.width - txtbWidth) / 2, 279);
+
   ctx.rect(
     stack_exercise_artefact.rectStartx,
     stack_exercise_artefact.rectStarty,
