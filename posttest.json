@@ -1,0 +1,73 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. What is the advantage of using linked list implementation of stack over array implementation?",
+      "answers": {
+        "a": "Pushing into the stack is faster in linked list implementation.",
+        "b": "Popping from the stack is faster in linked list implementation.",
+        "c": "Linked list has a variable size, unlike an array.",
+        "d": "None of the above"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. The speed of push operation is not necessarily faster in linked list implementation compared to array.",
+        "b": "Incorrect. The speed of pop operation is not necessarily faster in linked list implementation compared to array.",
+        "c": "Correct. Linked list implementation allows variable size, unlike arrays which have fixed size.",
+        "d": "Incorrect. Option c is the correct advantage."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. Insertion and Deletion operations in Queue and Stack are known as ?",
+      "answers": {
+        "a": "Enqueue and Dequeue, Push and Pop",
+        "b": "Push and Pop, Enqueue and Dequeue",
+        "c": "Pop and Push, Dequeue and Enqueue",
+        "d": "Dequeue and Enqueue, Pop and Push"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. Queue uses Enqueue (insert) and Dequeue (delete); Stack uses Push (insert) and Pop (delete).",
+        "b": "Incorrect. The order of operations is not correct for Queue and Stack.",
+        "c": "Incorrect. The order of operations is not correct for Queue and Stack.",
+        "d": "Incorrect. The order of operations is not correct for Queue and Stack."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. What would be the time complexity to pop an element from the stack and dequeue an element from the queue ?",
+      "answers": {
+        "a": "O(n) and O(1)",
+        "b": "O(1) and O(n)",
+        "c": "O(1) and O(1)",
+        "d": "O(n) and O(n)"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. Pop in stack is O(1), dequeue in queue is O(1) in standard implementations.",
+        "b": "Incorrect. Pop in stack is O(1), dequeue in queue is O(1) in standard implementations.",
+        "c": "Correct. Both operations are O(1) in standard implementations.",
+        "d": "Incorrect. Both operations are O(1) in standard implementations."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. Which of the following is the best to implement a priority queue?",
+      "answers": {
+        "a": "Heap",
+        "b": "Array",
+        "c": "Linnked List",
+        "d": "Tree"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. A heap, specifically a binary heap, provides efficient insert and delete operations for a priority queue.",
+        "b": "Incorrect. Arrays are not efficient for priority queue operations.",
+        "c": "Incorrect. Linked lists are not efficient for priority queue operations.",
+        "d": "Incorrect. Trees are not as efficient as heaps for priority queue operations."
+      },
+      "difficulty": "advanced"
+    }
+  ]
+}

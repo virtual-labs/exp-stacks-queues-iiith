@@ -1,0 +1,555 @@
+#wrapper {
+  padding-top: 2%;
+}
+
+#canvas-wrapper {
+  padding-bottom: 15%;
+}
+
+#question,
+#question-holder {
+  text-align: justify;
+  padding-bottom: 2%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.comment-box {
+  margin: auto;
+  height: 13vh;
+  max-width: 1200px;
+}
+
+.slidecontainer {
+  padding-top: 0%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.buttons-wrapper {
+  text-align: center;
+  padding-top: 2%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#pop-buttons-wrapper {
+  text-align: center;
+}
+
+#buttondiv1 {
+  padding-bottom: 2%;
+}
+
+#enque-deque-btns {
+  padding-bottom: 1%;
+}
+
+#stackArray {
+  display: block;
+  width: 100%;
+  height: 50%;
+}
+
+#linkedlist {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+#stack_1,
+#stack_2,
+#stack_3 {
+  display: inline-block;
+}
+
+#twostacks,
+#threestacks {
+  margin: 0 auto;
+  width: 100%;
+  height: 60%;
+  max-width: 1200px;
+}
+
+#threestacks {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#stackA,
+#stackB,
+#stackC {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+#queue,
+#queue_ex {
+  display: block;
+  height: 100%;
+  width: 45%;
+}
+
+#queue_2,
+#queue_2_ex {
+  display: block;
+  float: left;
+  height: 100%;
+  width: 45%;
+}
+
+#queue-demo-canvas1,
+#queue-demo-canvas2,
+#queueArray,
+#linkedlist,
+#queue_ex,
+#queue_2_ex {
+  display: block;
+  margin: 15px auto;
+  max-width: 100%;
+}
+
+/* Responsive styles for tablets and mobile devices */
+@media (max-width: 900px) {
+  body,
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #wrapper {
+    padding: 12px 0;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #question,
+  #question-holder {
+    font-size: 0.95em;
+    padding: 0 3vw 12px 3vw;
+  }
+
+  #pop-buttons-wrapper {
+    padding: 0 3vw;
+  }
+
+  #twostacks,
+  #threestacks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    height: auto;
+    padding: 0 3vw;
+  }
+
+  #stackA,
+  #stackB,
+  #stackC,
+  #stack_1,
+  #stack_2,
+  #stack_3 {
+    display: block;
+    width: 90vw !important;
+    height: auto !important;
+    min-height: 200px !important;
+    max-width: 600px;
+    margin: 10px auto;
+  }
+
+  #linkedlist {
+    width: 90vw !important;
+    height: auto !important;
+    min-height: 250px !important;
+    max-width: 700px;
+  }
+
+  #queue_ex,
+  #queue_2_ex {
+    width: 90vw !important;
+    height: auto !important;
+    min-height: 180px !important;
+    max-width: 600px;
+    margin: 0 auto 12px auto;
+  }
+
+  #queueArray,
+  #stackArray {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px !important;
+    max-width: 100% !important;
+    display: block !important;
+    margin: 0 0 15px 0 !important;
+  }
+
+  #queue-demo-canvas1,
+  #queue-demo-canvas2 {
+    width: 90vw !important;
+    height: auto !important;
+    min-height: 180px !important;
+    max-width: 700px;
+    margin: 0 auto 12px auto;
+    display: block;
+  }
+
+  #pop-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #buttondiv1,
+  #buttondiv2 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 0;
+    width: 100%;
+  }
+
+  #buttondiv1 .button-input,
+  #buttondiv2 .button-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 0 3vw;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .button-input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 0.95em;
+    box-sizing: border-box;
+  }
+
+  .text-box {
+    width: 100% !important;
+    padding: 12px 15px;
+    font-size: 0.95em;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  #numbers-stackarray,
+  #numbers-qa,
+  #HeadtoBeInserted {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .instruction-box {
+    margin: 0 0 12px 0;
+  }
+
+  .comment-box {
+    padding: 12px 3vw !important;
+    font-size: 0.95em;
+    height: auto;
+    min-height: 100px;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 15px 0 !important;
+  }
+
+  .slidecontainer {
+    padding: 10px 2vw;
+  }
+
+  .slidecontainer p {
+    font-size: 0.9em;
+  }
+
+  #canvas-wrapper {
+    padding-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  body,
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #wrapper {
+    padding: 8px 0;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #question,
+  #question-holder {
+    font-size: 0.9em;
+    padding: 0 3vw 10px 3vw;
+  }
+
+  #pop-buttons-wrapper {
+    padding: 0 3vw;
+  }
+
+  #twostacks,
+  #threestacks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0 3vw;
+  }
+
+  #stackA,
+  #stackB,
+  #stackC,
+  #stack_1,
+  #stack_2,
+  #stack_3 {
+    display: block;
+    width: 90vw !important;
+    min-height: 180px !important;
+    max-width: 500px;
+    margin: 10px auto;
+  }
+
+  #linkedlist {
+    width: 92vw !important;
+    min-height: 220px !important;
+    max-width: 600px;
+  }
+
+  #queue_ex,
+  #queue_2_ex {
+    width: 92vw !important;
+    min-height: 180px !important;
+    max-width: 92vw;
+    margin: 0 auto 12px auto;
+  }
+
+  #queueArray,
+  #stackArray {
+    width: 100% !important;
+    min-height: 180px !important;
+    max-width: 100% !important;
+    margin: 0 0 15px 0 !important;
+  }
+
+  #queue-demo-canvas1,
+  #queue-demo-canvas2 {
+    width: 92vw !important;
+    min-height: 160px !important;
+    max-width: 600px;
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 0 3vw;
+    margin: 0;
+  }
+
+  .button-input {
+    padding: 12px 12px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .text-box {
+    width: 100% !important;
+    padding: 12px 12px;
+    box-sizing: border-box;
+    max-width: 100%;
+    font-size: 0.9em;
+    margin-bottom: 0;
+  }
+
+  #numbers-stackarray,
+  #numbers-qa,
+  #HeadtoBeInserted {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .comment-box {
+    padding: 10px 3vw !important;
+    font-size: 0.9em;
+    min-height: 110px;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 15px 0 !important;
+  }
+
+  .instruction-box {
+    font-size: 0.9em;
+  }
+
+  .content ul,
+  .content ol {
+    padding-left: 20px;
+  }
+
+  .content li {
+    margin-bottom: 6px;
+  }
+
+  .slidecontainer p {
+    font-size: 0.85em;
+  }
+
+  .slider {
+    width: 40%;
+  }
+}
+
+@media (max-width: 360px) {
+  body,
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #wrapper {
+    padding: 6px 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #question,
+  #question-holder {
+    font-size: 0.85em;
+    padding: 0 3vw 8px 3vw;
+  }
+
+  #pop-buttons-wrapper {
+    padding: 0 3vw;
+  }
+
+  #twostacks,
+  #threestacks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 3vw;
+  }
+
+  #stackA,
+  #stackB,
+  #stackC,
+  #stack_1,
+  #stack_2,
+  #stack_3 {
+    display: block;
+    width: 90vw !important;
+    min-height: 160px !important;
+    max-width: 400px;
+    margin: 8px auto;
+  }
+
+  #linkedlist {
+    width: 95vw !important;
+    min-height: 200px !important;
+    max-width: 450px;
+  }
+
+  #queue_ex,
+  #queue_2_ex {
+    width: 90vw !important;
+    min-height: 160px !important;
+    max-width: 90vw;
+    margin: 0 auto 10px auto;
+  }
+
+  #queueArray,
+  #stackArray {
+    width: 100% !important;
+    min-height: 160px !important;
+    max-width: 100% !important;
+    margin: 0 0 12px 0 !important;
+  }
+
+  #queue-demo-canvas1,
+  #queue-demo-canvas2 {
+    width: 95vw !important;
+    min-height: 140px !important;
+    max-width: 450px;
+  }
+
+  .buttons-wrapper {
+    width: 100%;
+    padding: 0 3vw;
+    gap: 8px;
+  }
+
+  .button-input {
+    padding: 11px 10px;
+    font-size: 0.85em;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .text-box {
+    width: 100% !important;
+    padding: 11px 10px;
+    box-sizing: border-box;
+    max-width: 100%;
+    font-size: 0.85em;
+    margin-bottom: 0;
+  }
+
+  #numbers-stackarray,
+  #numbers-qa,
+  #HeadtoBeInserted {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .comment-box {
+    font-size: 0.85em;
+    min-height: 100px;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px 3vw !important;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 12px 0 !important;
+  }
+
+  .instruction-box {
+    font-size: 0.85em;
+  }
+}
