@@ -230,7 +230,7 @@ function draw_head() {
   ctx.beginPath();
   ctx.font = "22px OpenSans-SemiBold";
   ctx.fillStyle = "#2f99d1";
-  ctx.fillText("Head", headX - 20, headY - 30);
+  ctx.fillText("Front", headX - 25, headY - 30);
   ctx.closePath();
   ctx.stroke();
 
@@ -272,6 +272,20 @@ function renderer() {
     ctx.fill();
     ctx.closePath();
   }
+
+  // Add "Rear" label at the end of the queue
+  if (numbers.length > 0) {
+    ctx.beginPath();
+    ctx.font = "22px OpenSans-SemiBold";
+    ctx.fillStyle = "#2f99d1";
+    ctx.fillText(
+      "Rear",
+      leftgap + (numbers.length - 1) * boxDist + 35,
+      topgap + nHeight + 30
+    );
+    ctx.fill();
+    ctx.closePath();
+  }
 }
 function array_maker() {
   if (decider == 1) numbers.push(value);
@@ -298,8 +312,7 @@ function nodeshift() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   draw_head();
-  if (decider == 4) drawArrow(headX, headY, headX + keyc, topgap);
-  else drawArrow(headX, headY, headX, topgap);
+  drawArrow(headX, headY, headX, topgap);
 
   for (var i = 0; i < index - 1; i++) {
     drawBox(leftgap + i * boxDist, topgap, i, ncolor);
@@ -377,7 +390,7 @@ function insertAtHead() {
   value = document.getElementById("HeadtoBeInserted").value;
   index = 0;
   keyc = 0;
-  decider = 4;
+  decider = 1;
   if (value == "" || null) {
     document.getElementById("ins").innerHTML =
       "Enter the element which to be enqueued";
@@ -393,7 +406,9 @@ function insertAtHead() {
       busy = 0;
       return;
     }
-    shift_stopper = setInterval(nodeshift, 1);
+    array_maker();
+    renderer();
+    busy = 0;
   }
   document.getElementById("HeadtoBeInserted").value = "";
 }
@@ -415,26 +430,30 @@ function typedec(val) {
   renderer();
 }
 // Execute a function when the user releases a key on the keyboard
-leftinput.addEventListener("keyup", function (event) {
-  // Cancel the default action, if needed
-  event.preventDefault();
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
-    // Trigger the button element with a click
-    insertAtHead();
-  }
-});
+if (leftinput) {
+  leftinput.addEventListener("keyup", function (event) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Trigger the button element with a click
+      insertAtHead();
+    }
+  });
+}
 
 // Execute a function when the user releases a key on the keyboard
-rightinput.addEventListener("keyup", function (event) {
-  // Cancel the default action, if needed
-  event.preventDefault();
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
-    // Trigger the button element with a click
-    if (rightambig == "remove") deleter();
-  }
-});
+if (rightinput) {
+  rightinput.addEventListener("keyup", function (event) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Trigger the button element with a click
+      if (rightambig == "remove") deleter();
+    }
+  });
+}
 function searcher(val) {
   searchover = 0;
 

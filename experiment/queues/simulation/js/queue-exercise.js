@@ -8,7 +8,7 @@ class queue_Exercise {
     this.txtSize = 25;
     this.rectWidth = 60;
     this.rectHeight = 60;
-    this.rectStartx = 165;
+    this.rectStartx = (canvasA.width - (7 * 60 + 6 * 5)) / 2;
     this.rectStarty = 83;
     this.arrayDist = 5;
     this.head = -1;
@@ -66,11 +66,11 @@ function drawQueueStructure(ctx) {
     txta = "Queue A";
     txtb = "Queue B";
     queueA_canvas.fillStyle = "black";
-    queueA_canvas.font = "25px arial";
-    queueB_canvas.font = "25px arial";
+    queueA_canvas.font = "22px arial";
+    queueB_canvas.font = "22px arial";
     queueB_canvas.fillStyle = "black";
-    queueA_canvas.fillText(txta, "10", "125");
-    queueB_canvas.fillText(txtb, "10", "125");
+    queueA_canvas.fillText(txta, 15, 265);
+    queueB_canvas.fillText(txtb, 15, 265);
 
     ctx.strokeStyle = "#a4c652";
     ctx.fillStyle = "#a4c652";
@@ -462,6 +462,7 @@ function generateQuestion() {
   queueexercise_artefact.resultArray = [];
   queueexercise_artefact.reset_array = [];
   queueexercise_artefact.sol = [];
+  queueexercise_artefact.done = 0;
   var elementNo = Math.floor(Math.random() * 7 + 1);
   if (elementNo <= 4) {
     elementNo = 4;
@@ -486,26 +487,41 @@ function generateQuestion() {
 }
 function check() {
   queueexercise_artefact.done = 1;
+
+  // Create a copy of resultArray to avoid mutating the original
+  var expectedArray = queueexercise_artefact.resultArray.slice();
+
   if (queueexercise_artefact.rand === 0) {
-    queueexercise_artefact.resultArray.sort(function (a, b) {
+    expectedArray.sort(function (a, b) {
       return a - b;
     });
   } else if (queueexercise_artefact.rand === 1) {
-    queueexercise_artefact.resultArray.sort(function (a, b) {
+    expectedArray.sort(function (a, b) {
       return b - a;
     });
   }
+
   var flag = 0;
-  for (var i = 0; i < queueexercise_artefact.resultArray.length; i++) {
-    if (queueexercise_artefact.sol[i] != queueexercise_artefact.resultArray[i])
-      flag = 1;
+
+  // Check if lengths match first
+  if (queueexercise_artefact.sol.length !== expectedArray.length) {
+    flag = 1;
+  } else {
+    // Check each element
+    for (var i = 0; i < expectedArray.length; i++) {
+      if (queueexercise_artefact.sol[i] != expectedArray[i]) {
+        flag = 1;
+        break;
+      }
+    }
   }
+
   if (flag) {
     document.getElementById(
       "ins"
     ).innerHTML = `<b>Your output:</b> [${queueexercise_artefact.sol.join(
       ", "
-    )}]<br><span style='color:red;font-weight:bold;'>Incorrect!</span><br>Expected Output: [${queueexercise_artefact.resultArray.join(
+    )}]<br><span style='color:red;font-weight:bold;'>Incorrect!</span><br>Expected Output: [${expectedArray.join(
       ", "
     )}]`;
   } else {
@@ -515,7 +531,6 @@ function check() {
       ", "
     )}]<br><span style='color:green;font-weight:bold;'>Correct!</span>`;
   }
-  queueexercise_artefact.sol = [];
 }
 function handlers() {
   document.getElementById("generate-question-queue").onclick = function () {
