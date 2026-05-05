@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "1. Which of these best describes an array?",
+      "question": "1. Which of these best describes an array in C/C++?",
       "answers": {
         "a": "A data structure that shows a hierarchical behaviour",
         "b": "Container of objects of similar types",
@@ -19,7 +19,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "2. What is the time complexity of insertion at any point in an array?",
+      "question": "2. What is the worst-case time complexity of insertion at an arbitrary position in an array?",
       "answers": {
         "a": "O(N)",
         "b": "O(N^2)",
@@ -36,7 +36,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "3. Which of the following is an incorrect declaration of a one-dimensional array?",
+      "question": "3. Which of the following is an invalid one-dimensional array declaration in C?",
       "answers": {
         "a": "int array[1000];",
         "b": "char array[2];",
@@ -55,14 +55,14 @@
     {
       "question": "4. In a singly-linked list, each node contains a minimum of two fields. If one field is the data field to store the data, then the second field is _______.",
       "answers": {
-        "a": "Pointer to next value",
+        "a": "Pointer to previous node",
         "b": "Pointer to head node",
         "c": "Pointer to next node",
         "d": "None of these"
       },
       "correctAnswer": "c",
       "explanations": {
-        "a": "Incorrect. The correct term is 'pointer to next node'.",
+        "a": "Incorrect. A singly linked lists do not have a pointer to the previous node.",
         "b": "Incorrect. Each node does not point to the head node.",
         "c": "Correct. Each node points to the next node in the list.",
         "d": "Incorrect. Option c is the correct answer."
@@ -70,7 +70,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "5. What would be the asymptotic time complexity to add a tail element and to find an element in the linked list?",
+      "question": "5. In a singly linked list without a tail pointer, what is the asymptotic time complexity to add a tail element and to find an element?",
       "answers": {
         "a": "O(n) and O(n)",
         "b": "O(1) and O(n)",
@@ -89,17 +89,17 @@
     {
       "question": "6. Why do we need pointers in a linked list but not in an array?",
       "answers": {
-        "a": "Linked list can store any type of data",
-        "b": "Data is not stored in contiguous locations in linked list",
-        "c": "Array can only store elements of same type of data",
-        "d": "Both a and c"
+        "a": "Elements are dynamically allocated",
+        "b": "Data is not stored in contiguous locations",
+        "c": "Linked list nodes must store addresses of other nodes",
+        "d": "Arrays do not support dynamic memory allocation"
       },
       "correctAnswer": "b",
       "explanations": {
-        "a": "Incorrect. The need for pointers is not because of data type flexibility.",
-        "b": "Correct. Pointers are needed because linked list nodes are not stored in contiguous memory.",
-        "c": "Incorrect. This is a property of arrays, not the reason for pointers in linked lists.",
-        "d": "Incorrect. Option b is the correct answer."
+        "a": "Incorrect. Dynamic allocation alone does not require pointers; arrays can also be dynamically allocated.",
+        "b": "Correct. Linked list nodes are not stored in contiguous memory locations, so pointers are required to link them.",
+        "c": "Incorrect. This describes how linked lists work, but not the underlying reason why pointers are needed.",
+        "d": "Incorrect. Arrays can support dynamic memory allocation, for example using malloc."
       },
       "difficulty": "beginner"
     }
