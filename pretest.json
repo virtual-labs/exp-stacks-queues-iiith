@@ -1,0 +1,107 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Which of these best describes an array in C/C++?",
+      "answers": {
+        "a": "A data structure that shows a hierarchical behaviour",
+        "b": "Container of objects of similar types",
+        "c": "Container of objects of mixed types",
+        "d": "All of the mentioned"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. The data structure that shows hierarchical behaviour is a tree, not an array.",
+        "b": "Correct. An array is a container for objects of similar types.",
+        "c": "Incorrect. A list can store mixed types, but an array cannot.",
+        "d": "Incorrect. Only one of the mentioned answers describes an array."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. What is the worst-case time complexity of insertion at an arbitrary position in an array?",
+      "answers": {
+        "a": "O(N)",
+        "b": "O(N^2)",
+        "c": "O(NLogN)",
+        "d": "None of these"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. Inserting at any point in an array requires shifting elements, which is O(N).",
+        "b": "Incorrect. Insertion in an array is not O(N^2).",
+        "c": "Incorrect. Insertion in an array is not O(NLogN).",
+        "d": "Incorrect. Option a is the correct answer."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "3. Which of the following is an invalid one-dimensional array declaration in C?",
+      "answers": {
+        "a": "int array[1000];",
+        "b": "char array[2];",
+        "c": "int array = {3, 4};",
+        "d": "int array[3]={1,2,3};"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. This is a valid declaration of an integer array.",
+        "b": "Incorrect. This is a valid declaration of a character array.",
+        "c": "Correct. This is not a valid array declaration in C/C++.",
+        "d": "Incorrect. This is a valid declaration of an integer array."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. In a singly-linked list, each node contains a minimum of two fields. If one field is the data field to store the data, then the second field is _______.",
+      "answers": {
+        "a": "Pointer to previous node",
+        "b": "Pointer to head node",
+        "c": "Pointer to next node",
+        "d": "None of these"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. A singly linked lists do not have a pointer to the previous node.",
+        "b": "Incorrect. Each node does not point to the head node.",
+        "c": "Correct. Each node points to the next node in the list.",
+        "d": "Incorrect. Option c is the correct answer."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. In a singly linked list without a tail pointer, what is the asymptotic time complexity to add a tail element and to find an element?",
+      "answers": {
+        "a": "O(n) and O(n)",
+        "b": "O(1) and O(n)",
+        "c": "O(n) and O(1)",
+        "d": "O(1) and O(1)"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. Both adding a tail element and finding an element in a singly linked list are O(n).",
+        "b": "Incorrect. Adding a tail element is O(n) unless you maintain a tail pointer.",
+        "c": "Incorrect. Finding an element is O(n) in a singly linked list.",
+        "d": "Incorrect. Both operations are not O(1) in a singly linked list."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "6. Why do we need pointers in a linked list but not in an array?",
+      "answers": {
+        "a": "Elements are dynamically allocated",
+        "b": "Data is not stored in contiguous locations",
+        "c": "Linked list nodes must store addresses of other nodes",
+        "d": "Arrays do not support dynamic memory allocation"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Dynamic allocation alone does not require pointers; arrays can also be dynamically allocated.",
+        "b": "Correct. Linked list nodes are not stored in contiguous memory locations, so pointers are required to link them.",
+        "c": "Incorrect. This describes how linked lists work, but not the underlying reason why pointers are needed.",
+        "d": "Incorrect. Arrays can support dynamic memory allocation, for example using malloc."
+      },
+      "difficulty": "beginner"
+    }
+  ]
+}
