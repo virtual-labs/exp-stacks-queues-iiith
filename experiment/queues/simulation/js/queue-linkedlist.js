@@ -144,7 +144,7 @@ function drawBox(x, y, ind, color) {
     x + linegap * 0.9,
     y + (nHeight - lineheight) / 2,
     linewidth,
-    lineheight
+    lineheight,
   );
   ctx.globalAlpha = 1;
 
@@ -154,14 +154,14 @@ function drawBox(x, y, ind, color) {
       x + (linegap + 15 + 43 + 45) * 0.9,
       y + (nHeight - dotheight) / 2 - 5,
       20,
-      14
+      14,
     );
     ctx.drawImage(
       arrowline,
       x + linegap + 15,
       y + (nHeight - dotheight) / 2,
       100 * 0.7,
-      5
+      5,
     );
   } else {
     ctx.drawImage(
@@ -169,14 +169,14 @@ function drawBox(x, y, ind, color) {
       x + (linegap + 15 + 43) * 0.9,
       y + (nHeight - dotheight) / 2 - 5,
       20,
-      14
+      14,
     );
     ctx.drawImage(
       arrowline,
       x + linegap + 15,
       y + (nHeight - dotheight) / 2,
       55 * 0.6,
-      5
+      5,
     );
   }
 
@@ -185,7 +185,7 @@ function drawBox(x, y, ind, color) {
     x + (linegap + 15) * 0.9,
     y + (nHeight - dotheight) / 2 - 5,
     dotwidth,
-    dotheight
+    dotheight,
   );
 
   ctx.beginPath();
@@ -214,12 +214,12 @@ function drawArrow(startX, startY, endX, endY) {
   ctx.beginPath();
   ctx.moveTo(
     endX - headlen * Math.cos(angle - Math.PI / 6),
-    endY - headlen * Math.sin(angle - Math.PI / 6)
+    endY - headlen * Math.sin(angle - Math.PI / 6),
   );
   ctx.lineTo(endX, endY);
   ctx.lineTo(
     endX - headlen * Math.cos(angle + Math.PI / 6),
-    endY - headlen * Math.sin(angle + Math.PI / 6)
+    endY - headlen * Math.sin(angle + Math.PI / 6),
   );
   ctx.fillStyle = "#979091";
   ctx.fill();
@@ -257,7 +257,7 @@ function renderer() {
       leftgap + (numbers.length - 1) * boxDist,
       topgap,
       numbers.length - 1,
-      ncolor
+      ncolor,
     );
 
   if (gtype != "cll") {
@@ -267,7 +267,7 @@ function renderer() {
     ctx.fillText(
       "Null",
       leftgap + numbers.length * boxDist + 55,
-      topgap + rectHeight / 2 + 20
+      topgap + rectHeight / 2 + 20,
     );
     ctx.fill();
     ctx.closePath();
@@ -281,7 +281,7 @@ function renderer() {
     ctx.fillText(
       "Rear",
       leftgap + (numbers.length - 1) * boxDist + 35,
-      topgap + nHeight + 30
+      topgap + nHeight + 30,
     );
     ctx.fill();
     ctx.closePath();
@@ -334,7 +334,7 @@ function nodeshift() {
     ctx.fillText(
       "Null",
       leftgap + numbers.length * boxDist + 55 + keyc,
-      topgap + rectHeight / 2 + 20
+      topgap + rectHeight / 2 + 20,
     );
     ctx.fill();
     ctx.closePath();
@@ -375,7 +375,7 @@ function colorer(last) {
     ctx.fillText(
       "Null",
       leftgap + numbers.length * boxDist + 55 + keyc,
-      topgap + rectHeight / 2 + 20
+      topgap + rectHeight / 2 + 20,
     );
     ctx.fill();
     ctx.closePath();
@@ -392,8 +392,7 @@ function insertAtHead() {
   keyc = 0;
   decider = 1;
   if (value == "" || null) {
-    document.getElementById("ins").innerHTML =
-      "Enter the element which to be enqueued";
+    document.getElementById("ins").innerHTML = "Enter an element to enqueue";
     busy = 0;
     return;
   } else {
@@ -406,7 +405,7 @@ function insertAtHead() {
       busy = 0;
       return;
     }
-    array_maker();
+    numbers.push(value);
     renderer();
     busy = 0;
   }
@@ -486,7 +485,7 @@ function searcher(val) {
       leftgap + (numbers.length - 1) * boxDist,
       topgap,
       numbers.length - 1,
-      ncolor
+      ncolor,
     );
   else {
     if (numbers[numb] == val) {
@@ -512,7 +511,7 @@ function searcher(val) {
     ctx.fillText(
       "Null",
       leftgap + numbers.length * boxDist + 55,
-      topgap + rectHeight / 2 + 20
+      topgap + rectHeight / 2 + 20,
     );
     ctx.fill();
     ctx.closePath();
@@ -564,6 +563,19 @@ function popper() {
     return;
   }
 }
+function bindQueueListControls() {
+  $("#enqueue-button-qll, #push-button-sll").on("click", function () {
+    insertAtHead();
+  });
+  $("#dequeue-button-qll, #pop-button-sll").on("click", function () {
+    popper();
+  });
+  $("#clear-button").on("click", function () {
+    clearfun();
+  });
+}
+
+bindQueueListControls();
 
 function clearfun() {
   console.log("2");
