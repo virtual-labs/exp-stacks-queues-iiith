@@ -5,33 +5,33 @@
       "question": "1. Which of these best describes an array in C/C++?",
       "answers": {
         "a": "A data structure that shows a hierarchical behaviour",
-        "b": "Container of objects of similar types",
-        "c": "Container of objects of mixed types",
-        "d": "All of the mentioned"
+        "b": "A container of objects of similar types",
+        "c": "A container of objects of mixed types",
+        "d": "A structure in which elements must be accessed using links"
       },
       "correctAnswer": "b",
       "explanations": {
-        "a": "Incorrect. The data structure that shows hierarchical behaviour is a tree, not an array.",
-        "b": "Correct. An array is a container for objects of similar types.",
-        "c": "Incorrect. A list can store mixed types, but an array cannot.",
-        "d": "Incorrect. Only one of the mentioned answers describes an array."
+        "a": "Incorrect. Hierarchical organization is associated with structures such as trees rather than arrays.",
+        "b": "Correct. An array stores a collection of elements of the same data type in contiguous memory locations.",
+        "c": "Incorrect. A conventional C/C++ array is designed to store elements of one declared data type.",
+        "d": "Incorrect. Accessing elements through links is characteristic of linked structures rather than arrays."
       },
       "difficulty": "beginner"
     },
     {
       "question": "2. What is the worst-case time complexity of insertion at an arbitrary position in an array?",
       "answers": {
-        "a": "O(N)",
-        "b": "O(N^2)",
-        "c": "O(NLogN)",
-        "d": "None of these"
+        "a": "$O(N)$",
+        "b": "$O(N^2)$",
+        "c": "$O(N\\log N)$",
+        "d": "$O(1)$"
       },
       "correctAnswer": "a",
       "explanations": {
-        "a": "Correct. Inserting at any point in an array requires shifting elements, which is O(N).",
-        "b": "Incorrect. Insertion in an array is not O(N^2).",
-        "c": "Incorrect. Insertion in an array is not O(NLogN).",
-        "d": "Incorrect. Option a is the correct answer."
+        "a": "Correct. Inserting at an arbitrary position may require shifting a linear number of elements.",
+        "b": "Incorrect. A single insertion does not require a quadratic number of element shifts.",
+        "c": "Incorrect. Sorting-style logarithmic factors are not involved in a single arbitrary-position insertion.",
+        "d": "Incorrect. The number of elements that may need to be shifted can grow with the array size."
       },
       "difficulty": "intermediate"
     },
@@ -41,67 +41,118 @@
         "a": "int array[1000];",
         "b": "char array[2];",
         "c": "int array = {3, 4};",
-        "d": "int array[3]={1,2,3};"
+        "d": "int array[3] = {1, 2, 3};"
       },
       "correctAnswer": "c",
       "explanations": {
-        "a": "Incorrect. This is a valid declaration of an integer array.",
-        "b": "Incorrect. This is a valid declaration of a character array.",
-        "c": "Correct. This is not a valid array declaration in C/C++.",
-        "d": "Incorrect. This is a valid declaration of an integer array."
+        "a": "Incorrect. This declaration specifies an integer array with 1000 elements.",
+        "b": "Incorrect. This declaration specifies a character array with two elements.",
+        "c": "Correct. An array declaration requires array brackets; the shown statement does not declare an array.",
+        "d": "Incorrect. This is a valid declaration and initialization of an integer array."
       },
       "difficulty": "beginner"
     },
     {
-      "question": "4. In a singly-linked list, each node contains a minimum of two fields. If one field is the data field to store the data, then the second field is _______.",
+      "question": "4. In a singly linked list, each node contains a minimum of two fields. If one field is the data field to store the data, then the second field is _______.",
       "answers": {
-        "a": "Pointer to previous node",
-        "b": "Pointer to head node",
-        "c": "Pointer to next node",
-        "d": "None of these"
+        "a": "Pointer to the previous node",
+        "b": "Pointer to the head node",
+        "c": "Pointer to the next node",
+        "d": "Pointer to the last node only"
       },
       "correctAnswer": "c",
       "explanations": {
-        "a": "Incorrect. A singly linked lists do not have a pointer to the previous node.",
-        "b": "Incorrect. Each node does not point to the head node.",
-        "c": "Correct. Each node points to the next node in the list.",
-        "d": "Incorrect. Option c is the correct answer."
+        "a": "Incorrect. A singly linked list does not normally maintain a backward link in each node.",
+        "b": "Incorrect. The head is a reference to the first node and is not normally stored as the second field of every node.",
+        "c": "Correct. The link field stores a reference to the next node in the singly linked list.",
+        "d": "Incorrect. A node's link field is used to maintain the sequence of nodes rather than to point specifically to the last node."
       },
       "difficulty": "beginner"
     },
     {
       "question": "5. In a singly linked list without a tail pointer, what is the asymptotic time complexity to add a tail element and to find an element?",
       "answers": {
-        "a": "O(n) and O(n)",
-        "b": "O(1) and O(n)",
-        "c": "O(n) and O(1)",
-        "d": "O(1) and O(1)"
+        "a": "$O(n)$ and $O(n)$",
+        "b": "$O(1)$ and $O(n)$",
+        "c": "$O(n)$ and $O(1)$",
+        "d": "$O(1)$ and $O(1)$"
       },
       "correctAnswer": "a",
       "explanations": {
-        "a": "Correct. Both adding a tail element and finding an element in a singly linked list are O(n).",
-        "b": "Incorrect. Adding a tail element is O(n) unless you maintain a tail pointer.",
-        "c": "Incorrect. Finding an element is O(n) in a singly linked list.",
-        "d": "Incorrect. Both operations are not O(1) in a singly linked list."
+        "a": "Correct. Without a tail pointer, reaching the end can require traversing the list, and searching may also require traversal.",
+        "b": "Incorrect. Without a tail pointer, reaching the last node generally requires traversal.",
+        "c": "Incorrect. Searching an unsorted singly linked list may require examining multiple nodes.",
+        "d": "Incorrect. Neither operation is guaranteed to take constant time under the stated conditions."
       },
       "difficulty": "intermediate"
     },
     {
       "question": "6. Why do we need pointers in a linked list but not in an array?",
       "answers": {
-        "a": "Elements are dynamically allocated",
-        "b": "Data is not stored in contiguous locations",
-        "c": "Linked list nodes must store addresses of other nodes",
-        "d": "Arrays do not support dynamic memory allocation"
+        "a": "Elements are always dynamically allocated",
+        "b": "Nodes in a linked list are not required to occupy contiguous memory locations",
+        "c": "Every linked-list node must store two arrays",
+        "d": "Arrays cannot support dynamic memory allocation"
       },
       "correctAnswer": "b",
       "explanations": {
-        "a": "Incorrect. Dynamic allocation alone does not require pointers; arrays can also be dynamically allocated.",
-        "b": "Correct. Linked list nodes are not stored in contiguous memory locations, so pointers are required to link them.",
-        "c": "Incorrect. This describes how linked lists work, but not the underlying reason why pointers are needed.",
-        "d": "Incorrect. Arrays can support dynamic memory allocation, for example using malloc."
+        "a": "Incorrect. Dynamic allocation can also be used for arrays, so it is not the distinguishing reason.",
+        "b": "Correct. Linked-list nodes may be located at different memory addresses, so links are used to connect the nodes.",
+        "c": "Incorrect. A linked-list node does not require arrays as part of its basic representation.",
+        "d": "Incorrect. Arrays can also be dynamically allocated in C/C++."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. Which data structure follows the Last In, First Out principle and is commonly used to implement a stack?",
+      "answers": {
+        "a": "Queue",
+        "b": "Graph",
+        "c": "Stack",
+        "d": "Tree"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. A queue follows a First In, First Out access discipline.",
+        "b": "Incorrect. A graph represents relationships among vertices and edges rather than a LIFO access discipline.",
+        "c": "Correct. A stack follows the Last In, First Out principle, so the most recently inserted element is accessed first.",
+        "d": "Incorrect. A tree represents hierarchical relationships and does not inherently impose LIFO ordering."
       },
       "difficulty": "beginner"
+    },
+    {
+      "question": "8. Which pair of operations is associated with inserting into and removing from a queue?",
+      "answers": {
+        "a": "Push and Pop",
+        "b": "Enqueue and Dequeue",
+        "c": "Insert and Search",
+        "d": "Peek and Traverse"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. These operation names are conventionally associated with stacks.",
+        "b": "Correct. Enqueue adds an element to a queue, while dequeue removes an element according to FIFO order.",
+        "c": "Incorrect. Search is used to locate an element and is not the standard removal operation for a queue.",
+        "d": "Incorrect. Peek and traversal describe access or inspection activities rather than the standard insertion and deletion pair for queues."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "9. A stack contains the elements 10, 20, and 30, where 30 is at the top. If one pop operation is performed followed by push(40), which element will be at the top?",
+      "answers": {
+        "a": "10",
+        "b": "20",
+        "c": "30",
+        "d": "40"
+      },
+      "correctAnswer": "d",
+      "explanations": {
+        "a": "Incorrect. This element is below the other remaining stack elements and is not affected by the stated top operations.",
+        "b": "Incorrect. This element remains in the stack but is not the element most recently pushed.",
+        "c": "Incorrect. This element is removed by the pop operation before the new element is inserted.",
+        "d": "Correct. The pop removes the previous top element, and push(40) places 40 at the top."
+      },
+      "difficulty": "advanced"
     }
   ]
 }

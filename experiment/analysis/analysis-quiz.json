@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "4. Which of the following data structures works on the principle of 'First In, First Out' (FIFO)?",
+      "question": "4. Which of the following data structures works on the principle of First In, First Out (FIFO)?",
       "answers": {
         "a": "Stack",
         "b": "Queue",
@@ -11,15 +11,15 @@
       },
       "correctAnswer": "b",
       "explanations": {
-        "a": "Incorrect. Stack works on the principle of Last In, First Out (LIFO).",
-        "b": "Correct. Queue works on the principle of First In, First Out (FIFO).",
-        "c": "Incorrect. Tree does not follow FIFO or LIFO principles.",
-        "d": "Incorrect. Graph does not follow FIFO or LIFO principles."
+        "a": "Incorrect. A stack removes the most recently inserted element first.",
+        "b": "Correct. A queue follows FIFO ordering, so the earliest inserted element is removed first.",
+        "c": "Incorrect. A tree represents hierarchical relationships and does not inherently follow FIFO ordering.",
+        "d": "Incorrect. A graph represents relationships between vertices and edges and does not inherently follow FIFO ordering."
       },
       "difficulty": "beginner"
     },
     {
-      "question": "1. What are the strategies/principles used in Stacks and Queues?",
+      "question": "1. What are the strategies or principles used in Stacks and Queues?",
       "answers": {
         "a": "LILO and FILO",
         "b": "FILO and LILO",
@@ -28,32 +28,32 @@
       },
       "correctAnswer": "d",
       "explanations": {
-        "a": "Incorrect. 'LILO' and 'FILO' are not standard terms. The correct terms are LIFO (Last In First Out) for stacks and FIFO (First In First Out) for queues.",
-        "b": "Incorrect. 'FILO' and 'LILO' are not standard terms. The correct terms are LIFO (Last In First Out) for stacks and FIFO (First In First Out) for queues.",
-        "c": "Incorrect. The order should be LIFO for stacks and FIFO for queues, but the answer is not clearly matching the standard pairing.",
-        "d": "Correct. LIFO (Last In First Out) is used for stacks and FIFO (First In First Out) is used for queues."
+        "a": "Incorrect. These terms do not provide the standard pairing used to describe stack and queue behavior.",
+        "b": "Incorrect. These terms do not provide the standard pairing used to describe stack and queue behavior.",
+        "c": "Incorrect. Although both FIFO and LIFO are standard terms, their order here does not match stack followed by queue.",
+        "d": "Correct. A stack follows LIFO, while a queue follows FIFO."
       },
       "difficulty": "intermediate"
     },
     {
-      "question": "2. How many pointers are used for reference in Stacks and Queues?",
+      "question": "2. In a standard linked implementation, how many primary reference pointers are typically used for a stack and a queue?",
       "answers": {
         "a": "1 and 2",
         "b": "2 and 1",
-        "c": "Depends",
-        "d": "Can't say"
+        "c": "Depends only on the number of elements",
+        "d": "The number cannot be determined"
       },
       "correctAnswer": "a",
       "explanations": {
-        "a": "Correct. Stack uses 1 pointer (top), Queue uses 2 pointers (front and rear).",
-        "b": "Incorrect. Stack uses 1 pointer (top), not 2, and queue uses 2 pointers (front and rear), not 1.",
-        "c": "Incorrect. The number of pointers is fixed for standard stack (1) and queue (2) implementations.",
-        "d": "Incorrect. The number of pointers is well-defined for standard stack and queue implementations."
+        "a": "Correct. A linked stack can use a top reference, while a linked queue commonly uses front and rear references.",
+        "b": "Incorrect. This arrangement reverses the usual number of primary references for the standard linked implementations described.",
+        "c": "Incorrect. The number of primary references is determined by the implementation design rather than directly by the number of stored elements.",
+        "d": "Incorrect. A standard implementation provides a well-defined set of references for accessing its required ends."
       },
       "difficulty": "advanced"
     },
     {
-      "question": "3. How many queues are needed to implement a stack? (Assume no other data structure like arrays or linked list is available.)",
+      "question": "3. How many queues are needed to implement a stack when no other data structure, such as an array or linked list, is available?",
       "answers": {
         "a": "1",
         "b": "2",
@@ -62,10 +62,112 @@
       },
       "correctAnswer": "b",
       "explanations": {
-        "a": "Incorrect. It is not possible to implement a stack using only one queue.",
-        "b": "Correct. Two queues are required to implement a stack when no other data structure is available.",
-        "c": "Incorrect. More than two queues are not required for this implementation.",
-        "d": "Incorrect. More than two queues are not required for this implementation."
+        "a": "Incorrect. A single queue does not provide enough flexibility for the standard two-queue construction of a stack.",
+        "b": "Correct. Two queues can be used to implement stack behavior by rearranging elements so that the required LIFO element is accessible.",
+        "c": "Incorrect. The standard construction does not require a third queue.",
+        "d": "Incorrect. Four queues are unnecessary for the standard implementation."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "4. Which operation adds an element to a stack?",
+      "answers": {
+        "a": "Enqueue",
+        "b": "Dequeue",
+        "c": "Push",
+        "d": "Peek"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. Enqueue is the standard insertion operation for a queue.",
+        "b": "Incorrect. Dequeue removes an element from a queue.",
+        "c": "Correct. Push inserts a new element at the top of a stack.",
+        "d": "Incorrect. Peek inspects the top element without performing the standard insertion operation."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. Which operation removes an element from a stack?",
+      "answers": {
+        "a": "Pop",
+        "b": "Push",
+        "c": "Enqueue",
+        "d": "Rear"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. Pop removes the element currently at the top of a stack.",
+        "b": "Incorrect. Push adds an element to a stack.",
+        "c": "Incorrect. Enqueue is used to insert an element into a queue.",
+        "d": "Incorrect. Rear identifies an end of a queue and is not a stack-removal operation."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "6. If a stack contains 5, 8, and 12 from bottom to top, which sequence of operations removes 12 first and then 8?",
+      "answers": {
+        "a": "dequeue(), dequeue()",
+        "b": "pop(), pop()",
+        "c": "push(12), push(8)",
+        "d": "enqueue(12), enqueue(8)"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Dequeue is associated with removing elements from a queue rather than a stack.",
+        "b": "Correct. The first pop removes 12 and the second pop removes 8 because the stack follows LIFO order.",
+        "c": "Incorrect. These operations insert elements rather than remove the existing top elements.",
+        "d": "Incorrect. These are queue insertion operations and do not remove the specified stack elements."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. A queue initially contains A, B, and C from front to rear. If D is enqueued and two dequeue operations are performed, what remains from front to rear?",
+      "answers": {
+        "a": "A, B",
+        "b": "B, C",
+        "c": "C, D",
+        "d": "D, C"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. The first two elements do not remain after two successful dequeue operations.",
+        "b": "Incorrect. B is also removed by the second dequeue operation.",
+        "c": "Correct. After D is added, the queue is A, B, C, D; removing A and B leaves C, D.",
+        "d": "Incorrect. The remaining queue preserves FIFO order and is not reversed."
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "question": "8. Why is a queue generally preferred over a stack when requests must be processed in the same order in which they arrive?",
+      "answers": {
+        "a": "A queue follows FIFO ordering",
+        "b": "A queue automatically sorts requests",
+        "c": "A queue always uses less memory than a stack",
+        "d": "A queue provides random access to every request"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. FIFO ordering allows the earliest arriving request to be processed before later requests.",
+        "b": "Incorrect. FIFO behavior does not imply that the queue sorts elements by their values.",
+        "c": "Incorrect. Memory usage depends on the implementation and number of stored elements rather than the data structure name alone.",
+        "d": "Incorrect. A queue is designed for ordered insertion and removal rather than unrestricted random access."
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "question": "9. Which statement correctly distinguishes a stack from a queue?",
+      "answers": {
+        "a": "A stack inserts at the rear and a queue inserts at the top",
+        "b": "A stack uses LIFO ordering while a queue uses FIFO ordering",
+        "c": "A stack and queue both always remove the oldest element",
+        "d": "A stack uses FIFO ordering while a queue uses LIFO ordering"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. The terms top and rear refer to different access points and this description does not represent the standard operations of the two structures.",
+        "b": "Correct. A stack removes the most recently inserted element first, whereas a queue removes the earliest inserted element first.",
+        "c": "Incorrect. Removing the oldest element is characteristic of FIFO behavior and does not describe both structures.",
+        "d": "Incorrect. This reverses the standard access principles associated with stacks and queues."
       },
       "difficulty": "intermediate"
     }

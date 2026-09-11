@@ -2,70 +2,155 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "1. What is the advantage of using linked list implementation of stack over array implementation?",
+      "question": "1. What is the main advantage of using a linked-list implementation of a stack over an array implementation?",
       "answers": {
-        "a": "Pushing into the stack is faster in linked list implementation.",
-        "b": "Popping from the stack is faster in linked list implementation.",
-        "c": "Linked list has a variable size, unlike an array.",
-        "d": "None of the above"
+        "a": "Pushing into the stack is always faster in a linked-list implementation",
+        "b": "Popping from the stack is always faster in a linked-list implementation",
+        "c": "A linked-list implementation can grow dynamically without a fixed array capacity",
+        "d": "A linked-list implementation never requires additional memory"
       },
       "correctAnswer": "c",
       "explanations": {
-        "a": "Incorrect. The speed of push operation is not necessarily faster in linked list implementation compared to array.",
-        "b": "Incorrect. The speed of pop operation is not necessarily faster in linked list implementation compared to array.",
-        "c": "Correct. Linked list implementation allows variable size, unlike arrays which have fixed size.",
-        "d": "Incorrect. Option c is the correct advantage."
+        "a": "Incorrect. Both implementations can perform push in constant time under suitable standard implementations, so a linked list does not inherently make push faster.",
+        "b": "Incorrect. Both implementations can perform pop in constant time under suitable standard implementations, so a linked list does not inherently make pop faster.",
+        "c": "Correct. A linked-list stack can grow as nodes are dynamically allocated, subject to available memory, rather than being restricted by a fixed array capacity.",
+        "d": "Incorrect. Each dynamically allocated node requires memory for its data and link information."
       },
       "difficulty": "beginner"
     },
     {
-      "question": "2. Insertion and Deletion operations in Queue and Stack are known as ?",
+      "question": "2. Insertion and deletion operations in a Queue and Stack are known as respectively:",
       "answers": {
-        "a": "Enqueue and Dequeue, Push and Pop",
-        "b": "Push and Pop, Enqueue and Dequeue",
-        "c": "Pop and Push, Dequeue and Enqueue",
-        "d": "Dequeue and Enqueue, Pop and Push"
+        "a": "Enqueue and Dequeue; Push and Pop",
+        "b": "Push and Pop; Enqueue and Dequeue",
+        "c": "Pop and Push; Dequeue and Enqueue",
+        "d": "Dequeue and Enqueue; Pop and Push"
       },
       "correctAnswer": "a",
       "explanations": {
-        "a": "Correct. Queue uses Enqueue (insert) and Dequeue (delete); Stack uses Push (insert) and Pop (delete).",
-        "b": "Incorrect. The order of operations is not correct for Queue and Stack.",
-        "c": "Incorrect. The order of operations is not correct for Queue and Stack.",
-        "d": "Incorrect. The order of operations is not correct for Queue and Stack."
+        "a": "Correct. A queue uses enqueue for insertion and dequeue for deletion, while a stack uses push for insertion and pop for deletion.",
+        "b": "Incorrect. This arrangement assigns the standard operation names to the opposite data structures.",
+        "c": "Incorrect. The operations are presented in reverse order within the queue and stack pairs.",
+        "d": "Incorrect. This option reverses the insertion and deletion operations for both structures."
       },
       "difficulty": "beginner"
     },
     {
-      "question": "3. What would be the time complexity to pop an element from the stack and dequeue an element from the queue ?",
+      "question": "3. What is the time complexity of popping an element from a stack and dequeuing an element from a queue in standard implementations?",
       "answers": {
-        "a": "O(n) and O(1)",
-        "b": "O(1) and O(n)",
-        "c": "O(1) and O(1)",
-        "d": "O(n) and O(n)"
+        "a": "$O(n)$ and $O(1)$",
+        "b": "$O(1)$ and $O(n)$",
+        "c": "$O(1)$ and $O(1)$",
+        "d": "$O(n)$ and $O(n)$"
       },
       "correctAnswer": "c",
       "explanations": {
-        "a": "Incorrect. Pop in stack is O(1), dequeue in queue is O(1) in standard implementations.",
-        "b": "Incorrect. Pop in stack is O(1), dequeue in queue is O(1) in standard implementations.",
-        "c": "Correct. Both operations are O(1) in standard implementations.",
-        "d": "Incorrect. Both operations are O(1) in standard implementations."
+        "a": "Incorrect. Standard pop does not require traversing all stack elements.",
+        "b": "Incorrect. Standard dequeue can be performed directly from the front reference without traversing all queue elements.",
+        "c": "Correct. In standard implementations with direct access to the required end, both pop and dequeue take constant time.",
+        "d": "Incorrect. Neither operation normally requires processing every stored element."
       },
       "difficulty": "beginner"
     },
     {
-      "question": "4. Which of the following is the best to implement a priority queue?",
+      "question": "4. Which of the following is commonly used to implement a priority queue efficiently?",
       "answers": {
         "a": "Heap",
-        "b": "Array",
+        "b": "Unordered array only",
         "c": "Linnked List",
-        "d": "Tree"
+        "d": "Stack"
       },
       "correctAnswer": "a",
       "explanations": {
-        "a": "Correct. A heap, specifically a binary heap, provides efficient insert and delete operations for a priority queue.",
-        "b": "Incorrect. Arrays are not efficient for priority queue operations.",
-        "c": "Incorrect. Linked lists are not efficient for priority queue operations.",
-        "d": "Incorrect. Trees are not as efficient as heaps for priority queue operations."
+        "a": "Correct. A binary heap supports efficient insertion and removal of the highest- or lowest-priority element and is a standard priority-queue implementation.",
+        "b": "Incorrect. An unordered array can implement a priority queue, but finding the highest- or lowest-priority element may require a linear scan.",
+        "c": "Incorrect. A linked list can implement a priority queue, but it is not generally the preferred efficient implementation for the standard priority-queue operations.",
+        "d": "Incorrect. A stack provides LIFO ordering rather than priority-based removal."
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "question": "5. What happens when a pop operation is performed on an empty stack?",
+      "answers": {
+        "a": "Stack overflow",
+        "b": "Stack underflow",
+        "c": "Queue overflow",
+        "d": "The stack automatically creates an element"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Overflow concerns attempting to add an element when the available stack capacity has been exhausted.",
+        "b": "Correct. Underflow occurs when a removal operation is attempted on an empty stack.",
+        "c": "Incorrect. Queue overflow is related to a queue reaching its available capacity and is not the condition described here.",
+        "d": "Incorrect. A pop operation does not create an element when the stack is empty."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "6. What happens when an insertion is attempted in a full fixed-size array-based queue?",
+      "answers": {
+        "a": "Queue overflow",
+        "b": "Queue underflow",
+        "c": "Stack overflow",
+        "d": "The oldest element is always deleted automatically"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. Attempting to insert into a queue whose fixed storage is full results in an overflow condition.",
+        "b": "Incorrect. Underflow is associated with attempting to remove an element when the queue has no available element.",
+        "c": "Incorrect. The condition concerns a queue rather than a stack.",
+        "d": "Incorrect. A standard fixed-size queue does not automatically delete the oldest element merely because an insertion is attempted."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. A stack contains 10, 20, and 30 from bottom to top. If pop() is performed twice and then push(40) is performed, what is the final stack from bottom to top?",
+      "answers": {
+        "a": "10, 40",
+        "b": "40, 10",
+        "c": "10, 20, 40",
+        "d": "30, 20, 40"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. The first two pop operations remove 30 and 20, leaving 10; push(40) then places 40 above 10.",
+        "b": "Incorrect. This ordering places the newly pushed element below the remaining element.",
+        "c": "Incorrect. The element 20 is removed by the second pop operation.",
+        "d": "Incorrect. Both 30 and 20 are removed by the two pop operations."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "8. A queue contains 15, 25, and 35 from front to rear. After dequeue() and enqueue(45), which element is at the front?",
+      "answers": {
+        "a": "15",
+        "b": "25",
+        "c": "35",
+        "d": "45"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. The first dequeue operation removes the element that was initially at the front.",
+        "b": "Correct. After 15 is dequeued, 25 becomes the front; enqueue(45) adds the new element at the rear.",
+        "c": "Incorrect. This element remains in the queue but is behind the new front element.",
+        "d": "Incorrect. The newly enqueued element is added at the rear rather than becoming the front."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "9. Which application is most directly associated with using a stack?",
+      "answers": {
+        "a": "Scheduling requests in their arrival order",
+        "b": "Managing function calls and returns during program execution",
+        "c": "Serving customers strictly in arrival order",
+        "d": "Processing packets according to a FIFO service policy"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Processing requests in arrival order requires FIFO behavior rather than LIFO behavior.",
+        "b": "Correct. Function calls are managed using a call stack, where the most recently called function must return before earlier calls.",
+        "c": "Incorrect. Strict arrival-order service is a typical application of queue behavior.",
+        "d": "Incorrect. A FIFO packet-processing policy is based on queue-like behavior rather than stack behavior."
       },
       "difficulty": "advanced"
     }
