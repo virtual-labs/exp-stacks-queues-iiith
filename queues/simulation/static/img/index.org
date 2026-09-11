@@ -1,0 +1,32 @@
+#+TITLE: Design Image of Artifacts
+#+AUTHOR: VLEAD
+#+DATE: [2018-06-14 Thursday]
+#+PROPERTY: results output
+#+PROPERTY: exports code
+#+SETUPFILE: ../org-templates/level-1.org
+#+options: ^:nil
+#+LATEX: Literal LaTeX code for export
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+
+* Introduction
+This document describes the design and UI of =Stacks and Queues Experiment=.
+|----------+--------------------------+---------------------------------------------------------------------------------------------------------|
+| *S. No.* | *Link*                   | *Description*                                                                                           |
+|----------+--------------------------+---------------------------------------------------------------------------------------------------------|
+|       1. | [[./stack.png][Stack]]                    | Stack image                                                                                             |
+|       2. | [[./queue.png][Queue]]                    | Queue Image                                                                                             |
+|       3. | [[./push-demo.png][Stack Push]]               | Stack Push Operation Image                                                                              |
+|       4. | [[./pop-demo.png][Stack Pop]]                | Stack Pop Operation Image                                                                               |
+|       5. | [[./enqueue-demo.png][Queue Enqueue]]            | Queue Enqueue Operation Image                                                                           |
+|       6. | [[./dequeue-demo.png][Queue Dequeue]]            | Queue Dequeue Operation Image                                                                           |
+|       7. | [[./stack-practice.png][Stack Practice]]           | Stack Practice for Operations                                                                           |
+|       8. | [[./queue-practice.png][Queue Practice]]           | Queue Practice for Operations                                                                           |
+|       9. | [[./stack-exercise][Stack Exercise]]           | Exercise for Stacks                                                                                     |
+|      10. | [[./stack-array.png][Stacks - Arrays]]          | Stacks using Arrays                                                                                     |
+|      11. | [[./queue-array.png][Queues - Arrays]]          | Queues using Arrays                                                                                     |
+|      12. | [[./stacks_example/Stacks:Example.jpeg][Stacks - Example]]         | Stacks example used in analysis artefact                                                                |
+|      13. | [[./stacks_example/Stacks_example.drawio][Stacks - Example(Source)]] | Source of stacks example image which is used in analysis artefact,can be edited in https://www.draw.io/ |
+|      14. | [[./queues_example/Queues_Example.jpeg][Queues - Example]]         | Queues example used in analysis artefact                                                                |
+|      15. | [[./queues_example/Queues_Example.xml][Queues - Example(Source)]] | Source of queues example image which is used in analysis artefact,can be edited in https://www.draw.io/ |
+|----------+--------------------------+---------------------------------------------------------------------------------------------------------|

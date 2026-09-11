@@ -1,0 +1,158 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Which among the following represents a stack?",
+      "answers": {
+        "a": "People waiting at a counter, where the first person served is the first person who arrived",
+        "b": "A hand of bangles where pushing is wearing a new bangle",
+        "c": "A pile of plates at a dinner party",
+        "d": "People going around a merry-go-round"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. This situation follows an arrival-based service order rather than removal from the most recently added position.",
+        "b": "Incorrect. Although bangles can be added and removed from one side, this is a less direct analogy for the standard stack model.",
+        "c": "Correct. A pile of plates follows LIFO behavior because the most recently placed plate is normally removed first.",
+        "d": "Incorrect. Movement around a merry-go-round does not represent insertion and removal from a single accessible end."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. What is the time complexity of a push operation in a stack? What is the time complexity of a pop operation in a stack?",
+      "answers": {
+        "a": "$O(n)$, $O(n)$",
+        "b": "$O(1)$, $O(n)$",
+        "c": "$O(n)$, $O(1)$",
+        "d": "$O(1)$, $O(1)$"
+      },
+      "correctAnswer": "d",
+      "explanations": {
+        "a": "Incorrect. Standard stack push and pop do not require traversal through all stack elements.",
+        "b": "Incorrect. A standard pop operation does not require processing every element in the stack.",
+        "c": "Incorrect. A standard push operation does not require shifting or traversing all existing elements.",
+        "d": "Correct. In a standard stack implementation, push and pop operate at the top and each takes constant time."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. Consider these operations on an empty stack: push(3), push(5), pop(), push(10), push(11), pop(), push(100). What will be the stack configuration? The first number is the top of the stack and the last number is the bottom.",
+      "answers": {
+        "a": "100, 10, 3",
+        "b": "3, 5, 10, 11, 100",
+        "c": "3, 10, 100",
+        "d": "100, 11, 10, 3"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. The first pop removes 5, the second pop removes 11, and push(100) places 100 above 10 and 3.",
+        "b": "Incorrect. This sequence still contains elements that were removed by the pop operations.",
+        "c": "Incorrect. This configuration omits the element 10 that remains in the stack after the second pop.",
+        "d": "Incorrect. The element 11 is removed by the second pop operation and therefore does not remain in the stack."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "4. If a stack is initially empty and the operations push(4), push(7), push(9), pop(), push(12) are performed, which element is at the top?",
+      "answers": {
+        "a": "4",
+        "b": "7",
+        "c": "9",
+        "d": "12"
+      },
+      "correctAnswer": "d",
+      "explanations": {
+        "a": "Incorrect. This element was inserted first and remains below the later elements.",
+        "b": "Incorrect. This element remains in the stack but is not the most recently inserted element.",
+        "c": "Incorrect. This element is removed by the pop operation.",
+        "d": "Correct. The pop removes 9, after which push(12) places 12 at the top."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. Which operation allows the top element of a stack to be inspected without removing it?",
+      "answers": {
+        "a": "Peek",
+        "b": "Push",
+        "c": "Pop",
+        "d": "Enqueue"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. Peek, also called top in some implementations, reads the top element without deleting it.",
+        "b": "Incorrect. Push inserts a new element into the stack rather than merely inspecting the top.",
+        "c": "Incorrect. Pop removes the top element from the stack.",
+        "d": "Incorrect. Enqueue is an insertion operation associated with queues."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "6. What condition occurs when a pop operation is attempted on an empty stack?",
+      "answers": {
+        "a": "Overflow",
+        "b": "Underflow",
+        "c": "Collision",
+        "d": "Traversal"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Overflow is associated with attempting to add beyond the available capacity in a bounded stack.",
+        "b": "Correct. Stack underflow occurs when a removal operation is attempted while the stack contains no elements.",
+        "c": "Incorrect. Collision is primarily associated with situations such as hashing when multiple keys map to the same location.",
+        "d": "Incorrect. Traversal refers to visiting elements or nodes and is not the error condition for removing from an empty stack."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. A stack is used to evaluate a postfix expression. Which property of the stack makes it suitable for this task?",
+      "answers": {
+        "a": "It processes elements according to FIFO order",
+        "b": "It always stores elements in sorted order",
+        "c": "It provides LIFO access to operands and intermediate results",
+        "d": "It allows insertion only at the rear"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. FIFO ordering is the access discipline of a queue rather than a stack.",
+        "b": "Incorrect. A stack does not automatically maintain its elements in sorted order.",
+        "c": "Correct. LIFO access allows the most recently available operand or intermediate result to be retrieved during postfix evaluation.",
+        "d": "Incorrect. Rear-based insertion is a characteristic used when describing queue operations."
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "question": "8. A stack is implemented using an array of capacity 5. If the stack already contains 5 elements, what happens when another push operation is attempted?",
+      "answers": {
+        "a": "The operation causes stack overflow",
+        "b": "The operation causes stack underflow",
+        "c": "The oldest element is automatically removed",
+        "d": "The new element is inserted below the bottom element"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. In a fixed-capacity array implementation, attempting to push when all available positions are occupied results in overflow.",
+        "b": "Incorrect. Underflow concerns attempting to remove an element when no element is available.",
+        "c": "Incorrect. A standard fixed-capacity stack does not automatically discard the oldest element during push.",
+        "d": "Incorrect. A stack does not provide an insertion position below its bottom element."
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "question": "9. Which sequence of operations on an empty stack results in 20 being at the top while 10 remains below it?",
+      "answers": {
+        "a": "push(20), push(10)",
+        "b": "push(10), pop(), push(20)",
+        "c": "push(10), push(20)",
+        "d": "push(20), pop(), push(10)"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. The second push places 10 above the previously inserted element.",
+        "b": "Incorrect. The pop removes the only element before 20 is inserted, leaving no 10 below it.",
+        "c": "Correct. push(10) places 10 in the stack first, and push(20) places 20 above it.",
+        "d": "Incorrect. The pop removes 20 before 10 is inserted, so the resulting stack has a different arrangement."
+      },
+      "difficulty": "advanced"
+    }
+  ]
+}

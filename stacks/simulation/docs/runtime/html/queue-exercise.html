@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-13 Sat 05:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Queue Exercise HTML</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="VLEAD" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Queue Exercise HTML</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3ed9af1">1. Exercise artefact for Queues</a>
+<ul>
+<li><a href="#org9206da8">1.1. Features of the artefact</a></li>
+</ul>
+</li>
+<li><a href="#org68311d8">2. HTML Framework of Queue Exercise Artefact</a>
+<ul>
+<li><a href="#orge9bbd83">2.1. Head Section Elements</a></li>
+<li><a href="#orgb649c92">2.2. Body Section Elements</a>
+<ul>
+<li><a href="#org08202d3">2.2.1. Instruction Box</a></li>
+<li><a href="#orgb4465e1">2.2.2. Question Holder</a></li>
+<li><a href="#orge0ff267">2.2.3. Canvas for Queue A</a></li>
+<li><a href="#orgee83d7b">2.2.4. Canvas for Queue B</a></li>
+<li><a href="#org65470ea">2.2.5. Comments Box</a></li>
+<li><a href="#orgc5743ea">2.2.6. Buttons Wrapper</a></li>
+<li><a href="#orgcc5a2cc">2.2.7. Javascript</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org10603cc">3. Tangle</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3ed9af1" class="outline-2">
+<h2 id="org3ed9af1"><span class="section-number-2">1</span> Exercise artefact for Queues</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org9206da8" class="outline-3">
+<h3 id="org9206da8"><span class="section-number-3">1.1</span> Features of the artefact</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Artefact tests user's understanding on basic operations of
+queues.</li>
+<li>Artefact generates a random question and two Queues (Queue
+A and Queue B).</li>
+<li>User should use the artefact to solve the question.</li>
+<li>User can <code>Submit</code> answer and get feedback(right/wrong)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org68311d8" class="outline-2">
+<h2 id="org68311d8"><span class="section-number-2">2</span> HTML Framework of Queue Exercise Artefact</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orge9bbd83" class="outline-3">
+<h3 id="orge9bbd83"><span class="section-number-3">2.1</span> Head Section Elements</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Title, meta tags and all the links related to Js, CSS of
+this artefact comes under this section.
+</p>
+<div class="org-src-container">
+<pre class="src src-html" id="orgfe20b32">&lt;<span style="font-weight: bold;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Queues Exercise</span>&lt;/<span style="font-weight: bold;">title</span>&gt;
+&lt;<span style="font-weight: bold;">meta</span> <span style="font-weight: bold; font-style: italic;">charset</span>=<span style="font-style: italic;">"UTF-8"</span>&gt;
+&lt;<span style="font-weight: bold;">meta</span> <span style="font-weight: bold; font-style: italic;">name</span>=<span style="font-style: italic;">"viewport"</span> <span style="font-weight: bold; font-style: italic;">content</span>=<span style="font-style: italic;">"width=device-width, initial-scale=1.0"</span>&gt;
+&lt;<span style="font-weight: bold;">link</span> <span style="font-weight: bold; font-style: italic;">rel</span>=<span style="font-style: italic;">"stylesheet"</span> <span style="font-weight: bold; font-style: italic;">href</span>=<span style="font-style: italic;">"https://ds1-iiith.vlabs.ac.in/exp-common-css/common-styles.css"</span>&gt;
+&lt;<span style="font-weight: bold;">link</span> <span style="font-weight: bold; font-style: italic;">rel</span>=<span style="font-style: italic;">"stylesheet"</span> <span style="font-weight: bold; font-style: italic;">href</span>=<span style="font-style: italic;">"../css/stacks-and-queues.css"</span>&gt;
+&lt;<span style="font-weight: bold;">script</span> <span style="font-weight: bold; font-style: italic;">src</span>=<span style="font-style: italic;">"https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"</span>&gt;&lt;/<span style="font-weight: bold;">script</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb649c92" class="outline-3">
+<h3 id="orgb649c92"><span class="section-number-3">2.2</span> Body Section Elements</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org08202d3" class="outline-4">
+<h4 id="org08202d3"><span class="section-number-4">2.2.1</span> Instruction Box</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+This is an instruction box, in which the instructions needed
+for the user to perform the experiments are displayed in a
+form of list.
+</p>
+<div class="org-src-container">
+<pre class="src src-html" id="orga97f936">&lt;<span style="font-weight: bold;">div</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"instruction-box"</span>&gt;
+  &lt;<span style="font-weight: bold;">button</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"collapsible"</span>&gt;Instructions&lt;/<span style="font-weight: bold;">button</span>&gt;
+  &lt;<span style="font-weight: bold;">div</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"content"</span>&gt;
+    &lt;<span style="font-weight: bold;">ul</span>&gt;
+      &lt;<span style="font-weight: bold;">li</span>&gt;&lt;<span style="font-weight: bold;">b</span>&gt;<span style="font-weight: bold;">New question</span>&lt;/<span style="font-weight: bold;">b</span>&gt; generates Queue A with a set
+        of random numbers and an empty Queue B&lt;/<span style="font-weight: bold;">li</span>&gt;
+      &lt;<span style="font-weight: bold;">li</span>&gt;You need to dequeue the elements of the Queue A
+        in Ascending order/Descending order based on
+        question given, using Queue B.&lt;/<span style="font-weight: bold;">li</span>&gt;
+      &lt;<span style="font-weight: bold;">li</span>&gt;&lt;<span style="font-weight: bold;">b</span>&gt;<span style="font-weight: bold;">Dequeue A</span>&lt;/<span style="font-weight: bold;">b</span>&gt; dequeues the element from queue
+        A and &lt;<span style="font-weight: bold;">b</span>&gt;<span style="font-weight: bold;">Dequeue B</span>&lt;/<span style="font-weight: bold;">b</span>&gt; dequeues the element from
+        queue B&lt;/<span style="font-weight: bold;">li</span>&gt;
+      &lt;<span style="font-weight: bold;">li</span>&gt;&lt;<span style="font-weight: bold;">b</span>&gt;<span style="font-weight: bold;">Enqueue to A</span>&lt;/<span style="font-weight: bold;">b</span>&gt; dequeues the element from
+        queue B and enqueues it to queue A and &lt;<span style="font-weight: bold;">b</span>&gt;<span style="font-weight: bold;">Enqueue to</span>
+<span style="font-weight: bold;">          B</span>&lt;/<span style="font-weight: bold;">b</span>&gt; dequeues the element from queue A and enqueues
+        it to queue B&lt;/<span style="font-weight: bold;">li</span>&gt;
+      &lt;<span style="font-weight: bold;">li</span>&gt;&lt;<span style="font-weight: bold;">b</span>&gt;<span style="font-weight: bold;">Reset</span>&lt;/<span style="font-weight: bold;">b</span>&gt; restarts the same question
+        again&lt;/<span style="font-weight: bold;">li</span>&gt;
+      &lt;<span style="font-weight: bold;">li</span>&gt;To check the sequence dequeued is correct or not
+        click on &lt;<span style="font-weight: bold;">b</span>&gt;<span style="font-weight: bold;">Submit</span>&lt;/<span style="font-weight: bold;">b</span>&gt; button and feedback is
+        displayed in comments box
+      &lt;/<span style="font-weight: bold;">li</span>&gt;
+    &lt;/<span style="font-weight: bold;">ul</span>&gt;
+  &lt;/<span style="font-weight: bold;">div</span>&gt;
+&lt;/<span style="font-weight: bold;">div</span>&gt;
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb4465e1" class="outline-4">
+<h4 id="orgb4465e1"><span class="section-number-4">2.2.2</span> Question Holder</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+This will hold the question of Queue Exercise artefact.
+</p>
+<div class="org-src-container">
+<pre class="src src-html" id="orgc28f5fb">&lt;<span style="font-weight: bold;">div</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"question"</span>&gt;
+  &lt;<span style="font-weight: bold;">b</span>&gt;<span style="font-weight: bold;">Question:</span>&lt;/<span style="font-weight: bold;">b</span>&gt;
+&lt;/<span style="font-weight: bold;">div</span>&gt;
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge0ff267" class="outline-4">
+<h4 id="orge0ff267"><span class="section-number-4">2.2.3</span> Canvas for Queue A</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+This is the Canvas used for Queue A
+</p>
+<div class="org-src-container">
+<pre class="src src-html" id="orgc6a76e4">&lt;<span style="font-weight: bold;">canvas</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"queue_ex"</span> <span style="font-weight: bold; font-style: italic;">width</span>=<span style="font-style: italic;">"660"</span> <span style="font-weight: bold; font-style: italic;">height</span>=<span style="font-style: italic;">"220"</span>&gt;
+    Your browser does not support canvas.
+&lt;/<span style="font-weight: bold;">canvas</span>&gt;
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgee83d7b" class="outline-4">
+<h4 id="orgee83d7b"><span class="section-number-4">2.2.4</span> Canvas for Queue B</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<p>
+This is the Canvas used for Queue B
+</p>
+<div class="org-src-container">
+<pre class="src src-html" id="orga95b2be">&lt;<span style="font-weight: bold;">canvas</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"queue_2_ex"</span> <span style="font-weight: bold; font-style: italic;">width</span>=<span style="font-style: italic;">"660"</span> <span style="font-weight: bold; font-style: italic;">height</span>=<span style="font-style: italic;">"220"</span>&gt;
+    Your browser does not support canvas.
+&lt;/<span style="font-weight: bold;">canvas</span>&gt;
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org65470ea" class="outline-4">
+<h4 id="org65470ea"><span class="section-number-4">2.2.5</span> Comments Box</h4>
+<div class="outline-text-4" id="text-2-2-5">
+<p>
+This is a box in which the comments gets displayed based on
+what is happening currently in the artefact.
+</p>
+<div class="org-src-container">
+<pre class="src src-html" id="org00470eb">&lt;<span style="font-weight: bold;">div</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"comment-box"</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"comments-qex"</span>&gt;
+  &lt;<span style="font-weight: bold;">b</span>&gt;<span style="font-weight: bold;">Observations</span>&lt;/<span style="font-weight: bold;">b</span>&gt;&lt;<span style="font-weight: bold;">br</span>&gt;
+  &lt;<span style="font-weight: bold;">p</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"ins"</span>&gt; &lt;/<span style="font-weight: bold;">p</span>&gt;
+&lt;/<span style="font-weight: bold;">div</span>&gt;
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc5743ea" class="outline-4">
+<h4 id="orgc5743ea"><span class="section-number-4">2.2.6</span> Buttons Wrapper</h4>
+<div class="outline-text-4" id="text-2-2-6">
+<p>
+This are the controller buttons of the artefact.
+</p>
+<div class="org-src-container">
+<pre class="src src-html" id="org5b4c373">&lt;<span style="font-weight: bold;">div</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"buttons-wrapper"</span>&gt;  
+  &lt;<span style="font-weight: bold;">div</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"enque-deque-btns"</span>&gt;
+    &lt;<span style="font-weight: bold;">input</span> <span style="font-weight: bold; font-style: italic;">type</span>=<span style="font-style: italic;">"button"</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"button-input"</span> <span style="font-weight: bold; font-style: italic;">value</span>=<span style="font-style: italic;">"Dequeue A"</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"dequeue-button"</span>&gt;
+    &lt;<span style="font-weight: bold;">input</span> <span style="font-weight: bold; font-style: italic;">type</span>=<span style="font-style: italic;">"button"</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"button-input"</span> <span style="font-weight: bold; font-style: italic;">value</span>=<span style="font-style: italic;">"Dequeue B"</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"dequeue-buttonB"</span>&gt;
+    &lt;<span style="font-weight: bold;">input</span> <span style="font-weight: bold; font-style: italic;">type</span>=<span style="font-style: italic;">"button"</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"button-input"</span> <span style="font-weight: bold; font-style: italic;">value</span>=<span style="font-style: italic;">"Enqueue to B"</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"enqueue-to-B"</span>&gt;
+    &lt;<span style="font-weight: bold;">input</span> <span style="font-weight: bold; font-style: italic;">type</span>=<span style="font-style: italic;">"button"</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"button-input"</span> <span style="font-weight: bold; font-style: italic;">value</span>=<span style="font-style: italic;">"Enqueue to A"</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"enqueue-to-A"</span> &gt;
+  &lt;/<span style="font-weight: bold;">div</span>&gt;
+  &lt;<span style="font-weight: bold;">div</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"controller-btns"</span>&gt;
+    &lt;<span style="font-weight: bold;">input</span> <span style="font-weight: bold; font-style: italic;">type</span>=<span style="font-style: italic;">"button"</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"button-input"</span> <span style="font-weight: bold; font-style: italic;">value</span>=<span style="font-style: italic;">"Reset"</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"reset"</span>&gt;
+    &lt;<span style="font-weight: bold;">input</span> <span style="font-weight: bold; font-style: italic;">type</span>=<span style="font-style: italic;">"button"</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"button-input"</span> <span style="font-weight: bold; font-style: italic;">value</span>=<span style="font-style: italic;">"New Question"</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"generate-question-queue"</span> &gt;
+    &lt;<span style="font-weight: bold;">input</span> <span style="font-weight: bold; font-style: italic;">type</span>=<span style="font-style: italic;">"button"</span> <span style="font-weight: bold; font-style: italic;">class</span>=<span style="font-style: italic;">"button-input"</span> <span style="font-weight: bold; font-style: italic;">value</span>=<span style="font-style: italic;">"Submit"</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"checkButton-queue"</span> &gt;
+  &lt;/<span style="font-weight: bold;">div</span>&gt;
+&lt;/<span style="font-weight: bold;">div</span>&gt;
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc5a2cc" class="outline-4">
+<h4 id="orgcc5a2cc"><span class="section-number-4">2.2.7</span> Javascript</h4>
+<div class="outline-text-4" id="text-2-2-7">
+<p>
+This comprises of all the Javascript needed to run or add
+behavior to the artefact.
+</p>
+<div class="org-src-container">
+<pre class="src src-html" id="orgaca3561">&lt;<span style="font-weight: bold;">script</span> <span style="font-weight: bold; font-style: italic;">src</span>=<span style="font-style: italic;">"../js/queue-exercise.js"</span>&gt;&lt;/<span style="font-weight: bold;">script</span>&gt;
+&lt;<span style="font-weight: bold;">script</span> <span style="font-weight: bold; font-style: italic;">src</span>=<span style="font-style: italic;">"https://ds1-iiith.vlabs.ac.in/exp-common-js/instruction-box.js"</span>&gt;&lt;/<span style="font-weight: bold;">script</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org10603cc" class="outline-2">
+<h2 id="org10603cc"><span class="section-number-2">3</span> Tangle</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="font-weight: bold;">!DOCTYPE</span> HTML&gt;
+&lt;<span style="font-weight: bold;">html</span> <span style="font-weight: bold; font-style: italic;">lang</span>=<span style="font-style: italic;">"en"</span>&gt;
+  &lt;<span style="font-weight: bold;">head</span>&gt;
+    &lt;&lt;<span style="font-weight: bold;">head-section-elems</span>&gt;&gt;
+  &lt;/<span style="font-weight: bold;">head</span>&gt;
+  &lt;<span style="font-weight: bold;">body</span> <span style="font-weight: bold; font-style: italic;">onload</span>=<span style="font-style: italic;">"generateQuestion()"</span>&gt;
+    &lt;&lt;<span style="font-weight: bold;">instruction-box</span>&gt;&gt;
+    &lt;<span style="font-weight: bold;">div</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"wrapper"</span>&gt;
+      &lt;&lt;<span style="font-weight: bold;">question-holder</span>&gt;&gt;
+      &lt;<span style="font-weight: bold;">div</span> <span style="font-weight: bold; font-style: italic;">id</span>=<span style="font-style: italic;">"canvas-wrapper"</span>&gt;
+        &lt;&lt;<span style="font-weight: bold;">canvas-queueA</span>&gt;&gt;
+        &lt;&lt;<span style="font-weight: bold;">canvas-queueB</span>&gt;&gt;
+      &lt;/<span style="font-weight: bold;">div</span>&gt;
+      &lt;&lt;<span style="font-weight: bold;">comments-box</span>&gt;&gt;
+      &lt;&lt;<span style="font-weight: bold;">buttons-wrapper</span>&gt;&gt;
+    &lt;/<span style="font-weight: bold;">div</span>&gt;
+    &lt;&lt;<span style="font-weight: bold;">js-elems</span>&gt;&gt;
+  &lt;/<span style="font-weight: bold;">body</span>&gt;
+&lt;/<span style="font-weight: bold;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: VLEAD</p>
+<p class="date">Created: 2021-03-13 Sat 05:43</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
