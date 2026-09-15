@@ -14,9 +14,9 @@ class queue_Array {
     this.rectStarty = 120;
     this.indexPosx = this.rectStartx;
     this.indexPosy = this.rectStarty + this.rectHeight + 40;
-    this.head = 0;
+    this.head = -1;
     this.headPosy = this.indexPosy + 250;
-    this.tail = 0;
+    this.tail = -1;
     this.tailPosy = this.headPosy + 50;
     this.hArrowStartx = this.rectStartx + this.rectWidth / 2;
     this.hArrowStarty = this.rectStarty - 30;
@@ -49,7 +49,7 @@ function drawQueueStructure() {
     queuearray_artefact.rectStarty,
     queuearray_artefact.rectWidth * queuearray_artefact.rectNo +
       queuearray_artefact.lineNo * queuearray_artefact.lineDist,
-    queuearray_artefact.rectHeight
+    queuearray_artefact.rectHeight,
   );
   ctx.strokeStyle = "#288ec8";
   ctx.stroke();
@@ -61,7 +61,7 @@ function drawQueueStructure() {
         (i - 1) * queuearray_artefact.lineDist,
       queuearray_artefact.rectStarty,
       queuearray_artefact.lineDist,
-      queuearray_artefact.rectHeight
+      queuearray_artefact.rectHeight,
     );
     ctx.strokeStyle = "#288ec8";
     ctx.stroke();
@@ -91,171 +91,60 @@ function drawQueueStructure() {
   ctx.closePath();
   ctx.beginPath();
   document.getElementById("insqb").innerHTML =
-    "Index of the Front of the queue:  " + queuearray_artefact.head;
+    "Index of the Front of the queue:  " +
+    (queuearray_artefact.values.length === 0 ? -1 : queuearray_artefact.head);
   var headPosx =
     queuearray_artefact.rectStartx +
     (queuearray_artefact.rectWidth * queuearray_artefact.rectNo +
       queuearray_artefact.lineNo * queuearray_artefact.lineDist) /
       2;
   document.getElementById("insqa").innerHTML =
-    "Index of the Rear of the queue:  " + queuearray_artefact.tail;
+    "Index of the Rear of the queue:  " +
+    (queuearray_artefact.values.length === 0 ? -1 : queuearray_artefact.tail);
 }
 function writeNumbers() {
   clearCanvas();
   drawQueueStructure();
 
-  if (queuearray_artefact.head > -1) {
-    ctx.beginPath();
-    ctx.fillStyle = "#a4c652";
-    ctx.fillRect(
-      queuearray_artefact.rectStartx +
-        queuearray_artefact.head * queuearray_artefact.rectWidth +
-        queuearray_artefact.head * queuearray_artefact.lineDist,
-      queuearray_artefact.rectStarty,
-      queuearray_artefact.rectWidth,
-      queuearray_artefact.rectHeight
-    );
-    ctx.closePath();
+  if (queuearray_artefact.values.length === 0) {
+    return;
   }
 
-  if (queuearray_artefact.tail > -1) {
-    ctx.beginPath();
-    ctx.fillStyle = "#a4c652";
-    ctx.fillRect(
-      queuearray_artefact.rectStartx +
-        queuearray_artefact.tail * queuearray_artefact.rectWidth +
-        queuearray_artefact.tail * queuearray_artefact.lineDist,
-      queuearray_artefact.rectStarty,
-      queuearray_artefact.rectWidth,
-      queuearray_artefact.rectHeight
-    );
-    ctx.closePath();
-  }
   ctx.beginPath();
-
-  if (queuearray_artefact.head > -1 && queuearray_artefact.values.length > 0) {
-    if (queuearray_artefact.tail > queuearray_artefact.head) {
-      ctx.beginPath();
-      for (
-        var i = queuearray_artefact.head + 1;
-        i < queuearray_artefact.tail;
-        i++
-      ) {
-        ctx.fillStyle = "#288ec8";
-        ctx.fillRect(
-          queuearray_artefact.rectStartx +
-            i * queuearray_artefact.rectWidth +
-            i * queuearray_artefact.lineDist,
-          queuearray_artefact.rectStarty,
-          queuearray_artefact.rectWidth,
-          queuearray_artefact.rectHeight
-        );
-      }
-      ctx.closePath();
-
-      for (
-        var i = queuearray_artefact.head;
-        i < queuearray_artefact.tail;
-        i++
-      ) {
-        ctx.font = "25px Arial";
-        ctx.fillStyle = "white";
-        txt =
-          queuearray_artefact.values[i - queuearray_artefact.head].toString();
-        txtWidth = ctx.measureText(txt).width;
-
-        txtX =
-          queuearray_artefact.rectStartx +
-          i * queuearray_artefact.rectWidth +
-          (queuearray_artefact.rectWidth - txtWidth) / 2 +
-          i * queuearray_artefact.lineDist;
-        txtY =
-          queuearray_artefact.rectStarty +
-          queuearray_artefact.rectHeight -
-          (queuearray_artefact.rectHeight - queuearray_artefact.txtSize) / 2;
-
-        ctx.fillText(txt, txtX, txtY);
-      }
-    } else {
-      ctx.beginPath();
-      for (
-        var i = queuearray_artefact.head + 1;
-        i < queuearray_artefact.rectNo;
-        i++
-      ) {
-        ctx.fillStyle = "#288ec8";
-        ctx.fillRect(
-          queuearray_artefact.rectStartx +
-            i * queuearray_artefact.rectWidth +
-            i * queuearray_artefact.lineDist,
-          queuearray_artefact.rectStarty,
-          queuearray_artefact.rectWidth,
-          queuearray_artefact.rectHeight
-        );
-      }
-      for (var i = 0; i < queuearray_artefact.tail; i++) {
-        ctx.fillStyle = "#288ec8";
-        ctx.fillRect(
-          queuearray_artefact.rectStartx +
-            i * queuearray_artefact.rectWidth +
-            i * queuearray_artefact.lineDist,
-          queuearray_artefact.rectStarty,
-          queuearray_artefact.rectWidth,
-          queuearray_artefact.rectHeight
-        );
-      }
-      ctx.closePath();
-
-      var count = 0;
-
-      for (
-        var i = queuearray_artefact.head;
-        i < queuearray_artefact.rectNo;
-        i++
-      ) {
-        ctx.font = "25px Arial";
-        ctx.fillStyle = "white";
-
-        txt = queuearray_artefact.values[count].toString();
-        txtWidth = ctx.measureText(txt).width;
-
-        txtX =
-          queuearray_artefact.rectStartx +
-          i * queuearray_artefact.rectWidth +
-          (queuearray_artefact.rectWidth - txtWidth) / 2 +
-          i * queuearray_artefact.lineDist;
-        txtY =
-          queuearray_artefact.rectStarty +
-          queuearray_artefact.rectHeight -
-          (queuearray_artefact.rectHeight - queuearray_artefact.txtSize) / 2;
-
-        ctx.fillText(txt, txtX, txtY);
-        count++;
-      }
-
-      for (var i = 0; i < queuearray_artefact.tail; i++) {
-        ctx.font = "25px Arial";
-        ctx.fillStyle = "white";
-
-        txt = queuearray_artefact.values[i + count].toString();
-        txtWidth = ctx.measureText(txt).width;
-
-        txtX =
-          queuearray_artefact.rectStartx +
-          i * queuearray_artefact.rectWidth +
-          (queuearray_artefact.rectWidth - txtWidth) / 2 +
-          i * queuearray_artefact.lineDist;
-        txtY =
-          queuearray_artefact.rectStarty +
-          queuearray_artefact.rectHeight -
-          (queuearray_artefact.rectHeight - queuearray_artefact.txtSize) / 2;
-
-        ctx.fillText(txt, txtX, txtY);
-      }
-    }
+  for (var i = 0; i < queuearray_artefact.values.length; i++) {
+    ctx.fillStyle = "#288ec8";
+    ctx.fillRect(
+      queuearray_artefact.rectStartx +
+        i * queuearray_artefact.rectWidth +
+        i * queuearray_artefact.lineDist,
+      queuearray_artefact.rectStarty,
+      queuearray_artefact.rectWidth,
+      queuearray_artefact.rectHeight,
+    );
   }
-
   ctx.closePath();
+
+  ctx.beginPath();
+  for (var i = 0; i < queuearray_artefact.values.length; i++) {
+    ctx.font = "25px Arial";
+    ctx.fillStyle = "white";
+    var txt = queuearray_artefact.values[i].toString();
+    var txtWidth = ctx.measureText(txt).width;
+
+    var txtX =
+      queuearray_artefact.rectStartx +
+      i * queuearray_artefact.rectWidth +
+      (queuearray_artefact.rectWidth - txtWidth) / 2 +
+      i * queuearray_artefact.lineDist;
+    var txtY =
+      queuearray_artefact.rectStarty +
+      queuearray_artefact.rectHeight -
+      (queuearray_artefact.rectHeight - queuearray_artefact.txtSize) / 2;
+
+    ctx.fillText(txt, txtX, txtY);
+  }
+  ctx.closePath();
+
   if (queuearray_artefact.head > -1) {
     var relativeArrowPos =
       queuearray_artefact.head * queuearray_artefact.rectWidth +
@@ -265,11 +154,11 @@ function writeNumbers() {
 
     ctx.moveTo(
       queuearray_artefact.hArrowStartx + relativeArrowPos,
-      queuearray_artefact.hArrowStarty
+      queuearray_artefact.hArrowStarty,
     );
     ctx.lineTo(
       queuearray_artefact.hArrowEndx + relativeArrowPos,
-      queuearray_artefact.hArrowEndy
+      queuearray_artefact.hArrowEndy,
     );
     ctx.strokeStyle = "black";
     ctx.lineWidth = 1.5;
@@ -277,97 +166,100 @@ function writeNumbers() {
 
     ctx.moveTo(
       queuearray_artefact.hArrowStartx + relativeArrowPos,
-      queuearray_artefact.hArrowStarty
+      queuearray_artefact.hArrowStarty,
     );
     ctx.lineTo(
       queuearray_artefact.hArrowStartx +
         relativeArrowPos -
         queuearray_artefact.hArrowHeadOffsetx,
-      queuearray_artefact.hArrowStarty - queuearray_artefact.hArrowHeadOffsety
+      queuearray_artefact.hArrowStarty - queuearray_artefact.hArrowHeadOffsety,
     );
     ctx.strokeStyle = "black";
     ctx.stroke();
 
     ctx.moveTo(
       queuearray_artefact.hArrowStartx + relativeArrowPos,
-      queuearray_artefact.hArrowStarty
+      queuearray_artefact.hArrowStarty,
     );
     ctx.lineTo(
       queuearray_artefact.hArrowStartx +
         relativeArrowPos +
         queuearray_artefact.hArrowHeadOffsetx,
-      queuearray_artefact.hArrowStarty - queuearray_artefact.hArrowHeadOffsety
+      queuearray_artefact.hArrowStarty - queuearray_artefact.hArrowHeadOffsety,
     );
     ctx.strokeStyle = "black";
     ctx.stroke();
 
-    htxt = "Front";
+    var htxt = "Front";
     ctx.font = "24px Arial";
     ctx.fillStyle = "black";
-    htxtWidth = ctx.measureText(htxt).width;
+    var htxtWidth = ctx.measureText(htxt).width;
     ctx.fillText(
       htxt,
       queuearray_artefact.hArrowEndx + relativeArrowPos - htxtWidth / 2,
-      queuearray_artefact.hArrowEndy - queuearray_artefact.hArrowHeady
+      queuearray_artefact.hArrowEndy - queuearray_artefact.hArrowHeady,
     );
 
     ctx.closePath();
   }
-  var relativeArrowPos =
-    queuearray_artefact.tail * queuearray_artefact.rectWidth +
-    queuearray_artefact.tail * queuearray_artefact.lineDist;
 
-  ctx.beginPath();
+  if (queuearray_artefact.tail > -1) {
+    var relativeArrowPos =
+      queuearray_artefact.tail * queuearray_artefact.rectWidth +
+      queuearray_artefact.tail * queuearray_artefact.lineDist;
 
-  ctx.moveTo(
-    queuearray_artefact.tArrowStartx + relativeArrowPos,
-    queuearray_artefact.tArrowStarty
-  );
-  ctx.lineTo(
-    queuearray_artefact.tArrowEndx + relativeArrowPos,
-    queuearray_artefact.tArrowEndy
-  );
-  ctx.strokeStyle = "black";
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
+    ctx.beginPath();
 
-  ctx.moveTo(
-    queuearray_artefact.tArrowStartx + relativeArrowPos,
-    queuearray_artefact.tArrowStarty
-  );
-  ctx.lineTo(
-    queuearray_artefact.tArrowStartx +
-      relativeArrowPos -
-      queuearray_artefact.tArrowHeadOffsetx,
-    queuearray_artefact.tArrowStarty + queuearray_artefact.tArrowHeadOffsety
-  );
-  ctx.strokeStyle = "black";
-  ctx.stroke();
+    ctx.moveTo(
+      queuearray_artefact.tArrowStartx + relativeArrowPos,
+      queuearray_artefact.tArrowStarty,
+    );
+    ctx.lineTo(
+      queuearray_artefact.tArrowEndx + relativeArrowPos,
+      queuearray_artefact.tArrowEndy,
+    );
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
 
-  ctx.moveTo(
-    queuearray_artefact.tArrowStartx + relativeArrowPos,
-    queuearray_artefact.tArrowStarty
-  );
-  ctx.lineTo(
-    queuearray_artefact.tArrowStartx +
-      relativeArrowPos +
-      queuearray_artefact.tArrowHeadOffsetx,
-    queuearray_artefact.tArrowStarty + queuearray_artefact.tArrowHeadOffsety
-  );
-  ctx.strokeStyle = "black";
-  ctx.stroke();
+    ctx.moveTo(
+      queuearray_artefact.tArrowStartx + relativeArrowPos,
+      queuearray_artefact.tArrowStarty,
+    );
+    ctx.lineTo(
+      queuearray_artefact.tArrowStartx +
+        relativeArrowPos -
+        queuearray_artefact.tArrowHeadOffsetx,
+      queuearray_artefact.tArrowStarty + queuearray_artefact.tArrowHeadOffsety,
+    );
+    ctx.strokeStyle = "black";
+    ctx.stroke();
 
-  ttxt = "Rear";
-  ctx.font = "24px Arial";
-  ctx.fillStyle = "black";
-  ttxtWidth = ctx.measureText(ttxt).width;
-  ctx.fillText(
-    ttxt,
-    queuearray_artefact.tArrowEndx + relativeArrowPos - ttxtWidth / 2,
-    queuearray_artefact.tArrowEndy + queuearray_artefact.tArrowTaily
-  );
+    ctx.moveTo(
+      queuearray_artefact.tArrowStartx + relativeArrowPos,
+      queuearray_artefact.tArrowStarty,
+    );
+    ctx.lineTo(
+      queuearray_artefact.tArrowStartx +
+        relativeArrowPos +
+        queuearray_artefact.tArrowHeadOffsetx,
+      queuearray_artefact.tArrowStarty + queuearray_artefact.tArrowHeadOffsety,
+    );
+    ctx.strokeStyle = "black";
+    ctx.stroke();
 
-  ctx.closePath();
+    var ttxt = "Rear";
+    ctx.font = "24px Arial";
+    ctx.fillStyle = "black";
+    var ttxtWidth = ctx.measureText(ttxt).width;
+    ctx.fillText(
+      ttxt,
+      queuearray_artefact.tArrowEndx + relativeArrowPos - ttxtWidth / 2,
+      queuearray_artefact.tArrowEndy + queuearray_artefact.tArrowTaily,
+    );
+
+    ctx.closePath();
+  }
 }
 function atstart() {
   drawQueueStructure();
@@ -375,67 +267,69 @@ function atstart() {
   handlers();
 }
 function enqueue() {
-  var value = document.getElementById("numbers-qa").value;
+  var value = document.getElementById("numbers-qa").value.trim();
 
-  if (
-    (queuearray_artefact.tail + 1) % queuearray_artefact.rectNo ===
-    queuearray_artefact.head
-  )
+  if (queuearray_artefact.values.length >= queuearray_artefact.rectNo) {
     document.getElementById("insqc").innerHTML = "Queue is full";
-  else if (value === "" || value === null) {
+    document.getElementById("numbers-qa").value = "";
+    return;
+  }
+
+  if (value === "" || value === null) {
     document.getElementById("insqc").innerHTML =
       "Please enter the element which you want to add to the queue";
     return;
-  } else {
-    queuearray_artefact.values.push(value);
-    if (queuearray_artefact.head === -1) queuearray_artefact.head++;
-    queuearray_artefact.tail =
-      (queuearray_artefact.tail + 1) % queuearray_artefact.rectNo;
-    document.getElementById("insqc").innerHTML = value + " is enqueued";
-
-    writeNumbers();
   }
+
+  queuearray_artefact.values.push(value);
+  queuearray_artefact.head = 0;
+  queuearray_artefact.tail = queuearray_artefact.values.length - 1;
+  document.getElementById("insqc").innerHTML = value + " is enqueued";
+  writeNumbers();
   document.getElementById("numbers-qa").value = "";
 }
 
 function dequeue() {
-  var value = document.getElementById("numbers-qa").value; // get value from input
+  var value = document.getElementById("numbers-qa").value.trim();
 
-  // Check if queue is empty
-  if (
-    (queuearray_artefact.head === -1 && queuearray_artefact.tail === 0) ||
-    queuearray_artefact.head === queuearray_artefact.tail
-  ) {
+  if (queuearray_artefact.values.length === 0) {
     document.getElementById("insqc").innerHTML = "Queue has no elements in it";
     return;
   }
 
-  // If no value is entered, just dequeue the front
   if (value === "" || value === null) {
     var temp = queuearray_artefact.values.shift();
-    queuearray_artefact.head =
-      (queuearray_artefact.head + 1) % queuearray_artefact.rectNo;
+    if (queuearray_artefact.values.length === 0) {
+      queuearray_artefact.head = -1;
+      queuearray_artefact.tail = -1;
+    } else {
+      queuearray_artefact.head = 0;
+      queuearray_artefact.tail = queuearray_artefact.values.length - 1;
+    }
     document.getElementById("insqc").innerHTML =
       temp + " is dequeued (front element)";
     writeNumbers();
     return;
   }
 
-  // If the value matches the front element, dequeue it
   if (
     queuearray_artefact.values.length > 0 &&
     queuearray_artefact.values[0] == value
   ) {
-    queuearray_artefact.values.shift();
-    queuearray_artefact.head =
-      (queuearray_artefact.head + 1) % queuearray_artefact.rectNo;
+    var frontValue = queuearray_artefact.values.shift();
+    if (queuearray_artefact.values.length === 0) {
+      queuearray_artefact.head = -1;
+      queuearray_artefact.tail = -1;
+    } else {
+      queuearray_artefact.head = 0;
+      queuearray_artefact.tail = queuearray_artefact.values.length - 1;
+    }
     document.getElementById("insqc").innerHTML =
-      value + " is dequeued (front element)";
+      frontValue + " is dequeued (front element)";
     writeNumbers();
     return;
   }
 
-  // If the value is not at the front, show correct observation
   document.getElementById("insqc").innerHTML =
     "Only the front element can be dequeued. " +
     value +
@@ -445,8 +339,8 @@ function dequeue() {
 function clear() {
   clearCanvas();
   queuearray_artefact.values = [];
-  queuearray_artefact.head = 0;
-  queuearray_artefact.tail = 0;
+  queuearray_artefact.head = -1;
+  queuearray_artefact.tail = -1;
   drawQueueStructure();
   writeNumbers();
   document.getElementById("insqc").innerHTML = "Queue is reset";
